@@ -1,0 +1,164 @@
+\documentclass[a4j,11pt,report]{jsbook}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tabularx}
+\usepackage{fancybox}
+\usepackage{ascmac}
+\usepackage{amsmath,amssymb,amsthm}
+
+\setlength{\topmargin}{-1in}
+\addtolength{\topmargin}{5mm}
+\setlength{\headheight}{5mm}
+\setlength{\headsep}{0mm}
+\setlength{\textheight}{\paperheight}
+\addtolength{\textheight}{-25mm}
+\setlength{\footskip}{5mm}
+
+\newcommand{\frontpage}[3]{%
+\title{卒業論文\\　\vspace{3em}\\{\huge #1}\\　\\#2\vspace{15em}}%
+\author{{\huge 成蹊大学理工学部情報科学科}\\　\\{\huge #3}}%
+\date{}
+\maketitle
+\clearpage
+\thispagestyle{empty}
+　
+\clearpage
+}
+
+
+\newcommand{\point}[1]{
+\begin{itembox}[l]{ポイント}
+#1
+\end{itembox}
+}
+
+\begin{document}
+
+\frontpage  % 以下の各項目を自分のテーマにあわせて修正する．
+{和文題目}
+{English Title}
+{S152114 宮地　雄也}
+
+\chapter*{要旨}
+\thispagestyle{empty}
+\point{
+序論と結論の内容をもとに研究の内容をまとめる．
+\begin{itemize}
+\item 問いは何か？
+\item 主張は何か？
+\item 結果はどうだったのか？
+\item 得られた成果の意義は？
+\end{itemize}
+}
+
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+\thispagestyle{plain}
+\setcounter{page}{1}
+
+\chapter{序論 \label{ch:introduction}}
+
+\point{
+問題提起を行う．
+解く価値があり，簡単には解けず，誰も解いていない問題を扱っていることがわかるようにする．
+\begin{itemize}
+\item どういう問題に取り組んだのか？
+\item その問題を解くことがなぜ重要なのか？　社会的意義（有用性）・学術的意義（問題の面白さ）
+\item その問題はどこが難しいのか？　なぜこれまで解かれていなかったのか？　これまではどうしていたのか？
+\item その問題をどのようなアプローチで解こうとしたのか？　なぜそうしたのか？
+\end{itemize}
+}
+
+\chapter{背景知識（章題は変える）\label{ch:background}}
+
+\point{
+以降の内容を理解するための準備を行う．
+\begin{itemize}
+\item 章題は適切なものに変えること．章をわけてもよい．
+\item 以降の説明で用いる専門用語・表記法を説明する．
+\item 以降の内容を理解するのに必要となる，技術や理論を説明する．
+\end{itemize}
+}
+
+\chapter{提案手法（章題は変える）\label{ch:method}}
+\point{
+自分の提案する解決方法を説明する．
+\begin{itemize}
+\item 章題は適切なものに変えること．章をわけてもよい．
+\item 必ず具体例を用いること．
+\item 最初に問題を解く上で最も難しい点とそれを解決するアイデアを示す．
+\item 詳細については，全体の流れを示した後，各ステップについて説明する．
+\item 検討時に行った予備評価の結果があれば示す．
+\end{itemize}
+}
+
+\chapter{結果とその検討 \label{ch:result}}
+
+\point{
+自分の提案する方法が序論で提起した問題を解決できているかを評価・分析する．
+\begin{itemize}
+\item 目的．何を確認するためのものか
+\item 方法．そのためにどういう実験を行ったか？　実験環境・用いたデータとその選定理由・手順を示し，評価の適切性を論証すること．
+\item 結果．その結果はどうだったか？　表やグラフを用いてまとめる．表はTeX，グラフはexcelでなくpythonを用いて作成すること．
+\item 分析．その結果から何が言えるか？　達成できた点・不足している点を理由と共に述べ，原因を考察する．
+\end{itemize}
+}
+
+\chapter{関連研究\label{ch:relatedwork}}
+\point{
+この研究に関連する他の研究を紹介し，この研究との違いを明確にする．
+\begin{itemize}
+\item 文献は「Mnihらは～という手法を提案している\cite{Mnih15}．」のように\texttt{cite}コマンドを用いて文献番号を示すこと．
+\item 2ページ以上書く．
+\end{itemize}
+}
+
+\chapter{結論と今後の課題 \label{ch:conclusion}}
+
+\point{
+序論で提起した問いとそれに対する答えをまとめる．
+\begin{itemize}
+\item 提案手法のアイデアおよび評価結果を振り返る．
+\item この研究で得られた知見をまとめる．
+\item 今後の課題について述べる．
+\end{itemize}
+}
+
+\bibliographystyle{ipsjsort}
+\bibliography{ref}
+
+\appendix
+
+\chapter{形式上の注意}
+
+\begin{itemize}
+\item 文字コードはUTF-8に統一する．
+\item 論文ファイル名は\texttt{chishiro-thesis.tex}，文献ファイル名は\texttt{chishiro.bib}のように名前\texttt{-thesis.tex}とする．
+\item 句読点は全角のカンマ，ピリオドを用いる．
+\item 英数字はすべて半角を用いる．ギリシャ文字は{\TeX}の定義を用いる．$\alpha, \beta, ...$
+\item カンマの前にはスペースを入れず，カンマの後はスペースをひとつ入れる．
+\item 数式は{\TeX}の数式機能を用いる．例: $x^2$，\[f(x) = x^2 + 2x + 1.\]．
+\item プログラムテキストはタイプライターフォントを用いる（例: \texttt{hello}）．
+\item 文章構成（章・節・小節・箇条書き）は{\TeX}の機能を用いて指定する．自分で見出しなどを作らない．
+\item 題目には研究目的・方法・対象を特徴づける情報を入れる．
+\item 図のタイトルは図の下，表のタイトルは表の上に書く．
+\item 図表番号の参照は\verb#\label#および\verb#\ref#を用いる．自分で図表番号を指定しない．
+\item 表は{\TeX}，グラフはすべてpythonで作成する．
+\item 図表番号のない図は用いない．
+\item 参照の?は必ず取り除く．
+\item 段落は意味の区切りでわける．意図しない字下げが入った場合\verb#\noindent#を用いて修正する．
+\item 参考文献は10以上あげる．
+\end{itemize}
+
+
+\chapter*{謝辞 \label{ch:acknowledgement}}
+\thispagestyle{empty}
+\point{
+本のあとがきに相当する部分．半ページ以上書く．
+卒業研究に協力者してくれた方々へのお礼を忘れずに述べる．
+}
+
+
+\end{document}
+
+
