@@ -5,18 +5,21 @@
 \contentsline {section}{\numberline {2.2}アダプティブラーニング}{2}
 \contentsline {section}{\numberline {2.3}ニューラルネットワーク}{3}
 \contentsline {section}{\numberline {2.4}分散表現}{3}
-\contentsline {section}{\numberline {2.5}再起ニューラルネットワーク}{3}
-\contentsline {section}{\numberline {2.6}LSTM(Long short-term memory)}{3}
-\contentsline {chapter}{\numberline {第3章}提案手法（章題は変える）}{4}
-\contentsline {section}{\numberline {3.1}流れ}{4}
-\contentsline {section}{\numberline {3.2}各システムの詳細}{4}
-\contentsline {subsection}{\numberline {3.2.1}入力}{4}
-\contentsline {subsection}{\numberline {3.2.2}前処理}{4}
-\contentsline {subsection}{\numberline {3.2.3}}{4}
-\contentsline {subsection}{\numberline {3.2.4}}{4}
-\contentsline {subsection}{\numberline {3.2.5}}{4}
-\contentsline {subsection}{\numberline {3.2.6}}{4}
-\contentsline {chapter}{\numberline {第4章}結果とその検討 }{5}
-\contentsline {chapter}{\numberline {第5章}関連研究}{6}
-\contentsline {chapter}{\numberline {第6章}結論と今後の課題 }{7}
-\contentsline {chapter}{\numberline {付録A}形式上の注意}{8}
+\contentsline {section}{\numberline {2.5}畳み込みニューラルネットワーク}{4}
+\contentsline {section}{\numberline {2.6}再起ニューラルネットワーク}{4}
+\contentsline {section}{\numberline {2.7}LSTM(Long short-term memory)}{4}
+\contentsline {chapter}{\numberline {第3章}提案手法（章題は変える）}{5}
+\contentsline {section}{\numberline {3.1}流れ}{5}
+\contentsline {section}{\numberline {3.2}各システムの詳細}{5}
+\contentsline {subsection}{\numberline {3.2.1}事前学習}{5}
+\contentsline {subsubsection}{丸ばつ判定の学習}{5}
+\contentsline {subsubsection}{分散表現の事前学習}{6}
+\contentsline {subsection}{\numberline {3.2.2}システム利用時の流れ}{6}
+\contentsline {subsection}{\numberline {3.2.3}}{6}
+\contentsline {subsection}{\numberline {3.2.4}}{6}
+\contentsline {subsection}{\numberline {3.2.5}}{6}
+\contentsline {subsection}{\numberline {3.2.6}}{6}
+\contentsline {chapter}{\numberline {第4章}結果とその検討 }{7}
+\contentsline {chapter}{\numberline {第5章}関連研究}{8}
+\contentsline {chapter}{\numberline {第6章}結論と今後の課題 }{9}
+\contentsline {chapter}{\numberline {付録A}形式上の注意}{10}

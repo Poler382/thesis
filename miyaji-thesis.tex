@@ -4,7 +4,8 @@
 \usepackage{fancybox}
 \usepackage{ascmac}
 \usepackage{amsmath,amssymb,amsthm}
-
+\usepackage[dviout]{graphicx}
+\usepackage{subcaption}
 \setlength{\topmargin}{-1in}
 \addtolength{\topmargin}{5mm}
 \setlength{\headheight}{5mm}
@@ -35,7 +36,7 @@
 \begin{document}
 
 \frontpage  % 以下の各項目を自分のテーマにあわせて修正する．
-{計算問題の特徴分布にもとづく類題選出による自己学習支援}
+{計算問題の特徴分布に基づく類題選出による自己学習支援}
 {Self Learning Support System based on Feature Distribution of Calculation Exercises by Selecting Similar Exercises}
 {S152114 宮地　雄也}
 
@@ -109,7 +110,7 @@
 
 アダプティブラーニングは、IT技術を教育分野に活用するEdTech(Education Technology)の1つとして世界中から多くの注目を集めています。
 アダプティブラーニングの先駆企業であり世界中でシェアを獲得している米Knewton社CEOのライアン・プリチャード氏は、日本法人であるニュートンジャパン株式会社主催のアダプティブラーニングをテーマにしたイベント『Knewton Day Tokyo 2017- Adaptive Learning Summit -』のQ＆Aセッション内で、アダプティブラーニングの定義について上記のように回答しました。
-よって本論文中でも以下のように定義します．
+よって本論文中でも以下のように定義する．
 \begin{quote}
   データをもとにパーソナライズされた経験を継続的に提供するもので、
   生徒がシステムを使うたびにコンテンツやモデルをアップデートし、最適な道筋をアップデートするもの
@@ -118,13 +119,49 @@
 日本国内では
 
 \section{ニューラルネットワーク}
+
+＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+
 きほんから！シナプスの話から流れを剃って数式，図つきで！
+
+＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+
+ニューラルネットワークのニューラルとは，生物のニューロン（神経細胞）に由来する．
+ニューロンは、細胞核のある「細胞体」，他の細胞からの入力を受ける「樹状突起」，他の細胞に出力する「軸索」に分けられ，
+ニューロンに入力刺激が入ってきた際に，ある一定以上の電圧であれば次のニューロンに刺激を伝えるという仕組みになっている．
+また各軸索の太さは一定ではなく，何度も神経間のやり取りがなされたものは太くなり，情報伝達の優先度が高くなる．
+この脳の仕組みを参考に考えられた数理モデルがニューラルネットワークである．
+
+ニューラルネットではユニット（unit）と呼ばれる素子からなり，一つのユニットに複数の実数値の入力$x$があり，各入力に対して結合強度の重みをかけて出力$z$を算出します．
+この一つのユニットをパーセプトロンという．（図\ref{fig:parceptron_image}参照）
+このパーセプトロンのユニットを複数個かつ数段にわたり層状につなぎ合わせたアーキテクチャを順伝播型ニューラルネットワーク（Feedforward neural netwark）（図\ref{fig:NeuralNet_image}参照）と言う．
+一般にニューラルネットワークと呼ばれるのはこの順伝播型を指しており，本論文でも単にニューラルネットワークと言った場合はこれのことをさす．
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}{0.4\columnwidth }
+    \centering
+    \includegraphics[width=\columnwidth ]{image/NeuralNet_parceptron.png}
+    \caption{パーセプトロン模式図}
+    \label{fig:parceptron_image}
+  \end{subfigure}
+
+  \begin{subfigure}{0.4\columnwidth }
+    \centering
+    \includegraphics[width=\columnwidth]{image/forwardNeuralNetwork.png}
+    \caption{ニューラルネットワーク模式図}
+    \label{fig:NeuralNet_image}
+
+  \end{subfigure}
+
+\end{figure}
 
 
 \section{分散表現}
 様々な手法を紹介する
 CBow，skipGram，GloVeなど
 計算式を並べて最後にどこが長所で，どこが違うのかを表現
+\section{畳み込みニューラルネットワーク}
 
 
 \section{再起ニューラルネットワーク}
@@ -155,8 +192,23 @@ CBow，skipGram，GloVeなど
 \section{流れ}
 図をいれながら
 \section{各システムの詳細}
-\subsection{入力}
-\subsection{前処理}
+\subsection{事前学習}
+
+\subsubsection{丸ばつ判定の学習}
+今回提案するシステムではといたプリントを読み込みその結果を判別して間違った計算問題を見つけ，その類題を選出する．
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width = 15cm]{image/OX_Discriminater.png}
+    \caption{OX_Discriminaterイメージ図}
+    \label{fig:OX_Discriminater_image}
+  \end{center}
+\end{figure}
+
+\subsubsection{分散表現の事前学習}
+
+\subsection{システム利用時の流れ}
+
 \subsection{}
 \subsection{}
 \subsection{}

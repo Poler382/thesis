@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.10)  19 JAN 2019 16:58
+This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.10)  21 JAN 2019 12:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -194,44 +194,92 @@ Package: amsthm 2017/10/31 v2.20.4
 \thm@postskip=\skip50
 \thm@headsep=\skip51
 \dth@everypar=\toks33
+)
+
+./miyaji-thesis.tex:8: LaTeX Error: Option clash for package graphicx.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8 \usepackage
+               {subcaption}
+The package graphicx has already been loaded with options:
+  [dvipdfmx]
+There has now been an attempt to load it with options
+  [dviout]
+Adding the global options:
+  dvipdfmx,dviout
+to your \documentclass declaration may fix this.
+Try typing  <return>  to proceed.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen149
+\captionmargin@=\dimen150
+\captionwidth=\dimen151
+\caption@tempdima=\dimen152
+\caption@indent=\dimen153
+\caption@parindent=\dimen154
+\caption@hangindent=\dimen155
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2->{\small \advance \leftskip .0628\linewidth \advance \rightskip .0628\linewidth \vskip \abovecaptionskip \sbox \@tempboxa {#1\hskip 1zw\relax #2}\ifdim \wd \@tempboxa <\hsize \centering \fi #1\hskip 1zw\relax #2\par \vskip \belowcaptionskip }.
+\c@ContinuedFloat=\count107
+)
+\c@subfigure=\count108
+\c@subtable=\count109
 ) (./miyaji-thesis.aux)
 \openout1 = `miyaji-thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 16.60605pt on input line 40.
+(Font)              scaled to size 16.60605pt on input line 41.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 16.60605pt on input line 40.
+(Font)              scaled to size 16.60605pt on input line 41.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 19.9311pt on input line 40.
+(Font)              scaled to size 19.9311pt on input line 41.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 19.9311pt on input line 40.
+(Font)              scaled to size 19.9311pt on input line 41.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 40.
+(Font)              scaled to size 11.53198pt on input line 41.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 40.
+(Font)              scaled to size 11.53198pt on input line 41.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 5.76599pt on input line 40.
-LaTeX Font Info:    Try loading font information for U+msa on input line 40.
+(Font)              scaled to size 5.76599pt on input line 41.
+LaTeX Font Info:    Try loading font information for U+msa on input line 41.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 40.
+LaTeX Font Info:    Try loading font information for U+msb on input line 41.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -239,32 +287,32 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 23.90964pt on input line 42.
+(Font)              scaled to size 23.90964pt on input line 43.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 23.90964pt on input line 42.
+(Font)              scaled to size 23.90964pt on input line 43.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 23.90964pt on input line 42.
+(Font)              scaled to size 23.90964pt on input line 43.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 23.90964pt on input line 42.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 52.
+(Font)              scaled to size 23.90964pt on input line 43.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 53.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 52.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 53.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 52.
+(Font)              scaled to size 6.72699pt on input line 53.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 52.
+(Font)              scaled to size 4.805pt on input line 53.
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
 
  []
 
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 54.
+(Font)              scaled to size 9.60999pt on input line 55.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 54.
+(Font)              scaled to size 9.60999pt on input line 55.
 [1
 
 
@@ -278,96 +326,144 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 ]
 第1章
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 19.9311pt on input line 60.
+(Font)              scaled to size 19.9311pt on input line 61.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 19.9311pt on input line 60.
+(Font)              scaled to size 19.9311pt on input line 61.
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
 
  []
 
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 73.
+(Font)              scaled to size 13.83836pt on input line 74.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 73.
+(Font)              scaled to size 13.83836pt on input line 74.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 73.
+(Font)              scaled to size 13.83836pt on input line 74.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 73.
+(Font)              scaled to size 13.83836pt on input line 74.
 [1
 
 
 ]
 第2章
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--94
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
 
  []
 
 [2
 
-] [3]
+]
+File: image/NeuralNet_parceptron.png Graphic file (type bmp)
+<image/NeuralNet_parceptron.png>
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 145.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 145.
+File: image/forwardNeuralNetwork.png Graphic file (type bmp)
+<image/forwardNeuralNetwork.png>
+ [3] [4]
 第3章
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--154
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
 
  []
 
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 158.
+(Font)              scaled to size 11.53198pt on input line 195.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 158.
-[4
+(Font)              scaled to size 11.53198pt on input line 195.
+File: image/OX_Discriminater.png Graphic file (type bmp)
+<image/OX_Discriminater.png>
 
-]
+Overfull \hbox (19.92897pt too wide) in paragraph at lines 202--203
+ [] 
+ []
+
+./miyaji-thesis.tex:203: Missing $ inserted.
+<inserted text> 
+                $
+l.203     \caption{OX_Discriminaterイメージ図}
+                                              
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./miyaji-thesis.tex:203: Missing $ inserted.
+<inserted text> 
+                $
+l.203     \caption{OX_Discriminaterイメージ図}
+                                              
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./miyaji-thesis.tex:203: Missing $ inserted.
+<inserted text> 
+                $
+l.203     \caption{OX_Discriminaterイメージ図}
+                                              
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./miyaji-thesis.tex:203: Missing $ inserted.
+<inserted text> 
+                $
+l.203     \caption{OX_Discriminaterイメージ図}
+                                              
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+[5
+
+] [6]
 第4章
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
 
  []
 
-[5
+[7
 
 ]
 第5章
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 189.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 241.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 189.
+(Font)              scaled to size 9.60999pt on input line 241.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 189.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 241.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 189.
+(Font)              scaled to size 9.60999pt on input line 241.
 
-LaTeX Warning: Citation `Mnih15' on page 6 undefined on input line 189.
+LaTeX Warning: Citation `Mnih15' on page 8 undefined on input line 241.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
+Underfull \hbox (badness 10000) in paragraph at lines 241--242
 
  []
 
-[6
+[8
 
 ]
 第6章
 
-Underfull \hbox (badness 10000) in paragraph at lines 200--201
+Underfull \hbox (badness 10000) in paragraph at lines 252--253
 
  []
 
 No file miyaji-thesis.bbl.
-[7
+[9
 
 ]
 付録A
-[8
+[10
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
+Underfull \hbox (badness 10000) in paragraph at lines 286--287
 
  []
 
-[9
+[11
 
 ] (./miyaji-thesis.aux)
 
@@ -375,12 +471,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2242 strings out of 493281
- 26610 string characters out of 6145040
- 97713 words of memory out of 5000000
- 6153 multiletter control sequences out of 15000+600000
- 20801 words of font info for 96 fonts, out of 8000000 for 9000
+ 3384 strings out of 493281
+ 47360 string characters out of 6145040
+ 128534 words of memory out of 5000000
+ 7278 multiletter control sequences out of 15000+600000
+ 21381 words of font info for 99 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 27i,7n,27p,358b,267s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,7n,40p,358b,544s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on miyaji-thesis.dvi (12 pages, 20400 bytes).
+Output written on miyaji-thesis.dvi (14 pages, 24000 bytes).

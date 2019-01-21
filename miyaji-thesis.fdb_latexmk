@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex miyaji-thesis"] 1547884697 "miyaji-thesis.aux" "miyaji-thesis.bbl" "miyaji-thesis" 1547884698
+["bibtex miyaji-thesis"] 1548040425 "miyaji-thesis.aux" "miyaji-thesis.bbl" "miyaji-thesis" 1548040425
   "ipsjsort.bst" 0 -1 0 ""
-  "miyaji-thesis.aux" 1547884697 2721 e850a86cc4792690f2415d7ac44dcf0f ""
+  "miyaji-thesis.aux" 1548040416 3417 3eba4c6622ce7ef595c4be25fcccb0d4 ""
   "ref.bib" 0 -1 0 ""
   (generated)
   "miyaji-thesis.bbl"
   "miyaji-thesis.blg"
-["dvipdf"] 1547884697 "miyaji-thesis.dvi" "miyaji-thesis.pdf" "miyaji-thesis" 1547884698
-  "miyaji-thesis.dvi" 1547884697 20400 d417c9d7ab0ae74502236cc12e057c3a "latex"
+["dvipdf"] 1548040416 "miyaji-thesis.dvi" "miyaji-thesis.pdf" "miyaji-thesis" 1548040425
+  "miyaji-thesis.dvi" 1548040416 24000 29746c59af36a77008e790fa87d4101c "latex"
   (generated)
   "miyaji-thesis.pdf"
-["latex"] 1547884697 "miyaji-thesis.tex" "miyaji-thesis.dvi" "miyaji-thesis" 1547884698
+["latex"] 1548040415 "miyaji-thesis.tex" "miyaji-thesis.dvi" "miyaji-thesis" 1548040425
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/ptex-fonts/jis/jis.tfm" 1480098698 468 53f854284f6afa6c36aaa2d1090ecc12 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm" 1480098698 468 53f854284f6afa6c36aaa2d1090ecc12 ""
@@ -34,6 +34,7 @@
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1480098701 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1480098701 1300 b62933e007d01cfd073f79b963c01526 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1480098701 1292 21c1c5bfeaebccffdb478fd231a0997d ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1480098701 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1480098701 1316 b636689f1933f24d1294acdf6041daaa ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1480098701 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmss17.tfm" 1480098701 1320 ed93d62c5f2c16343826001f03341dbc ""
@@ -54,6 +55,9 @@
   "/usr/local/texlive/2018/texmf-dist/tex/latex/ascmac/ascmac.sty" 1520635638 591 ff6178a0d652915ea809db8c433f7576 ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/ascmac/tascmac.sty" 1520635638 11887 87e21b1bffc7a4ab8c2280aff26c53c2 ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd" 1523050425 2472 aa08940f0a4dc6c24ae9f943b04ae0b9 ""
+  "/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty" 1480098823 66233 8b81cfab95a1f8fc2f0f6c89415b087a ""
+  "/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty" 1480098823 64866 1ea74c5f2d1685881497f021b8f186b2 ""
+  "/usr/local/texlive/2018/texmf-dist/tex/latex/caption/subcaption.sty" 1480098823 5038 413302044f9700cf65465d590c2f4ad1 ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/fancybox/fancybox.sty" 1480098827 27261 5ae6156674330dc345adb79b6e5d8966 ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1480098830 1224 978390e9c2234eab29404bc21b268d1e ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-def/dvipdfmx.def" 1498427493 10299 c742d2190e924996d2f4e34b541cd5e3 ""
@@ -68,12 +72,18 @@
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
   "/usr/local/texlive/2018/texmf-var/web2c/eptex/platex.fmt" 1541781259 4475038 06209996e7e239c20246cace1e3abf34 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "miyaji-thesis.aux" 1547884697 2721 e850a86cc4792690f2415d7ac44dcf0f ""
+  "extractbb -B cropbox -O image/NeuralNet_parceptron.png" 0 -1 0 ""
+  "extractbb -B cropbox -O image/OX_Discriminater.png" 0 -1 0 ""
+  "extractbb -B cropbox -O image/forwardNeuralNetwork.png" 0 -1 0 ""
+  "image/NeuralNet_parceptron.png" 1548037215 30858 ab887e6aac260b88f75ddad19ca3dd3c ""
+  "image/OX_Discriminater.png" 1547995208 157688 e5a3dffe46e5393f42ee6761e90c2fc7 ""
+  "image/forwardNeuralNetwork.png" 1548038731 96052 79a4e76d4687e7fa23e38f3b5eab862a ""
+  "miyaji-thesis.aux" 1548040416 3417 3eba4c6622ce7ef595c4be25fcccb0d4 ""
   "miyaji-thesis.bbl" 0 -1 0 "bibtex miyaji-thesis"
-  "miyaji-thesis.tex" 1547884697 11459 7de76a4d00829b67c52f3b30baecc5d9 ""
-  "miyaji-thesis.toc" 1547884697 1432 e6b3cd79a76db53f7200ee565b85aef1 ""
+  "miyaji-thesis.tex" 1548040425 14246 37a5cbe5ce311e42cdccf256ebe8e770 ""
+  "miyaji-thesis.toc" 1548040416 1672 0474de6952a1a028d18ac31ae4274f6a ""
   (generated)
-  "miyaji-thesis.toc"
+  "miyaji-thesis.aux"
   "miyaji-thesis.dvi"
   "miyaji-thesis.log"
-  "miyaji-thesis.aux"
+  "miyaji-thesis.toc"
