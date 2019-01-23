@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.10)  21 JAN 2019 12:13
+This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.10)  21 JAN 2019 15:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -366,49 +366,49 @@ File: image/forwardNeuralNetwork.png Graphic file (type bmp)
  [3] [4]
 第3章
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
 
  []
 
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 195.
+(Font)              scaled to size 11.53198pt on input line 194.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 195.
+(Font)              scaled to size 11.53198pt on input line 194.
 File: image/OX_Discriminater.png Graphic file (type bmp)
 <image/OX_Discriminater.png>
 
-Overfull \hbox (19.92897pt too wide) in paragraph at lines 202--203
+Overfull \hbox (19.92897pt too wide) in paragraph at lines 201--202
  [] 
  []
 
-./miyaji-thesis.tex:203: Missing $ inserted.
+./miyaji-thesis.tex:202: Missing $ inserted.
 <inserted text> 
                 $
-l.203     \caption{OX_Discriminaterイメージ図}
+l.202     \caption{OX_Discriminaterイメージ図}
                                               
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./miyaji-thesis.tex:203: Missing $ inserted.
+./miyaji-thesis.tex:202: Missing $ inserted.
 <inserted text> 
                 $
-l.203     \caption{OX_Discriminaterイメージ図}
+l.202     \caption{OX_Discriminaterイメージ図}
                                               
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./miyaji-thesis.tex:203: Missing $ inserted.
+./miyaji-thesis.tex:202: Missing $ inserted.
 <inserted text> 
                 $
-l.203     \caption{OX_Discriminaterイメージ図}
+l.202     \caption{OX_Discriminaterイメージ図}
                                               
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./miyaji-thesis.tex:203: Missing $ inserted.
+./miyaji-thesis.tex:202: Missing $ inserted.
 <inserted text> 
                 $
-l.203     \caption{OX_Discriminaterイメージ図}
+l.202     \caption{OX_Discriminaterイメージ図}
                                               
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -418,7 +418,7 @@ you left one out. Proceed, with fingers crossed.
 ] [6]
 第4章
 
-Underfull \hbox (badness 10000) in paragraph at lines 232--233
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
 
  []
 
@@ -427,18 +427,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 232--233
 ]
 第5章
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 241.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 240.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 241.
+(Font)              scaled to size 9.60999pt on input line 240.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 241.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 240.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 241.
+(Font)              scaled to size 9.60999pt on input line 240.
 
-LaTeX Warning: Citation `Mnih15' on page 8 undefined on input line 241.
+LaTeX Warning: Citation `Mnih15' on page 8 undefined on input line 240.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 241--242
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
 
  []
 
@@ -447,7 +447,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 241--242
 ]
 第6章
 
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
+Underfull \hbox (badness 10000) in paragraph at lines 251--252
 
  []
 
@@ -459,7 +459,7 @@ No file miyaji-thesis.bbl.
 [10
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 286--287
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
 
  []
 
