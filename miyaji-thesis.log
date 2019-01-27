@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.10)  21 JAN 2019 15:11
+This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.10)  25 JAN 2019 22:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -265,10 +265,37 @@ LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 16.60605pt on input line 41.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 16.60605pt on input line 41.
+
+
+./miyaji-thesis.tex:41: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 {S152114 宮地 雄也}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 19.9311pt on input line 41.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 19.9311pt on input line 41.
+
+./miyaji-thesis.tex:41: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 {S152114 宮地 雄也}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 11.53198pt on input line 41.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
@@ -276,7 +303,7 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 5.76599pt on input line 41.
 LaTeX Font Info:    Try loading font information for U+msa on input line 41.
- (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 41.
@@ -335,148 +362,691 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--73
  []
 
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 74.
+(Font)              scaled to size 13.83836pt on input line 88.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 74.
+(Font)              scaled to size 13.83836pt on input line 88.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 74.
+(Font)              scaled to size 13.83836pt on input line 88.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 74.
+(Font)              scaled to size 13.83836pt on input line 88.
 [1
 
 
-]
+] [2]
 第2章
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
-[2
+[3
 
-]
-File: image/NeuralNet_parceptron.png Graphic file (type bmp)
-<image/NeuralNet_parceptron.png>
-LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 145.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 145.
-File: image/forwardNeuralNetwork.png Graphic file (type bmp)
-<image/forwardNeuralNetwork.png>
- [3] [4]
+] [4]
 第3章
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
 
  []
 
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 194.
+(Font)              scaled to size 11.53198pt on input line 168.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 194.
-File: image/OX_Discriminater.png Graphic file (type bmp)
-<image/OX_Discriminater.png>
+(Font)              scaled to size 11.53198pt on input line 168.
+[5
 
-Overfull \hbox (19.92897pt too wide) in paragraph at lines 201--202
+]
+./miyaji-thesis.tex:203: Missing \endcsname inserted.
+<to be read again> 
+                   \relax 
+l.203     \begin
+                {figure}[ht]
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+./miyaji-thesis.tex:203: Missing number, treated as zero.
+<to be read again> 
+                   \def 
+l.203     \begin
+                {figure}[ht]
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./miyaji-thesis.tex:203: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \def 
+l.203     \begin
+                {figure}[ht]
+Dimensions can be in units of em, ex, zw, zh, in, pt, pc,
+cm, mm, dd, cc, bp, H, Q, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+./miyaji-thesis.tex:203: LaTeX Error: Environment \relax  undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.203     \begin
+                {figure}[ht]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (39.19453pt too wide) in paragraph at lines 203--204
+[]\OT1/cmr/m/n/10 figure[ht] 
+ []
+
+File: image/pca_out2.png Graphic file (type bmp)
+<image/pca_out2.png>
+
+Overfull \hbox (284.52756pt too wide) in paragraph at lines 205--206
  [] 
  []
 
-./miyaji-thesis.tex:202: Missing $ inserted.
+
+Overfull \hbox (26.7025pt too wide) in paragraph at lines 206--206
+[]\JY1/mc/m/n/10 図 \OT1/cmr/m/n/10 3.1:
+ []
+
+
+Overfull \hbox (15.27782pt too wide) in paragraph at lines 206--206
+|\OT1/cmr/m/n/10 pca
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 206--206
+\JY1/mc/m/n/10 で
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 206--206
+\JY1/mc/m/n/10 の
+ []
+
+
+Overfull \hbox (32.0834pt too wide) in paragraph at lines 206--206
+\OT1/cmr/m/n/10 CBOW
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 206--206
+\JY1/mc/m/n/10 を
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 206--206
+\JY1/mc/m/n/10 用
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 206--206
+\JY1/mc/m/n/10 い
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 206--206
+\JY1/mc/m/n/10 た
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 206--206
+\JY1/mc/m/n/10 文
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 206--206
+\JY1/mc/m/n/10 字
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 206--206
+\JY1/mc/m/n/10 分
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 206--206
+\JY1/mc/m/n/10 布| 
+ []
+
+./miyaji-thesis.tex:209: Extra }, or forgotten \endgroup.
+\@endfloatbox ...pagefalse \outer@nobreak \egroup 
+                                                  \color@endbox 
+l.209       \end{figure}
+                        
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+./miyaji-thesis.tex:209: LaTeX Error: \begin{center} on input line 204 ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.209       \end{figure}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./miyaji-thesis.tex:211: LaTeX Error: Not in outer par mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.211       \begin{figure}[ht]
+                              
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: image/tsne_out2.png Graphic file (type bmp)
+<image/tsne_out2.png>
+
+Overfull \hbox (284.52756pt too wide) in paragraph at lines 213--214
+[][] 
+ []
+
+ 
+./miyaji-thesis.tex:214: Package inputenc Error: Unicode character 鐔� (U+3BB370)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.214 ...t^^ef^^bd^^b0sneでのCBOWを用いた文字分布}
+                                                  
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+ 
+./miyaji-thesis.tex:214: Package inputenc Error: Unicode character 鐔� (U+3BB370)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.214 ...t^^ef^^bd^^b0sneでのCBOWを用いた文字分布}
+                                                  
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+Overfull \hbox (26.7025pt too wide) in paragraph at lines 214--214
+[]\JY1/mc/m/n/10 図 \OT1/cmr/m/n/10 3.2:
+ []
+
+
+Overfull \hbox (17.83336pt too wide) in paragraph at lines 214--214
+|\OT1/cmr/m/n/10 tsne
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 214--214
+\JY1/mc/m/n/10 で
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 214--214
+\JY1/mc/m/n/10 の
+ []
+
+
+Overfull \hbox (32.0834pt too wide) in paragraph at lines 214--214
+\OT1/cmr/m/n/10 CBOW
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 214--214
+\JY1/mc/m/n/10 を
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 214--214
+\JY1/mc/m/n/10 用
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 214--214
+\JY1/mc/m/n/10 い
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 214--214
+\JY1/mc/m/n/10 た
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 214--214
+\JY1/mc/m/n/10 文
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 214--214
+\JY1/mc/m/n/10 字
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 214--214
+\JY1/mc/m/n/10 分
+ []
+
+
+Overfull \hbox (9.24687pt too wide) in paragraph at lines 214--214
+\JY1/mc/m/n/10 布| 
+ []
+
+
+./miyaji-thesis.tex:217: LaTeX Error: \begin{figure} on input line 211 ended by \end{center}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.217       \end{center}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./miyaji-thesis.tex:217: Missing } inserted.
+<inserted text> 
+                }
+l.217       \end{center}
+                        
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./miyaji-thesis.tex:219: Improper \prevdepth.
+<recently read> \prevdepth 
+                           
+l.219     \end{figure}
+                      
+You can refer to \spacefactor only in horizontal mode;
+you can refer to \prevdepth only in vertical mode; and
+neither of these is meaningful inside \write. So
+I'm forgetting what you said and using zero instead.
+
+./miyaji-thesis.tex:219: You can't use `\prevdepth' in horizontal mode.
+\end@float ...pdima \prevdepth \vbox {}\prevdepth 
+                                                  \@tempdima \penalty \@floa...
+l.219     \end{figure}
+                      
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./miyaji-thesis.tex:219: Missing number, treated as zero.
+<to be read again> 
+                   \penalty 
+l.219     \end{figure}
+                      
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./miyaji-thesis.tex:219: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \penalty 
+l.219     \end{figure}
+                      
+Dimensions can be in units of em, ex, zw, zh, in, pt, pc,
+cm, mm, dd, cc, bp, H, Q, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+./miyaji-thesis.tex:219: LaTeX Error: \begin{minipage} on input line 202 ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.219     \end{figure}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--220
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--220
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--220
+
+ []
+
+./miyaji-thesis.tex:220: Extra }, or forgotten \endgroup.
+\endminipage ...pagefalse \color@endgroup \egroup 
+                                                  \expandafter \@iiiparbox \...
+l.220   \end{minipage}
+                      
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./miyaji-thesis.tex:220: Undefined control sequence.
+\endminipage ...\expandafter \@iiiparbox \@mpargs 
+                                                  {\unvbox \@tempboxa }
+l.220   \end{minipage}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./miyaji-thesis.tex:232: Missing \endcsname inserted.
+<to be read again> 
+                   \relax 
+l.232   \begin{center}
+                      
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+./miyaji-thesis.tex:232: Missing number, treated as zero.
+<to be read again> 
+                   \def 
+l.232   \begin{center}
+                      
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./miyaji-thesis.tex:232: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \def 
+l.232   \begin{center}
+                      
+Dimensions can be in units of em, ex, zw, zh, in, pt, pc,
+cm, mm, dd, cc, bp, H, Q, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+./miyaji-thesis.tex:232: LaTeX Error: Environment \relax  undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.232   \begin{center}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (26.41669pt too wide) in paragraph at lines 232--232
+[]\OT1/cmr/m/n/10 center 
+ []
+
+Runaway argument?
+{\@checkend {minipage}\expandafter \endgroup \if@endpe \@doendpe \fi \ETC.
+./miyaji-thesis.tex:232: Paragraph ended before \setlength was complete.
+<to be read again> 
+                   \par 
+l.232   \begin{center}
+                      
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+./miyaji-thesis.tex:232: Extra }, or forgotten \endgroup.
+\@endfloatbox ...pagefalse \outer@nobreak \egroup 
+                                                  \color@endbox 
+l.232   \begin{center}
+                      
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+./miyaji-thesis.tex:232: LaTeX Error: \begin{minipage} on input line 202 ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.232   \begin{center}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./miyaji-thesis.tex:232: LaTeX Error: Not in outer par mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.232   \begin{center}
+                      
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: image/OX_Discriminater.png Graphic file (type bmp)
+<image/OX_Discriminater.png>
+
+Overfull \hbox (27.70676pt too wide) in paragraph at lines 232--234
+[]\OT1/cmr/m/n/10 b[] [] 
+ []
+
+./miyaji-thesis.tex:234: Missing $ inserted.
 <inserted text> 
                 $
-l.202     \caption{OX_Discriminaterイメージ図}
+l.234     \caption{OX_Discriminaterイメージ図}
                                               
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./miyaji-thesis.tex:202: Missing $ inserted.
+./miyaji-thesis.tex:234: Missing $ inserted.
 <inserted text> 
                 $
-l.202     \caption{OX_Discriminaterイメージ図}
+l.234     \caption{OX_Discriminaterイメージ図}
                                               
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./miyaji-thesis.tex:202: Missing $ inserted.
+./miyaji-thesis.tex:234: Missing $ inserted.
 <inserted text> 
                 $
-l.202     \caption{OX_Discriminaterイメージ図}
+l.234     \caption{OX_Discriminaterイメージ図}
                                               
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./miyaji-thesis.tex:202: Missing $ inserted.
+./miyaji-thesis.tex:234: Missing $ inserted.
 <inserted text> 
                 $
-l.202     \caption{OX_Discriminaterイメージ図}
+l.234     \caption{OX_Discriminaterイメージ図}
                                               
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-[5
 
-] [6]
+./miyaji-thesis.tex:236: LaTeX Error: \begin{minipage} on input line 202 ended by \end{center}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.236   \end{center}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./miyaji-thesis.tex:237: Extra }, or forgotten \endgroup.
+\@endfloatbox ...pagefalse \outer@nobreak \egroup 
+                                                  \color@endbox 
+l.237 \end{figure}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+./miyaji-thesis.tex:237: LaTeX Error: \begin{minipage} on input line 202 ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.237 \end{figure}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./miyaji-thesis.tex:241: LaTeX Error: Not in outer par mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.241 \begin{figure}[ht]
+                        
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: image/OX_Discriminater_Accuracy_rateplot.png Graphic file (type bmp)
+<image/OX_Discriminater_Accuracy_rateplot.png>
 第4章
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--232
+Underfull \hbox (badness 10000) in paragraph at lines 272--273
 
  []
 
-[7
-
-]
 第5章
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 240.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 309.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 240.
+(Font)              scaled to size 9.60999pt on input line 309.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 240.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 309.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 240.
+(Font)              scaled to size 9.60999pt on input line 309.
 
-LaTeX Warning: Citation `Mnih15' on page 8 undefined on input line 240.
+LaTeX Warning: Citation `Mnih15' on page 6 undefined on input line 309.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
 
  []
 
-[8
-
-]
 第6章
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--252
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
 
  []
 
 No file miyaji-thesis.bbl.
-[9
-
-]
 付録A
-[10
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 285--286
+Underfull \hbox (badness 10000) in paragraph at lines 354--355
 
  []
 
-[11
 
-] (./miyaji-thesis.aux)
+./miyaji-thesis.tex:357: LaTeX Error: \begin{figure} on input line 201 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.357 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./miyaji-thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
- ) 
-Here is how much of TeX's memory you used:
- 3384 strings out of 493281
- 47360 string characters out of 6145040
- 128534 words of memory out of 5000000
- 7278 multiletter control sequences out of 15000+600000
- 21381 words of font info for 99 fonts, out of 8000000 for 9000
- 934 hyphenation exceptions out of 8191
- 42i,7n,40p,358b,544s stack positions out of 5000i,500n,10000p,200000b,80000s
+./miyaji-thesis.tex:357: You can't use `\end' in internal vertical mode.
+\enddocument ... \endgroup \deadcycles \z@ \@@end 
+                                                  
+l.357 \end{document}
+                    
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
 
-Output written on miyaji-thesis.dvi (14 pages, 24000 bytes).
+
+./miyaji-thesis.tex:357: LaTeX Error: \begin{figure} on input line 201 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.357 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./miyaji-thesis.tex:357: Missing } inserted.
+<inserted text> 
+                }
+l.357 \end{document}
+                    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+)
+! Emergency stop.
+<*> miyaji-thesis.tex
+                     
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 3370 strings out of 493281
+ 47095 string characters out of 6145040
+ 139534 words of memory out of 5000000
+ 7264 multiletter control sequences out of 15000+600000
+ 20801 words of font info for 96 fonts, out of 8000000 for 9000
+ 934 hyphenation exceptions out of 8191
+ 42i,7n,40p,400b,489s stack positions out of 5000i,500n,10000p,200000b,80000s
+Output written on miyaji-thesis.dvi (8 pages, 16612 bytes).

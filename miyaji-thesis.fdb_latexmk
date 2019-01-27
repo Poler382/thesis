@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex miyaji-thesis"] 1548051098 "miyaji-thesis.aux" "miyaji-thesis.bbl" "miyaji-thesis" 1548051100
+["bibtex miyaji-thesis"] 1548422510 "miyaji-thesis.aux" "miyaji-thesis.bbl" "miyaji-thesis" 1548422512
   "ipsjsort.bst" 0 -1 0 ""
-  "miyaji-thesis.aux" 1548051099 3417 3eba4c6622ce7ef595c4be25fcccb0d4 ""
+  "miyaji-thesis.aux" 1548422511 1337 3501dd6fdaac38c6abd703f50b67dd07 ""
   "ref.bib" 0 -1 0 ""
   (generated)
-  "miyaji-thesis.bbl"
   "miyaji-thesis.blg"
-["dvipdf"] 1548051099 "miyaji-thesis.dvi" "miyaji-thesis.pdf" "miyaji-thesis" 1548051100
-  "miyaji-thesis.dvi" 1548051099 24000 d2989307e3c406056173276c4665fff6 "latex"
+  "miyaji-thesis.bbl"
+["dvipdf"] 1548422511 "miyaji-thesis.dvi" "miyaji-thesis.pdf" "miyaji-thesis" 1548422512
+  "miyaji-thesis.dvi" 1548422511 16612 255bba06296803ff219c4054c2d2627b "latex"
   (generated)
   "miyaji-thesis.pdf"
-["latex"] 1548051098 "miyaji-thesis.tex" "miyaji-thesis.dvi" "miyaji-thesis" 1548051100
+["latex"] 1548422510 "miyaji-thesis.tex" "miyaji-thesis.dvi" "miyaji-thesis" 1548422512
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/ptex-fonts/jis/jis.tfm" 1480098698 468 53f854284f6afa6c36aaa2d1090ecc12 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm" 1480098698 468 53f854284f6afa6c36aaa2d1090ecc12 ""
@@ -34,7 +34,6 @@
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1480098701 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1480098701 1300 b62933e007d01cfd073f79b963c01526 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1480098701 1292 21c1c5bfeaebccffdb478fd231a0997d ""
-  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1480098701 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1480098701 1316 b636689f1933f24d1294acdf6041daaa ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1480098701 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmss17.tfm" 1480098701 1320 ed93d62c5f2c16343826001f03341dbc ""
@@ -72,18 +71,20 @@
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
   "/usr/local/texlive/2018/texmf-var/web2c/eptex/platex.fmt" 1541781259 4475038 06209996e7e239c20246cace1e3abf34 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "extractbb -B cropbox -O image/NeuralNet_parceptron.png" 0 -1 0 ""
   "extractbb -B cropbox -O image/OX_Discriminater.png" 0 -1 0 ""
-  "extractbb -B cropbox -O image/forwardNeuralNetwork.png" 0 -1 0 ""
-  "image/NeuralNet_parceptron.png" 1548037215 30858 ab887e6aac260b88f75ddad19ca3dd3c ""
+  "extractbb -B cropbox -O image/OX_Discriminater_Accuracy_rateplot.png" 0 -1 0 ""
+  "extractbb -B cropbox -O image/pca_out2.png" 0 -1 0 ""
+  "extractbb -B cropbox -O image/tsne_out2.png" 0 -1 0 ""
   "image/OX_Discriminater.png" 1547995208 157688 e5a3dffe46e5393f42ee6761e90c2fc7 ""
-  "image/forwardNeuralNetwork.png" 1548038731 96052 79a4e76d4687e7fa23e38f3b5eab862a ""
-  "miyaji-thesis.aux" 1548051099 3417 3eba4c6622ce7ef595c4be25fcccb0d4 ""
+  "image/OX_Discriminater_Accuracy_rateplot.png" 1548414463 67278 5f29819e0838811154032e701dc03a0c ""
+  "image/pca_out2.png" 1548329030 56359 b1b887ad93725783f8c3bacbb76a1f49 ""
+  "image/tsne_out2.png" 1548329032 56902 462cfc33f84f613f7f3c0352cc4a0d6d ""
+  "miyaji-thesis.aux" 1548422511 1337 3501dd6fdaac38c6abd703f50b67dd07 ""
   "miyaji-thesis.bbl" 0 -1 0 "bibtex miyaji-thesis"
-  "miyaji-thesis.tex" 1548051098 14245 3765326e1c11a5b87944b6a4850550a4 ""
-  "miyaji-thesis.toc" 1548051099 1672 0474de6952a1a028d18ac31ae4274f6a ""
+  "miyaji-thesis.tex" 1548422510 16280 01d8a809960825f13a7de3301758fae4 ""
+  "miyaji-thesis.toc" 1548422511 724 64ccb792a9f0170ae1098e6a3623831a ""
   (generated)
-  "miyaji-thesis.toc"
-  "miyaji-thesis.log"
-  "miyaji-thesis.aux"
   "miyaji-thesis.dvi"
+  "miyaji-thesis.aux"
+  "miyaji-thesis.log"
+  "miyaji-thesis.toc"
