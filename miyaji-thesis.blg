@@ -1,0 +1,67 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: miyaji-thesis.aux
+The style file: biblatex.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: miyaji-thesis-blx.bib
+Database file #2: miyaji-1.bib
+Warning--I didn't find a database entry for "one1"
+Warning--I didn't find a database entry for "伊藤"
+Biblatex version: 3.8
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 3 entries,
+            6268 wiz_defined-function locations,
+            1191 strings with 8852 characters,
+and the built_in function-call counts, 8275 in all, are:
+= -- 439
+> -- 218
+< -- 60
++ -- 116
+- -- 70
+* -- 499
+:= -- 793
+add.period$ -- 0
+call.type$ -- 3
+change.case$ -- 28
+chr.to.int$ -- 30
+cite$ -- 4
+duplicate$ -- 753
+empty$ -- 865
+format.name$ -- 93
+if$ -- 1842
+int.to.chr$ -- 0
+int.to.str$ -- 5
+missing$ -- 0
+newline$ -- 58
+num.names$ -- 94
+pop$ -- 688
+preamble$ -- 1
+purify$ -- 32
+quote$ -- 0
+skip$ -- 390
+stack$ -- 0
+substring$ -- 659
+swap$ -- 224
+text.length$ -- 64
+text.prefix$ -- 2
+top$ -- 1
+type$ -- 90
+warning$ -- 0
+while$ -- 98
+width$ -- 0
+write$ -- 56
+(There were 2 warnings)

@@ -1,0 +1,59 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nty/global//global/global}
+  \entry{benesse_DateBook}{article}{}
+    \name{author}{1}{}{%
+      {{hash=�}{%
+         family={ベネッセ教育総合研究所},
+         familyi={�\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{�1}
+    \strng{fullhash}{�1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{�}
+    \field{sortinithash}{�}
+    \field{title}{第６回学習指導基本調査 DATA BOOK（高校版）
+  [2016年]}
+    \field{year}{2016}
+  \endentry
+
+  \entry{miki:internet}{book}{}
+    \name{author}{1}{}{%
+      {{hash=�}{%
+         family={三木光範},
+         familyi={�\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {講談社}%
+    }
+    \strng{namehash}{�1}
+    \strng{fullhash}{�1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{�}
+    \field{sortinithash}{�}
+    \field{series}{ブルーバックスB-1202}
+    \field{title}{団塊世代はなぜインターネットが苦手か}
+    \field{year}{1998}
+  \endentry
+\enddatalist
+\endinput

@@ -5,7 +5,11 @@
 \usepackage{ascmac}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[dviout]{graphicx}
-\usepackage{subcaption}
+
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{miyaji-1}{}
+
 \setlength{\topmargin}{-1in}
 \addtolength{\topmargin}{5mm}
 \setlength{\headheight}{5mm}
@@ -36,7 +40,7 @@
 \begin{document}
 
 \frontpage  % 以下の各項目を自分のテーマにあわせて修正する．
-{計算問題の特徴分布に基づく類題選出による自己学習支援}
+{計算問題の特徴分布に基づく類題選出による\\自己学習支援}
 {Self Learning Support by Automatic Selection of Calculation Exercises based on Feature Distribution of Exercises}
 {S152114 宮地 雄也}
 
@@ -71,77 +75,54 @@
 \end{itemize}
 }
 
-昨今，小・中学生の理系離れが問題視されている．平成30年度全国学力・学習状況調査（全国学力テスト）の結果では平均正答率は小学校では算数Bが51.7\%，中学校数学では47.6\%とどちらも最も低く，ついで国語，理科の順で正答率が低く，結果として理系教科の習熟度が低いことを示している．
-この要因の一つに，数学は一つの計算方法が様々な分野に横断していくことが一度，苦手を生んでしまったらそこからの分野の理解度が下がり，次の分野での応用がきかないために連鎖的に苦手を増幅するように思う．各単元のちょっとした積み残しが，後々，尾を引いていることが全国学力テストの結果から見て取れる．この状況を打破するには子供一人一人の苦手と向き合い，苦手と感じる前に理解していくしかない．
-しかしながら，生徒と向き合うべき教師の労働時間は，．．．＜悪さについてノベル＞
-
-この打開策として，Edtech（エドテック）に期待が集まっている，
-＜いいことつらつら＞
-その中でも，生徒一人一人に対し，最適な学習を提供するAdaptive Learning(アダプティブラーニング)に可能性を感じた．
-これを数学教育で効果的に用いれれば，つまずく子供を減らせるのではないかと考えた．
-しかし，教育の情報は，生徒の情報と結びついているためオープン化できないという問題がある．
-また数学の苦手に対してどのような手法を用いれれば効果的なのかも未だ模索中である．
-
-そこで計算式自体の特徴を抽出し，間違えた問題と同様の特徴を持つ問題が復習する類題として最適なのではないかという仮定のもと，本論文では数式の特徴を掴むために自然言語処理の分野で使用される分散表現を適用し，さらに再起ニューラルネットワークを用いて数式ベクトルを作り出すことを目標とし，そのベクトルを用いて実際に復習問題生成を行った．
+昨今，小・中学生の理系離れが問題視されている．平成30年度全国学力・学習状況調査（全国学力テスト）の結果では平均正答率は小学校では算数Bが51.7\%，中学校数学では47.6\%とどちらも最も低く，ついで国語，理科の順で正答率が低い．
+小中どちらとも理系教科の習熟度が低いことを示している．
+この要因の一つに，数学は一つの計算方法が様々な分野に横断していくことが一度，苦手を生んでしまったらそこからの分野の理解度が下がり，次の分野での応用がきかないために連鎖的に苦手が蓄積することが原因ではないかと考えた．各単元のちょっとした積み残しが，後々，尾を引いていることが全国学力テストの結果から見て取れる．この状況を打破するには子供一人一人の苦手と向き合い，苦手と感じる前に理解していくしかない．
+しかしながら，生徒と向き合うべき教師の労働時間は過酷を極めており，ベネッセ教育総合研究所の調査ではし小中高の教員の領導時間は増加の一途を辿っている．\cite{benesse_DateBook}
+下の表は\cite{benesse_DateBook}での調査の結果の抜粋である．(\ref{tb:teacher_time})
 
 
-\section{memo}
-近年，子供達一人一人に目を向けたアダプティブラーニングが注目を集めていますが，現在の日本の教育現場では集合教育が基本であり
-一人一人に対応するのは難しい．また教員の働き方にも是正が求められていて，仮に個々に対応しようとすると労働時間外になってしまう．
-そこで個人最適化した学習を情報技術で叶えようとする動きが活発である．
-そこで私は間違えた問いに対して復習問題を出す際，その数式の特徴を捉えて類題が作れないかと考えた．
-今までは問題をといた子供達の集合に目を向けられていたが，本論文では数式自体に目を向け類似する問題を作り出そうとした．
-本論文では数式の特徴を掴むために自然言語処理の分野で使用される分散表現を適用し，さらに再起ニューラルネットワークを用いて数式ベクトルを作り出すことを目標とし，そのベクトルを用いて実際に復習問題生成を行った．
+\begin{center}
+  \begin{table}
+    \begin{tabular}{|l|c|r|r|r|r|r|r|} \hline
+      & 調査年 & 25歳以上 & 26〜30歳 & 31〜40歳 & 41〜50歳 & 51〜60歳  \\ \hline \hline
+      & 2010 & 7:44 & 7:43 & 7:44 & 7:42 & 7:42 \\ \cline{2-7}
+      出勤時間 & 2016 & 7:44 & 7:43 & 7:44 & 7:42 & 7:42 \\ \cline{2-7}\hline
+      & 2010 & 19:30 & 19:40 & 19:10 & 18:57 & 18:31 \\ \cline{2-7}
+      退勤時間 & 2016 & 20:00 & 19:54 & 19:26 & 19:05 & 18:46 \\ \cline{2-7}\hline
+      & 2010 & 11時間46分 & 11時間57分 & 11時間26分 & 11時間15分 & 10時間49分  \\ \cline{2-7}
+      学校にいる時間  & 2016 & 12時間26分 & 12時間18分 & 11時間46分 & 11時間26分 & 11時間06分 \\ \cline{2-7}\hline
+    \end{tabular}
 
+    \caption{出勤時刻・退勤時刻・学校にいる時間（平均時間、経年比較（教員年齢別〔公立全体〕））}
+    \label{tb:teacher_time}
+  \end{table}
+\end{center}
 
+表\ref{tb:teacher_time}によると，教員の労働時間は2010年に比べて2016年の方が各年次とも増加しており，教員のやることが増えている一方で
+，主であるはずの教材研究や教務準備に時間が避けていないことを示している．
+この状況では先生が生徒一人一人二時間をさき，指導することは難しい現状がつついている．
+
+この打開策として，IT技術駆使した個人別最適化学習に注目が集まっている，
+しかし，教育の情報は，生徒の情報と結びついている個人情報なためオープン化できず，現在でているサービスでは各サービス利用者の利用状況からデータを取得し，その運用に利用しているため一部の王手企業が情報を独占している．
+そこで個人の統計データではなく，解く数式の方に着目し，計算式自体の特徴を抽出し，間違えた問題と同様の特徴を持つ問題が復習する類題として最適なのではないかという仮定のもと，本論文では数式の特徴を掴むために自然言語処理の分野で使用される分散表現を適用し，さらに再起ニューラルネットワークを用いて数式ベクトルを作り出すことを目標とし，そのベクトルを用いて実際に復習問題生成を行った．
 
 
 \chapter{背景知識\label{ch:background}}
 
-\point{
-以降の内容を理解するための準備を行う．
-\begin{itemize}
-  \item 章題は適切なものに変えること．章をわけてもよい．
-  \item 以降の説明で用いる専門用語・表記法を説明する．
-  \item 以降の内容を理解するのに必要となる，技術や理論を説明する．
-\end{itemize}
-}
-
-
-\section{アダプティブラーニング}
-
-＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
-
-今世の中でどのようなことが行われているかを収集．
-その手法を２，３事例あげて説明
-
-＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
-
-アダプティブラーニングとは、学習者一人ひとりの学習進捗度(学習進度)に最適化された学習方法と学習教材を選択し、
-提供する仕組みを持つ学習エンジンやシステム、ソフトウェア、サービスなどを統括的に指す言葉です。
-
-アダプティブラーニングは、IT技術を教育分野に活用するEdTech(Education Technology)の1つとして世界中から多くの注目を集めています。
-アダプティブラーニングの先駆企業であり世界中でシェアを獲得している米Knewton社CEOのライアン・プリチャード氏は、日本法人であるニュートンジャパン株式会社主催のアダプティブラーニングをテーマにしたイベント『Knewton Day Tokyo 2017- Adaptive Learning Summit -』のQ＆Aセッション内で、アダプティブラーニングの定義について上記のように回答しました。
-よって本論文中でも以下のように定義する．
-\begin{quote}
-  データをもとにパーソナライズされた経験を継続的に提供するもので、
-  生徒がシステムを使うたびにコンテンツやモデルをアップデートし、最適な道筋をアップデートするもの
-\end{quote}
-
-日本国内での様子．．
-
-
-\section{分散表現}
+\chapter{分散表現\label{ch:Distributed representation}}
 様々な手法を紹介する
 CBow，skipGram，GloVeなど
 計算式を並べて最後にどこが長所で，どこが違うのかを表現
 
 
-\section{LSTM(Long short-term memory)}
+
+
+\chapter{LSTM(Long short-term memory)\label{ch:LSTM}}
 
 通常のRNNでは叶わないところを明確に
 
-\section{Attention}
+\chapter{Attention\label{ch:Attention}}
 
 これからね
 
@@ -198,53 +179,15 @@ CBOW，SkipGram，（できれば groveも）
 
 
 
-\begin{figure}[ht]
-  \begin{minipage}
-    \begin{figure}[ht]
-      \begin{center}
-        \includegraphics[width = 10cm]{image/pca_out2.png}
-        \caption{pcaでのCBOWを用いた文字分布}
-        \label{fig:pca_out2}
-
-      \end{figure}
-
-      \begin{figure}[ht]
-
-        \includegraphics[width = 10cm]{image/tsne_out2.png}
-        \caption{tｰsneでのCBOWを用いた文字分布}
-        \label{fig:tsne_out2}
-        
-      \end{center}
-
-    \end{figure}
-  \end{minipage}
-
-\end{figure}
-
-
 
 ＜おまけだからさらっと＞
 \section{判定機}
 今回提案するシステムではといたプリントを読み込みその結果を判別して間違った計算問題を見つけ，その類題を選出する．
 \subsection{概要}
 
-\begin{figure}[ht]
-  \begin{center}
-    \includegraphics[width = 15cm]{image/OX_Discriminater.png}
-    \caption{OX_Discriminaterイメージ図}
-    \label{fig:OX_Discriminater_image}
-  \end{center}
-\end{figure}
 
 『文章で説明』
 
-\begin{figure}[ht]
-  \begin{center}
-    \includegraphics[width = 10cm]{image/OX_Discriminater_Accuracy_rateplot.png}
-    \caption{学習の様子}
-    \label{fig:OX_AccRate}
-  \end{center}
-\end{figure}
 
 → あと誤差も（データ取り直しています）
 
@@ -270,6 +213,7 @@ CBOW，SkipGram，（できれば groveも）
   \item 分析．その結果から何が言えるか？ 達成できた点・不足している点を理由と共に述べ，原因を考察する．
 \end{itemize}
 }
+
 \section{実験}
 \subparagraph{計算式の特徴量抽出}
 \begin{itemize}
@@ -299,14 +243,22 @@ CBOW，SkipGram，（できれば groveも）
 \point{
 この研究に関連する他の研究を紹介し，この研究との違いを明確にする．
 \begin{itemize}
-  \item 文献は「Mnihらは～という手法を提案している\cite{Mnih15}．」のように\texttt{cite}コマンドを用いて文献番号を示すこと．
+  \item 文献は「Mnihらは～という手法を提案している\cite{one1}．」のように\texttt{cite}コマンドを用いて文献番号を示すこと．
   \item 2ページ以上書く．
 \end{itemize}
 
 https://code.google.com/archive/p/word2vec/
 
 https://techblog.asahi-net.co.jp/entry/2018/10/05/180310
+
+
 }
+
+
+遺伝的アルゴリズムについては，伊藤\cite{伊藤}に詳しく述べられている．
+団塊世代がインターネットの利用に抵抗感を持つことが，報告されている．\cite{miki:internet}
+
+
 
 \chapter{結論と今後の課題 \label{ch:conclusion}}
 
@@ -319,10 +271,10 @@ https://techblog.asahi-net.co.jp/entry/2018/10/05/180310
 \end{itemize}
 }
 
-\bibliographystyle{ipsjsort}
-\bibliography{ref}
+%\bibliographystyle{plain}
+%\bibliography{miyaji}
 
-\appendix
+%\appendix
 
 \chapter{形式上の注意}
 
@@ -353,5 +305,5 @@ https://techblog.asahi-net.co.jp/entry/2018/10/05/180310
 卒業研究に協力者してくれた方々へのお礼を忘れずに述べる．
 }
 
-
+\printbibliography
 \end{document}
