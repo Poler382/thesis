@@ -1,67 +1,94 @@
 This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: miyaji-thesis.aux
-The style file: biblatex.bst
-Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
-Reallocated global_strs (elt_size=20001) to 20 items from 10.
-Reallocated glb_str_end (elt_size=4) to 20 items from 10.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Database file #1: miyaji-thesis-blx.bib
-Database file #2: miyaji-1.bib
-Warning--I didn't find a database entry for "one1"
-Warning--I didn't find a database entry for "伊藤"
-Biblatex version: 3.8
-Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
+The style file: ipsjsort.bst
+is.kanji.str$ is an unknown function---line 111 of file ipsjsort.bst
+is.kanji.str$ is an unknown function---line 117 of file ipsjsort.bst
+Database file #1: miyaji.bib
+"TomasMikolov" is a string literal, not an integer, for entry SkipCBOW
+while executing---line 2697 of file ipsjsort.bst
+"KaiChen" is a string literal, not an integer, for entry SkipCBOW
+while executing---line 2697 of file ipsjsort.bst
+"Tomas Mikolov and Kai Chen and Greg Corrado and Jeffrey Dean" is a string literal, not an integer, for entry SkipCBOW
+while executing---line 2697 of file ipsjsort.bst
+"GregCorrado" is a string literal, not an integer, for entry SkipCBOW
+while executing---line 2697 of file ipsjsort.bst
+"Tomas Mikolov and Kai Chen and Greg Corrado and Jeffrey Dean" is a string literal, not an integer, for entry SkipCBOW
+while executing---line 2697 of file ipsjsort.bst
+"JeffreyDean" is a string literal, not an integer, for entry SkipCBOW
+while executing---line 2697 of file ipsjsort.bst
+"Tomas Mikolov and Kai Chen and Greg Corrado and Jeffrey Dean" is a string literal, not an integer, for entry SkipCBOW
+while executing---line 2697 of file ipsjsort.bst
+"JeffreyDean" is a string literal, not an integer, for entry SkipCBOW
+while executing---line 2697 of file ipsjsort.bst
+ptr=2, stack=
+titleKaiChentitleGregCorradotitle
+TomasMikolov
+---the literal stack isn't empty for entry SkipCBOW
+while executing---line 2697 of file ipsjsort.bst
+Warning--Missing required argument publisher in benesse_DateBook
+"ベネッセ教育総合研究所" is a string literal, not an integer, for entry benesse_DateBook
+while executing---line 2697 of file ipsjsort.bst
+"year" is a string literal, not an integer, for entry benesse_DateBook
+while executing---line 2697 of file ipsjsort.bst
+"第６回学習指導基本調査 DATA BOOK（高校版)" is a string literal, not an integer, for entry benesse_DateBook
+while executing---line 2697 of file ipsjsort.bst
+ptr=1, stack=
+ベネッセ教育総合研究所
+---the literal stack isn't empty for entry benesse_DateBook
+while executing---line 2697 of file ipsjsort.bst
+"斎藤康毅" is a string literal, not an integer, for entry ZeroDeep
+while executing---line 2697 of file ipsjsort.bst
+"year" is a string literal, not an integer, for entry ZeroDeep
+while executing---line 2697 of file ipsjsort.bst
+"ゼロから作るDeepLearning 2 自然言語処理編" is a string literal, not an integer, for entry ZeroDeep
+while executing---line 2697 of file ipsjsort.bst
+"ゼロから作るDeepLearning 2 自然言語処理編" is a string literal, not an integer, for entry ZeroDeep
+while executing---line 2697 of file ipsjsort.bst
+ptr=2, stack=
+ゼロから作るDeepLearning 2 自然言語処理編
+斎藤康毅
+---the literal stack isn't empty for entry ZeroDeep
+while executing---line 2697 of file ipsjsort.bst
 You've used 3 entries,
-            6268 wiz_defined-function locations,
-            1191 strings with 8852 characters,
-and the built_in function-call counts, 8275 in all, are:
-= -- 439
-> -- 218
-< -- 60
-+ -- 116
-- -- 70
-* -- 499
-:= -- 793
-add.period$ -- 0
+            2667 wiz_defined-function locations,
+            628 strings with 5195 characters,
+and the built_in function-call counts, 735 in all, are:
+= -- 55
+> -- 36
+< -- 0
++ -- 15
+- -- 12
+* -- 39
+:= -- 128
+add.period$ -- 3
 call.type$ -- 3
-change.case$ -- 28
-chr.to.int$ -- 30
+change.case$ -- 12
+chr.to.int$ -- 0
 cite$ -- 4
-duplicate$ -- 753
-empty$ -- 865
-format.name$ -- 93
-if$ -- 1842
+duplicate$ -- 36
+empty$ -- 72
+format.name$ -- 12
+if$ -- 163
 int.to.chr$ -- 0
-int.to.str$ -- 5
-missing$ -- 0
-newline$ -- 58
-num.names$ -- 94
-pop$ -- 688
+int.to.str$ -- 3
+missing$ -- 2
+newline$ -- 12
+num.names$ -- 6
+pop$ -- 20
 preamble$ -- 1
-purify$ -- 32
+purify$ -- 12
 quote$ -- 0
-skip$ -- 390
+skip$ -- 35
 stack$ -- 0
-substring$ -- 659
-swap$ -- 224
-text.length$ -- 64
-text.prefix$ -- 2
-top$ -- 1
-type$ -- 90
-warning$ -- 0
-while$ -- 98
-width$ -- 0
-write$ -- 56
-(There were 2 warnings)
+substring$ -- 15
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 8
+warning$ -- 1
+while$ -- 6
+width$ -- 4
+write$ -- 20
+(There were 20 error messages)

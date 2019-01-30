@@ -1,3 +1,4 @@
+% !TEX encoding = UTF-8 Unicode
 \documentclass[a4j,11pt,report]{jsbook}
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{tabularx}
@@ -5,10 +6,10 @@
 \usepackage{ascmac}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[dviout]{graphicx}
-
-
-\usepackage[backend=bibtex]{biblatex}
-\bibliography{miyaji-1}{}
+\usepackage{here}
+\usepackage{bm}
+\bibliographystyle{ipsjsort}
+%\bibliographystyle{jplane}
 
 \setlength{\topmargin}{-1in}
 \addtolength{\topmargin}{5mm}
@@ -46,6 +47,7 @@
 
 \chapter*{要旨}
 \thispagestyle{empty}
+\if0
 \point{
 序論と結論の内容をもとに研究の内容をまとめる．
 \begin{itemize}
@@ -55,7 +57,7 @@
   \item 得られた成果の意義は？
 \end{itemize}
 }
-
+\fi
 \tableofcontents
 \thispagestyle{empty}
 \clearpage
@@ -64,6 +66,7 @@
 
 \chapter{序論 \label{ch:introduction}}
 
+\if0
 \point{
 問題提起を行う．
 解く価値があり，簡単には解けず，誰も解いていない問題を扱っていることがわかるようにする．
@@ -74,6 +77,7 @@
   \item その問題をどのようなアプローチで解こうとしたのか？ なぜそうしたのか？
 \end{itemize}
 }
+\fi
 
 昨今，小・中学生の理系離れが問題視されている．平成30年度全国学力・学習状況調査（全国学力テスト）の結果では平均正答率は小学校では算数Bが51.7\%，中学校数学では47.6\%とどちらも最も低く，ついで国語，理科の順で正答率が低い．
 小中どちらとも理系教科の習熟度が低いことを示している．
@@ -83,7 +87,7 @@
 
 
 \begin{center}
-  \begin{table}
+  \begin{table}[H]
     \begin{tabular}{|l|c|r|r|r|r|r|r|} \hline
       & 調査年 & 25歳以上 & 26〜30歳 & 31〜40歳 & 41〜50歳 & 51〜60歳  \\ \hline \hline
       & 2010 & 7:44 & 7:43 & 7:44 & 7:42 & 7:42 \\ \cline{2-7}
@@ -101,22 +105,50 @@
 
 表\ref{tb:teacher_time}によると，教員の労働時間は2010年に比べて2016年の方が各年次とも増加しており，教員のやることが増えている一方で
 ，主であるはずの教材研究や教務準備に時間が避けていないことを示している．
-この状況では先生が生徒一人一人二時間をさき，指導することは難しい現状がつついている．
+この状況では先生が生徒一人一人に時間をさき，指導することは難しい現状がつづいている．
 
 この打開策として，IT技術駆使した個人別最適化学習に注目が集まっている，
 しかし，教育の情報は，生徒の情報と結びついている個人情報なためオープン化できず，現在でているサービスでは各サービス利用者の利用状況からデータを取得し，その運用に利用しているため一部の王手企業が情報を独占している．
 そこで個人の統計データではなく，解く数式の方に着目し，計算式自体の特徴を抽出し，間違えた問題と同様の特徴を持つ問題が復習する類題として最適なのではないかという仮定のもと，本論文では数式の特徴を掴むために自然言語処理の分野で使用される分散表現を適用し，さらに再起ニューラルネットワークを用いて数式ベクトルを作り出すことを目標とし，そのベクトルを用いて実際に復習問題生成を行った．
 
-
-\chapter{背景知識\label{ch:background}}
-
 \chapter{分散表現\label{ch:Distributed representation}}
-様々な手法を紹介する
-CBow，skipGram，GloVeなど
-計算式を並べて最後にどこが長所で，どこが違うのかを表現
+自然言語処理ではコンピューターで演算するために各単語を判別するために単語一つ一つをonehotベクトルというものに置き換える．
+onehotベクトルとはある語彙数$V$の文章の中の単語$w_{i}$がある時，次元数$V$のベクトルに対し$i$番目の要素のみ1で残りが全て0になっているベクトルのことである．(\ref{onehot})
+
+\begin{equation}
+  \label{onehot}
+  \bm{A} = \left(
+  \begin{array}{c}
+    0 \\
+    0 \\
+    1 \\
+    \vdots \\
+    0
+  \end{array}
+  \right)
+  \quad \text{(i = 3 の時)}
+\end{equation}
 
 
+これにより単語一つ一つを別々のベクトルとして区別して表記することができる．
+しかしonehotベクトルには問題点があり，一つ目として，ある単語の語彙数$V$が増加すると比例してonehotベクトルの次元$V$も大きくなり，処理に時間がかかる点がある．また二つ目としてonehotベクトルでは情報が0か1しかないので疎なベクトルができる．疎なベクトルとは次元数が大きくてもそのベクトルの持つ意味が薄いベクトルをさす，
+このような問題を解決しようと考えられたのが分散表現である.
 
+分散表現とは%疎なonehotベクトルを密な密な実数値をの集合をベクトルそして扱い，その実数値で単語の意味を表そうとする手法である．
+これにより疎なベクトルであった単語のベクトルを密な表現ができ，また，密度が上がることでベクトルの次元数を削減することができる．
+以下．3手法はその分散表現を得るにあたって機械学習を応用した推論をベースとして編み出された手法である．
+
+\section{Continuous Bag-of-Words Model\label{sec:CBOW}}
+Continuous Bag-of-Words Model(以降，CBOWと略記)は\cite{SkipCBOW}で提唱された手法で，
+ある単語数$\upsilon$の単語列$w_{0},w_{1},w_{2},\dots,w_{\upsilon-2},w_{\upsilon-1},w_{\upsilon}$がある時，単語$w_{i}$が文脈中で前後$k$の中で
+$w_{i-k} \sim w_{i+k}$
+
+\section{Skip Gram \label{sec:SkipGram}}
+
+\section{GloVe \label{sec:GloVe}}
+
+
+
 
 \chapter{LSTM(Long short-term memory)\label{ch:LSTM}}
 
@@ -129,6 +161,7 @@ CBow，skipGram，GloVeなど
 
 
 \chapter{提案手法（章題は変える）\label{ch:method}}
+\if0
 \point{
 自分の提案する解決方法を説明する．
 \begin{itemize}
@@ -139,6 +172,7 @@ CBow，skipGram，GloVeなど
   \item 検討時に行った予備評価の結果があれば示す．
 \end{itemize}
 }
+\fi
 
 \section{システム全体の流れ}
 ＜図をいれながら＞
@@ -150,6 +184,7 @@ CBow，skipGram，GloVeなど
 ＜idea＞
 （内容充実させる）
 数式を分布化する際，そのベクトルの中に数式の特徴を入れ込んだベクトルを生成する手法が確立していない．そこで本論文では数式の各文字，記号を単語のようにみなし，onehotベクトルを作成し，それを埋め込み層で特徴を踏まえた低次元ベクトルに変換したのち，系列変換モデルで読み込むことで低次元で数式の特徴を掴んだベクトルを生成できないかと考えた．
+
 
 ＜手法＞
 この考えを実現するために数式は我々が目にする$2x+3=5$, $\frac{3x-1}{2}+4=\frac{2}{5}$ではなく，テキスト化かつその特徴を強く受けた形に変換する必要がある．
@@ -242,10 +277,6 @@ CBOW，SkipGram，（できれば groveも）
 \chapter{関連研究\label{ch:relatedwork}}
 \point{
 この研究に関連する他の研究を紹介し，この研究との違いを明確にする．
-\begin{itemize}
-  \item 文献は「Mnihらは～という手法を提案している\cite{one1}．」のように\texttt{cite}コマンドを用いて文献番号を示すこと．
-  \item 2ページ以上書く．
-\end{itemize}
 
 https://code.google.com/archive/p/word2vec/
 
@@ -255,13 +286,8 @@ https://techblog.asahi-net.co.jp/entry/2018/10/05/180310
 }
 
 
-遺伝的アルゴリズムについては，伊藤\cite{伊藤}に詳しく述べられている．
-団塊世代がインターネットの利用に抵抗感を持つことが，報告されている．\cite{miki:internet}
-
-
-
 \chapter{結論と今後の課題 \label{ch:conclusion}}
-
+\if0
 \point{
 序論で提起した問いとそれに対する答えをまとめる．
 \begin{itemize}
@@ -270,12 +296,10 @@ https://techblog.asahi-net.co.jp/entry/2018/10/05/180310
   \item 今後の課題について述べる．
 \end{itemize}
 }
+\fi
 
-%\bibliographystyle{plain}
-%\bibliography{miyaji}
 
-%\appendix
-
+\if0
 \chapter{形式上の注意}
 
 \begin{itemize}
@@ -296,14 +320,19 @@ https://techblog.asahi-net.co.jp/entry/2018/10/05/180310
   \item 段落は意味の区切りでわける．意図しない字下げが入った場合\verb#\noindent#を用いて修正する．
   \item 参考文献は10以上あげる．
 \end{itemize}
+\fi
 
 
 \chapter*{謝辞 \label{ch:acknowledgement}}
 \thispagestyle{empty}
+\if
 \point{
-本のあとがきに相当する部分．半ページ以上書く．
+本のあとがきに相当する部分．半ページ 以上書く．
 卒業研究に協力者してくれた方々へのお礼を忘れずに述べる．
 }
+\fi
+\cite{ZeroDeep}
 
-\printbibliography
+
+\bibliography{miyaji}
 \end{document}
