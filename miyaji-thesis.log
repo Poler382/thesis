@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.10)  30 JAN 2019 16:41
+This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.10)  30 JAN 2019 23:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -228,96 +228,135 @@ Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
 \symboldmincho=\mathgroup10
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
 LaTeX Info: Redefining \bm on input line 207.
-) (./miyaji-thesis.aux)
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/bmpsize.sty
+Package: bmpsize 2016/05/16 v1.7 Extract size/resolution from bitmap files (HO)
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+) (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/01/30 v0.27 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+) (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+) (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: pdfTeX >= 1.30 not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/bmpsize-base.sty
+Package: bmpsize-base 2016/05/16 v1.7 Basic part of bmpsize (HO)
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/fp/fp-basic.sty
+Package: fp-basic 1996/05/13
+ `Basic Fixed Point Arithmetic',  Version 1.2d (C) Michael Mehlich             
+\FP@xs=\count108
+\FP@xia=\count109
+\FP@xib=\count110
+\FP@xfa=\count111
+\FP@xfb=\count112
+\FP@rega=\count113
+\FP@regb=\count114
+\FP@regs=\count115
+\FP@times=\count116
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/fp/fp-snap.sty
+Package: fp-snap 1995/04/05
+ `Fixed Point Snap Off',          Version 1.0a (C) Michael Mehlich             ))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/bmpsize-dvipdfmx.def
+File: bmpsize-dvipdfmx.def 2016/05/16 v1.7 Graphics bitmap driver for dvipdfmx (HO)
+\@bmpsize@count=\count117
+)) (./miyaji-thesis.aux)
 \openout1 = `miyaji-thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 16.60605pt on input line 46.
+(Font)              scaled to size 16.60605pt on input line 49.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 16.60605pt on input line 46.
+(Font)              scaled to size 16.60605pt on input line 49.
 
 
-./miyaji-thesis.tex:46: LaTeX Error: There's no line here to end.
+./miyaji-thesis.tex:49: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.46 {S152114 宮地 雄也}
+l.49 {S152114 宮地 雄也}
                         
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 19.9311pt on input line 46.
+(Font)              scaled to size 19.9311pt on input line 49.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 19.9311pt on input line 46.
+(Font)              scaled to size 19.9311pt on input line 49.
 
-./miyaji-thesis.tex:46: LaTeX Error: There's no line here to end.
+./miyaji-thesis.tex:49: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.46 {S152114 宮地 雄也}
+l.49 {S152114 宮地 雄也}
                         
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 46.
+(Font)              scaled to size 11.53198pt on input line 49.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 46.
+(Font)              scaled to size 11.53198pt on input line 49.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 5.76599pt on input line 46.
-LaTeX Font Info:    Try loading font information for U+msa on input line 46.
+(Font)              scaled to size 5.76599pt on input line 49.
+LaTeX Font Info:    Try loading font information for U+msa on input line 49.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 46.
+LaTeX Font Info:    Try loading font information for U+msb on input line 49.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 46.
+(Font)              scaled to size 11.53198pt on input line 49.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 7.68799pt on input line 46.
+(Font)              scaled to size 7.68799pt on input line 49.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 5.76599pt on input line 46.
+(Font)              scaled to size 5.76599pt on input line 49.
  [1
 
 
 ]
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 23.90964pt on input line 48.
+(Font)              scaled to size 23.90964pt on input line 51.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 23.90964pt on input line 48.
+(Font)              scaled to size 23.90964pt on input line 51.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 23.90964pt on input line 48.
+(Font)              scaled to size 23.90964pt on input line 51.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 23.90964pt on input line 48.
+(Font)              scaled to size 23.90964pt on input line 51.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 61.
+(Font)              scaled to size 9.60999pt on input line 64.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 61.
+(Font)              scaled to size 9.60999pt on input line 64.
  [1
 
 
@@ -340,105 +379,104 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 ]
 第1章
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 19.9311pt on input line 67.
+(Font)              scaled to size 19.9311pt on input line 70.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 19.9311pt on input line 67.
+(Font)              scaled to size 19.9311pt on input line 70.
 
-Overfull \hbox (49.00978pt too wide) in paragraph at lines 91--100
+Overfull \hbox (49.00978pt too wide) in paragraph at lines 94--103
 [][] 
  []
 
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 101.
+(Font)              scaled to size 8.64899pt on input line 104.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 101.
+(Font)              scaled to size 8.64899pt on input line 104.
 [1
 
 
 ] [2]
 第2章
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 129.
+(Font)              scaled to size 6.72699pt on input line 132.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 129.
-LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 141.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 141.
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 141.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 141.
-
-./miyaji-thesis.tex:151: Package inputenc Error: Unicode character ^^O (U+F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.151 ^^O
-         
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
+(Font)              scaled to size 4.805pt on input line 132.
 [3
 
 ]
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 145.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 145.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 145.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 145.
+ ( FP-DIV ) ( FP-DIV )
+File: image/cbow_w1w2wt-1wtwt+1.png Graphic file (type bmp)
+ <image/cbow_w1w2wt-1wtwt+1.png>
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 159.
+ ( FP-DIV ) ( FP-DIV )
+File: image/CBOW_windowsize_1.png Graphic file (type bmp)
+ <image/CBOW_windowsize_1.png> [4
+
+] ( FP-DIV ) ( FP-DIV )
+File: image/skipgram_w1w2wt-1wtwt+1.png Graphic file (type bmp)
+ <image/skipgram_w1w2wt-1wtwt+1.png> ( FP-DIV ) ( FP-DIV )
+File: image/SkipGram_windowsize_1.png Graphic file (type bmp)
+ <image/SkipGram_windowsize_1.png> [5
+
+]
 第3章
-[4
+[6
 
 ]
 第4章
-[5
-
-]
-第5章
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 183.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 196.
+(Font)              scaled to size 11.53198pt on input line 295.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 308.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 196.
- [6
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 308.
+ [7
 
-] [7]
+] [8]
+第5章
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--363
+
+ []
+
+[9
+
+
+] [10]
 第6章
 
-Underfull \hbox (badness 10000) in paragraph at lines 250--251
+Underfull \hbox (badness 10000) in paragraph at lines 398--399
 
  []
 
-[8
-
-
-] [9]
-第7章
-
-Underfull \hbox (badness 10000) in paragraph at lines 286--287
-
- []
-
-[10
-
-]
-第8章
 [11
 
-] (./miyaji-thesis.bbl [12
+]
+第7章
+[12
 
-]) [13
+] (./miyaji-thesis.bbl [13
+
+]) [14
 
 ] (./miyaji-thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 2423 strings out of 493281
- 28877 string characters out of 6145040
- 102960 words of memory out of 5000000
- 6305 multiletter control sequences out of 15000+600000
- 27345 words of font info for 122 fonts, out of 8000000 for 9000
+ 2988 strings out of 493281
+ 37697 string characters out of 6145040
+ 117803 words of memory out of 5000000
+ 6826 multiletter control sequences out of 15000+600000
+ 29604 words of font info for 131 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 27i,8n,27p,418b,334s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 31i,15n,27p,418b,358s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on miyaji-thesis.dvi (16 pages, 22696 bytes).
+Output written on miyaji-thesis.dvi (17 pages, 27892 bytes).

@@ -8,58 +8,66 @@
 \newlabel{ch:introduction}{{1}{1}}
 \@writefile{lot}{\contentsline {table}{\numberline {1.1}{\ignorespaces 出勤時刻・退勤時刻・学校にいる時間（平均時間、経年比較（教員年齢別〔公立全体〕））}}{1}}
 \newlabel{tb:teacher_time}{{1.1}{1}}
-\citation{SkipCBOW}
 \@writefile{toc}{\contentsline {chapter}{\numberline {第2章}分散表現}{3}}
 \@writefile{lof}{\addvspace {10\jsc@mpt }}
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
 \newlabel{ch:Distributed representation}{{2}{3}}
 \newlabel{onehot}{{2.1}{3}}
-\newlabel{sec:CBOW}{{2.1}{3}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Continuous Bag-of-Words Model}{3}}
-\newlabel{sec:SkipGram}{{2.2}{3}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Skip Gram }{3}}
-\newlabel{sec:GloVe}{{2.3}{3}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}GloVe }{3}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第3章}LSTM(Long short-term memory)}{4}}
+\citation{SkipCBOW}
+\newlabel{sec:CBOW}{{2.1}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Continuous Bag-of-Words Model}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces 単語の列からターゲットとなる単語を推測する($m = 1$)}}{4}}
+\newlabel{fig:CBOWformula}{{2.1}{4}}
+\newlabel{cobw同時確率}{{2.2}{4}}
+\newlabel{cbow_loss}{{2.3}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces CBOWのネットワーク構成モデル模式図($ m = 1$) }}{4}}
+\newlabel{fig:CBOWimage}{{2.2}{4}}
+\citation{SkipCBOW}
+\newlabel{sec:SkipGram}{{2.2}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Skip Gram }{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces 単語の列からターゲットとなる単語を推測する($m = 1$)}}{5}}
+\newlabel{fig:Skipformula}{{2.3}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces SkipGramのネットワーク構成モデル模式図($ m = 1$) }}{5}}
+\newlabel{fig:SkipGramimage}{{2.4}{5}}
+\newlabel{skip_probality}{{2.4}{5}}
+\newlabel{skip_lossfunc}{{2.5}{5}}
+\newlabel{skip_loss}{{2.6}{5}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第3章}LSTM(Long short-term memory)}{6}}
 \@writefile{lof}{\addvspace {10\jsc@mpt }}
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
-\newlabel{ch:LSTM}{{3}{4}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第4章}Attention}{5}}
+\newlabel{ch:LSTM}{{3}{6}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第4章}提案手法（章題は変える）}{7}}
 \@writefile{lof}{\addvspace {10\jsc@mpt }}
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
-\newlabel{ch:Attention}{{4}{5}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第5章}提案手法（章題は変える）}{6}}
+\newlabel{ch:method}{{4}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}システム全体の流れ}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}計算式の特徴量抽出}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}概要}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}文字分布の入手}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}判定機}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}概要}{8}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第5章}結果とその検討 }{9}}
 \@writefile{lof}{\addvspace {10\jsc@mpt }}
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
-\newlabel{ch:method}{{5}{6}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}システム全体の流れ}{6}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}計算式の特徴量抽出}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}概要}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}文字分布の入手}{6}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}判定機}{7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}概要}{7}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第6章}結果とその検討 }{8}}
+\newlabel{ch:result}{{5}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}実験}{9}}
+\@writefile{toc}{\contentsline {subparagraph}{計算式の特徴量抽出}{9}}
+\@writefile{toc}{\contentsline {subparagraph}{計算式の特徴量からの類題選出}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}評価}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}分析}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}検討}{10}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第6章}関連研究}{11}}
 \@writefile{lof}{\addvspace {10\jsc@mpt }}
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
-\newlabel{ch:result}{{6}{8}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}実験}{8}}
-\@writefile{toc}{\contentsline {subparagraph}{計算式の特徴量抽出}{8}}
-\@writefile{toc}{\contentsline {subparagraph}{計算式の特徴量からの類題選出}{8}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}評価}{9}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}分析}{9}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}検討}{9}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第7章}関連研究}{10}}
+\newlabel{ch:relatedwork}{{6}{11}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第7章}結論と今後の課題 }{12}}
 \@writefile{lof}{\addvspace {10\jsc@mpt }}
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
-\newlabel{ch:relatedwork}{{7}{10}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第8章}結論と今後の課題 }{11}}
-\@writefile{lof}{\addvspace {10\jsc@mpt }}
-\@writefile{lot}{\addvspace {10\jsc@mpt }}
-\newlabel{ch:conclusion}{{8}{11}}
+\newlabel{ch:conclusion}{{7}{12}}
 \citation{ZeroDeep}
 \bibdata{miyaji}
-\newlabel{ch:acknowledgement}{{8}{12}}
+\newlabel{ch:acknowledgement}{{7}{13}}
 \bibcite{SkipCBOW}{1}
 \bibcite{benesse_DateBook}{2}
 \bibcite{ZeroDeep}{3}
-\@writefile{toc}{\contentsline {chapter}{参考文献}{13}}
+\@writefile{toc}{\contentsline {chapter}{参考文献}{14}}

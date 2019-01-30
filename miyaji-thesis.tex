@@ -8,6 +8,9 @@
 \usepackage[dviout]{graphicx}
 \usepackage{here}
 \usepackage{bm}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{bmpsize}
+
 \bibliographystyle{ipsjsort}
 %\bibliographystyle{jplane}
 
@@ -134,30 +137,139 @@ onehotベクトルとはある語彙数$V$の文章の中の単語$w_{i}$があ�
 しかしonehotベクトルには問題点があり，一つ目として，ある単語の語彙数$V$が増加すると比例してonehotベクトルの次元$V$も大きくなり，処理に時間がかかる点がある．また二つ目としてonehotベクトルでは情報が0か1しかないので疎なベクトルができる．疎なベクトルとは次元数が大きくてもそのベクトルの持つ意味が薄いベクトルをさす，
 このような問題を解決しようと考えられたのが分散表現である.
 
-分散表現とは%疎なonehotベクトルを密な密な実数値をの集合をベクトルそして扱い，その実数値で単語の意味を表そうとする手法である．
+分散表現とは疎なonehotベクトルを密な密な実数値をの集合をベクトルそして扱い，その実数値で単語の意味を表そうとする手法である．
 これにより疎なベクトルであった単語のベクトルを密な表現ができ，また，密度が上がることでベクトルの次元数を削減することができる．
 以下．3手法はその分散表現を得るにあたって機械学習を応用した推論をベースとして編み出された手法である．
 
+\clearpage
 \section{Continuous Bag-of-Words Model\label{sec:CBOW}}
 Continuous Bag-of-Words Model(以降，CBOWと略記)は\cite{SkipCBOW}で提唱された手法で，
-ある単語数$\upsilon$の単語列$w_{0},w_{1},w_{2},\dots,w_{\upsilon-2},w_{\upsilon-1},w_{\upsilon}$がある時，単語$w_{i}$が文脈中で前後$k$の中で
-$w_{i-k} \sim w_{i+k}$
+ある単語数$\upsilon$の単語列$w_{0},w_{1},w_{2},\dots,w_{\upsilon-2},w_{\upsilon-1},w_{\upsilon}$がある時，単語$w_{t}$が文脈中で前後$m$単語をコンテキスト$C$とする時の前後$m$単語が共に共起する事前確率が増大するように学習するモデルである．（図\ref{fig:CBOWimage}）
+
+
+図\ref{fig:CBOWformula}より$w_{t}$をターゲットにした時の周辺単語$m$個を対象としたときの事後確率は式\ref{cobw同時確率}のように書くことができる．CBOWモデルでは式\ref{cobw同時確率}の最大化問題と見ることができる．
+そこでCBOWの損失関数は，単に式\ref{cobw同時確率}の確率に対数を取りマイナスをつけ，最小化問題として解く．
+式\ref{cbow_loss}はコーパス全体に拡張した形を示す．
+
+
+
+\begin{figure}[H]
+ \centering
+\includegraphics[width = 80mm]{image/cbow_w1w2wt-1wtwt+1.png}
+ \caption{単語の列からターゲットとなる単語を推測する($m = 1$)}
+ \label{fig:CBOWformula}
+\end{figure}
+
+
+\begin{equation}
+  \label{cobw同時確率}
+  \begin{array}{c}
+    P(w_{t}|w_{t-m},...,w_{t+m})
+  \end{array}
+\end{equation}
+
+\begin{equation}
+  \label{cbow_loss}
+  \begin{array}{c}
+    L = -\frac{1}{T} \sum_{t = 0}^T \log P(w_{t}|w_{t-m},...,w_{t+m})
+  \end{array}
+\end{equation}
+
+\begin{figure}[H]
+ \centering
+\includegraphics[width = 100mm]{image/CBOW_windowsize_1.png}
+ \caption{CBOWのネットワーク構成モデル模式図($ m = 1$) }
+ \label{fig:CBOWimage}
+\end{figure}
+
+
+\if0
+
+\begin{figure}[H]
+ \centering
+\includegraphics[scale = 0.5]{image/CBOW_image.png}
+ \caption{次元圧縮のイメージ図　次元数$v$のベクトルに$V \times N $の埋め込み行列をかけて隠れ層のベクトルの次元を$N$次元に圧縮すことができる}
+ \label{fig:CBOWimage}
+\end{figure}
+\fi
+
+\clearpage
 
 \section{Skip Gram \label{sec:SkipGram}}
+Skip Gramは\cite{SkipCBOW}で紹介されている章\ref{sec:CBOW}で述べたCBOWとは別の手法である．
+CBOWとは逆に中心の単語$w_{t}$から$m$個の周辺単語を推測するモデルである．
+ネットワーク構成は図\ref{fig:SkipGramimage}のようになる．
 
+\begin{figure}[H]
+ \centering
+\includegraphics[width = 80mm]{image/skipgram_w1w2wt-1wtwt+1.png}
+ \caption{単語の列からターゲットとなる単語を推測する($m = 1$)}
+ \label{fig:Skipformula}
+\end{figure}
+
+
+\begin{figure}[H]
+ \centering
+\includegraphics[width = 100mm]{image/SkipGram_windowsize_1.png}
+ \caption{SkipGramのネットワーク構成モデル模式図($ m = 1$) }
+ \label{fig:SkipGramimage}
+\end{figure}
+
+
+
+ある単語$w_{t}$が入力層に入力され，周辺単語の$w_{t-m},...,w_{t+m}$を推測する時，その全てが同時に起こる確率は式\ref{skip_probality}となる．
+
+\begin{equation}
+  \label{skip_probality}
+  \begin{array}{c}
+  P(w_{t-m},...,w_{t+m}|w_{t})
+  \end{array}
+\end{equation}
+
+ここでSkipGramモデルは$w_{t-m},...,w_{t+m}$のそれぞれのあいだに関係性がないと仮定し，交差エントロピーを用いて損失関数(式\ref{skip_lossfunc})を定義する．
+
+\begin{equation}
+  \label{skip_lossfunc}
+  \begin{split}
+    \log P(w_{t-m},...,w_{t+m}|w_{t} ) &= -\log \prod_{k = 0}^m P(w_{t-k}|w_{t})   \\
+                                       &= - \sum_{k = 0}^m \log P(w_{t-k} | w_{t})
+  \end{split}
+\end{equation}
+
+そして式\ref{skip_lossfunc}をコンテキスト$C$をコーパス全体に拡張すると式\ref{skip_loss}となり，この式を学習によって最小化していく．
+
+\begin{equation}
+  \label{skip_loss}
+  \begin{split}
+    \sum_{C} \log P(w_{t-m},...,w_{t+m}|w_{t} ) &= \sum_{C} -\log \prod_{k = 0}^m P(w_{t-k}|w_{t})   \\
+                                       &= - \sum_{C} \sum_{k = 0}^m \log P(w_{t-k} | w_{t})
+  \end{split}
+\end{equation}
+
+
+
+
+\if0
 \section{GloVe \label{sec:GloVe}}
+\fi
 
-
-
 
 \chapter{LSTM(Long short-term memory)\label{ch:LSTM}}
+順伝播ニューラルネットワークでは前の情報はつかわないため文章や音声など，一つ前の情報に影響を受けるデータに対しては有用ではない．
+そこで，ある時刻$t$の出力の際，過去の情報も扱う再起ニューラルネットワーク（以降　RNN と省略）というものが発案された．
+これは時刻$t$の入力を$x_{t}$とする時，各ネットワークは過去の情報を記憶しているようにみなすことができる．
+しかしながら通常のRNNの場合，時間が経つほどに魔の情報は薄れていく勾配消失が起こることがあった．
+これを解決しようとしたのが記憶情報ごとにメモリーの役割を果たすネットワークを分けたLong short-term memory（以降，LSTMと省略）というモデルである．
 
-通常のRNNでは叶わないところを明確に
 
+
+
+
+
+\if0
 \chapter{Attention\label{ch:Attention}}
-
 これからね
-
+\fi
 
 
 \chapter{提案手法（章題は変える）\label{ch:method}}
