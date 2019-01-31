@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex miyaji-thesis"] 1548856108 "miyaji-thesis.aux" "miyaji-thesis.bbl" "miyaji-thesis" 1548859554
+["bibtex miyaji-thesis"] 1548896761 "miyaji-thesis.aux" "miyaji-thesis.bbl" "miyaji-thesis" 1548897810
   "./ipsjsort.bst" 1518036766 25929 7c28c8a467d0c07c45812fadf62dc54f ""
-  "miyaji-thesis.aux" 1548859552 4145 3029dc38668e62db014eaf9309b8e0ac ""
-  "miyaji.bib" 1548846120 1570 1f99e9aba9cad565f81b928d56c53c59 ""
+  "miyaji-thesis.aux" 1548897807 7502 375ed2fa995da834dc2f7e2cb7a08c6f ""
+  "miyaji.bib" 1548895187 3122 8ad906a01a83d182d9618afd2c22df28 ""
   (generated)
-  "miyaji-thesis.blg"
   "miyaji-thesis.bbl"
-["dvipdf"] 1548859553 "miyaji-thesis.dvi" "miyaji-thesis.pdf" "miyaji-thesis" 1548859554
-  "miyaji-thesis.dvi" 1548859552 27892 df4cdc7660e70b05f4fa19da5f247210 "latex"
+  "miyaji-thesis.blg"
+["dvipdf"] 1548897807 "miyaji-thesis.dvi" "miyaji-thesis.pdf" "miyaji-thesis" 1548897810
+  "miyaji-thesis.dvi" 1548897807 47136 305dd81601d58f6401ad858e0fd0a0ff "latex"
   (generated)
   "miyaji-thesis.pdf"
-["latex"] 1548859552 "miyaji-thesis.tex" "miyaji-thesis.dvi" "miyaji-thesis" 1548859554
+["latex"] 1548897806 "miyaji-thesis.tex" "miyaji-thesis.dvi" "miyaji-thesis" 1548897810
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/ptex-fonts/jis/jis.tfm" 1480098698 468 53f854284f6afa6c36aaa2d1090ecc12 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm" 1480098698 468 53f854284f6afa6c36aaa2d1090ecc12 ""
@@ -104,15 +104,26 @@
   "/usr/local/texlive/2018/texmf-var/web2c/eptex/platex.fmt" 1541781259 4475038 06209996e7e239c20246cace1e3abf34 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "image/CBOW_windowsize_1.png" 1548843507 163204 b5d0712d08c08aa6dddc3ed052f5137a ""
+  "image/EVS_Simpie.png" 1548875968 192391 8198476cc250b2afa6f8e1763f3da58b ""
+  "image/LOSSplot.png" 1548883339 35650 030c29725d1ebadf4b64b4bcfc47f612 ""
+  "image/LSTM_concat.png" 1548863410 92045 19aa8020f54d5b5a629f95a448cc0e2c ""
+  "image/OX_Discriminater.png" 1547995208 157688 e5a3dffe46e5393f42ee6761e90c2fc7 ""
+  "image/OX_Discriminater_Accuracy_rateplot.png" 1548414463 67278 5f29819e0838811154032e701dc03a0c ""
   "image/SkipGram_windowsize_1.png" 1548847146 154591 dad355a1c993cc4efed1675271c42576 ""
+  "image/cbow89x2.png" 1548307164 16999 fe8ed27ba81db44f9eff2d9bb350db2e ""
   "image/cbow_w1w2wt-1wtwt+1.png" 1548843310 14699 ccafb58dc45cac451dcd38d23459375e ""
+  "image/lstm_simple_image.png" 1548863287 90527 9d14d6d29807365ddc75c462d5a86338 ""
+  "image/pca_out2.png" 1548329030 56359 b1b887ad93725783f8c3bacbb76a1f49 ""
+  "image/skip89x2.png" 1548307164 17907 eceddd7616c43998b1f5665d1695354c ""
   "image/skipgram_w1w2wt-1wtwt+1.png" 1548846429 14789 406baf8953cc5b9ab299cd81534226b1 ""
-  "miyaji-thesis.aux" 1548859552 4145 3029dc38668e62db014eaf9309b8e0ac ""
-  "miyaji-thesis.bbl" 1548856109 288 c30936ceb43727f0bba33d233f054427 "bibtex miyaji-thesis"
-  "miyaji-thesis.tex" 1548859552 20146 514d13ccbdfc262ca7a27316857d2d59 ""
-  "miyaji-thesis.toc" 1548859552 1402 ab4f4cedba3bcf266d78404bfa0bba27 ""
+  "image/tsne_mkvec_all_10107x2_200.png" 1548401958 454094 06bb8b21452616ce94f73b2343d734f4 ""
+  "image/tsne_out2.png" 1548329032 56902 462cfc33f84f613f7f3c0352cc4a0d6d ""
+  "miyaji-thesis.aux" 1548897807 7502 375ed2fa995da834dc2f7e2cb7a08c6f ""
+  "miyaji-thesis.bbl" 1548897801 968 c9621471fd7db02354642b1c47404d81 "bibtex miyaji-thesis"
+  "miyaji-thesis.tex" 1548897806 34806 c730dac545c8a6373b35a1b6b7b44350 ""
+  "miyaji-thesis.toc" 1548897807 1669 4bfc4d01896fdbd89350b779899abdfd ""
   (generated)
-  "miyaji-thesis.log"
   "miyaji-thesis.dvi"
-  "miyaji-thesis.toc"
   "miyaji-thesis.aux"
+  "miyaji-thesis.log"
+  "miyaji-thesis.toc"

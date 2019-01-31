@@ -1,12 +1,19 @@
 \begin{thebibliography}{1}
 
 \bibitem{SkipCBOW}
-JeffreyDeanEfficient Estimation of Word Representations in Vector Space (2013).
+Tomas Mikolov , Kai Chen , Greg Corrado , Jeffrey Dean：JeffreyDeanEfficient Estimation of Word Representations in Vector Space (2013).
 
 \bibitem{benesse_DateBook}
-year第６回学習指導基本調査 DATA BOOK（高校版) (2016).
+ベネッセ教育総合研究所：第６回学習指導基本調査 DATA BOOK（高校版) (2016).
 
-\bibitem{ZeroDeep}
-yearO.REILLY (2018).
+\bibitem{kannrenn3}
+福田 清人 森 直樹 松本 啓之亮：LSTM を用いた文の分散表現の獲得手法に関する一考察　言語処理学会 第24回年次大会 発表論文集 (2018).
+\bibitem{lannrenn4}
+岡田龍治,河原崎徳之:Deep Learning を用いた人工言語の学習と獲得について The 31st Annual Conference of the Japanese Society for Artificial
+  Intelligence (2017).
+
+\bibitem{kannrenn5}
+川上 和也,松尾 豊 : Deep Collaborative Filtering Deep Learning 技術䛾推薦システムへ䛾応用 The 28th Annual Conference of the Japanese Society for Artificial
+  Intelligence, (2014).
 
 \end{thebibliography}
