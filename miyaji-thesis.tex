@@ -136,7 +136,7 @@ onehotベクトルとはある語彙数$V$の文章の中の単語$w_{i}$があ�
 
 \clearpage
 \section{Continuous Bag-of-Words Model\label{sec:CBOW}}
-Continuous Bag-of-Words Model(以降，CBOWと略記)は\cite{SkipCBOW}で提唱された手法で，
+Continuous Bag-of-Words Model(以降，CBOWと略記)は文献\cite{SkipCBOW}で提唱された手法で，
 ある単語数$\upsilon$の単語列$w_{0},w_{1},w_{2},\dots,w_{\upsilon-2},w_{\upsilon-1},w_{\upsilon}$がある時，単語$w_{t}$が文脈中で前後$m$単語をコンテキスト$C$とする時の前後$m$単語が共に共起する事前確率が増大するように学習するモデルである（図\ref{fig:CBOWimage}）．
 
 
@@ -248,7 +248,7 @@ CBOWとは逆に中心の単語$w_{t}$から$m$個の周辺単語を推測する
 
 \chapter{LSTM(Long short-term memory)\label{ch:LSTM}}
 順伝播ニューラルネットワークでは前の情報はつかわないため文章や音声など，一つ前の情報に影響を受けるデータに対しては有用ではない．
-そこで，ある時刻$t$の出力の際，過去の情報も扱う再起ニューラルネットワーク（以降　RNN と省略）というものが発案された．
+そこで，ある時刻$t$の出力の際，過去の情報も扱う再帰ニューラルネットワーク（以降　RNN と省略）というものが発案された．
 これは時刻$t$の入力を$x_{t}$とする時，各ネットワークは過去の情報を記憶しているようにみなすことができる．
 しかしながら通常のRNNの場合，時間が経つほどに前の情報は薄れていく勾配消失が起こることがあった．
 これを解決しようとしたのが記憶情報ごとにメモリーの役割を果たすネットワークを分けたLong short-term memory（以降，LSTMと省略）というモデルである．
@@ -275,7 +275,7 @@ forgetゲートは過去の情報が詰まっている$C$セルをどの程度�
     f = sigmoid(x_{t}W_{x}^{(f)} + h_{t-1}W_{h}^{(f)} + b^{(f)}
   \end{split}
 \end{equation}
-これにより時刻$t$の$C_{t}$は\ref{eq:forgetgate}と求められる．
+これにより時刻$t$の$C_{t}$は式\ref{eq:forgetgate}と求められる．
 
 \begin{equation}
   \label{eq:forgetgate}
@@ -296,7 +296,7 @@ ouputゲートでは次の時刻にどれくらい現在の情報を渡すかを
     o = sigmoid(x_{t}W_{x}^{(o)} + h_{t-1}W_{h}^{(o)} + b^{(o)}
   \end{split}
 \end{equation}
-これにより時刻$t$の$C_{t}$は\ref{eq:outputgate}と求められる．
+これにより時刻$t$の$C_{t}$は式\ref{eq:outputgate}と求められる．
 
 \begin{equation}
   \label{eq:outputgate}
@@ -335,7 +335,7 @@ inputゲートではhiddenゲートで追加しようとした新たな記憶を
   \end{split}
 \end{equation}
 
-これにより時刻$t$の$C_{t}$は\ref{eq:inputgate}と求められる．
+これにより時刻$t$の$C_{t}$は式\ref{eq:inputgate}と求められる．
 
 \begin{equation}
   \label{eq:inputgate}
@@ -345,7 +345,7 @@ inputゲートではhiddenゲートで追加しようとした新たな記憶を
 \end{equation}
 
 \section{LSTMのまとめ}
-章\ref{eq:forget},章\ref{sec:output},章\ref{sec:input},章\ref{eq:hidden}で紹介したものをまとめると\ref{eq:all}のようになる．
+章\ref{eq:forget},章\ref{sec:output},章\ref{sec:input},章\ref{eq:hidden}で紹介したものをまとめると式\ref{eq:all}のようになる．
 
 
 \begin{equation}

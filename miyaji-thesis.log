@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.10)  31 JAN 2019 10:23
+This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.10)  31 JAN 2019 10:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -467,27 +467,27 @@ File: image/LOSSplot.png Graphic file (type bmp)
 
 ] 
 
-./miyaji-thesis.bbl:17: Package inputenc Error: Unicode character �^^9b� (U+46FE)
+./miyaji-thesis.bbl:16: Package inputenc Error: Unicode character �^^9b� (U+46FE)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.17 ...e Filtering Deep Learning 技術^^e4^^9b^^be
+l.16 ...e Filtering Deep Learning 技術^^e4^^9b^^be
                                                   推薦システムへ^^e4^^9b^^be...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
  
-./miyaji-thesis.bbl:17: Package inputenc Error: Unicode character �^^9b� (U+46FE)
+./miyaji-thesis.bbl:16: Package inputenc Error: Unicode character �^^9b� (U+46FE)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.17 ...技術^^e4^^9b^^be推薦システムへ^^e4^^9b^^be
+l.16 ...技術^^e4^^9b^^be推薦システムへ^^e4^^9b^^be
                                                   応用 The 28th Annual Confe...
 You may provide a definition with
 \DeclareUnicodeCharacter 
@@ -504,4 +504,4 @@ Here is how much of TeX's memory you used:
  934 hyphenation exceptions out of 8191
  31i,16n,27p,418b,358s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on miyaji-thesis.dvi (24 pages, 47136 bytes).
+Output written on miyaji-thesis.dvi (24 pages, 47156 bytes).
