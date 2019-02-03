@@ -6,10 +6,8 @@
 \usepackage{ascmac}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{bm}
-\usepackage[dvipdfmx]{graphicx}
 \usepackage{bmpsize}
 \usepackage{here}
-
 \bibliographystyle{ipsjsort}
 
 \setlength{\topmargin}{-1in}
@@ -20,10 +18,9 @@
 \addtolength{\textheight}{-25mm}
 \setlength{\footskip}{5mm}
 
-
 \newcommand{\frontpage}[3]{%
-\title{卒業論文\\ \vspace{3em}\\{\huge #1}\\ \\#2\vspace{15em}}%
-\author{{\huge 成蹊大学理工学部情報科学科}\\ \\{\huge #3}}%
+\title{卒業論文\\　\vspace{3em}\\{\huge #1}\\　\\#2\vspace{15em}}%
+\author{{\huge 成蹊大学理工学部情報科学科}\\　\\{\huge #3}}%
 \date{}
 \maketitle
 \clearpage
@@ -31,6 +28,7 @@
 
 \clearpage
 }
+
 
 \newcommand{\point}[1]{
 \begin{itembox}[l]{ポイント}
@@ -44,6 +42,7 @@
 {計算問題の特徴分布に基づく類題選出による\leavevmode \\ 自己学習支援}
 {Self Learning Support by Automatic Selection of Calculation Exercises based on Feature Distribution of Exercises}
 {宮地 雄也}
+
 
 
 \chapter*{要旨}
@@ -68,7 +67,7 @@
 解く価値があり，簡単には解けず，誰も解いていない問題を扱っていることがわかるようにする．
 \begin{itemize}
   \item どういう問題に取り組んだのか？
-  \item その問題を解くことがなぜ重要なのか？ 社会的意義（有用性）・学術的意義（問題の面白さ）
+  \item その問題を解くことがなぜ重要なのか？ 社会的意義(有用性)・学術的意義（問題の面白さ）
   \item その問題はどこが難しいのか？ なぜこれまで解かれていなかったのか？ これまではどうしていたのか？
   \item その問題をどのようなアプローチで解こうとしたのか？ なぜそうしたのか？
 \end{itemize}
@@ -238,13 +237,6 @@ CBOWとは逆に中心の単語$w_{t}$から$m$個の周辺単語を推測する
 \end{equation}
 
 
-
-
-\if0
-\section{GloVe \label{sec:GloVe}}
-\fi
-
-
 \chapter{LSTM(Long short-term memory)\label{ch:LSTM}}
 順伝播ニューラルネットワークでは前の情報はつかわないため文章や音声など，一つ前の情報に影響を受けるデータに対しては有用ではない．
 そこで，ある時刻$t$の出力の際，過去の情報も扱う再帰ニューラルネットワーク（以降 RNN と省略）というものが発案された．
@@ -383,13 +375,102 @@ LSTMモデルを3時刻分展開したものを図\ref{fig:LSTM_3timeconcat}に�
 \end{center}
 
 
-\if0
-\chapter{Attention\label{ch:Attention}}
-これからね
-\fi
 
 
-\chapter{Exericises Vecter System\label{ch:method}}
+
+
+\chapter{系列変換\label{ch:Seq2Seq}}
+
+系列変換とは再帰ニューラルネットワークを用いて時系列データを時系列データに変換することをさす．
+モデルの構成図の例を図\ref{fig:seq2seq_3time}にしめす．
+
+\begin{center}
+  \begin{figure}[tbh]
+    \centering
+    \includegraphics[width=\linewidth]{image/seq2seq_image.png}
+    \caption{LSTMを用いた基本的な系列変換モデルの3時刻展開　}
+    \label{fig:seq2seq_3time}
+  \end{figure}
+\end{center}
+
+大きく分けてEncoderとDecoderに分かれる．Encoder側は入力を受け取りEmbedding層で入力系列$x_{i}$を埋め込み行列に変換し，
+LSTMに入力として渡す．EncoderではLSTMが時系列データを記憶するメモリーのように振る舞い次の時刻へ情報を渡していく，
+時刻$t$の時のLSTMの隠れ層の出力$h_{t}$にはLSTMが渡してきた$1 \sim t$までの情報が溜め込まれており，入力系列を変換するために必要な情報が
+エンコードされて任意の固定長ベクトルに溜め込まれる．
+この固定長ベクトルDecoder側の最初のLSTMの前の時刻の$h$として入力され，区切れ文字<eos>を入力として受け取り，
+エンコーダー側と同じように埋め込み行列に変換しLSTMで再帰的に学習，そしてAffine層で入力ベクトルの大きさと同サイズに圧縮し，
+SoftMax層（式\ref{eq:softmax}）でベクトルの値を確率に変換する．
+
+\begin{equation}
+  \label{eq:softmax}
+  \begin{split}
+    softmax(x_{i}) = \frac{ e^{x_{i}} }{ \sum e^{x_{i}} }
+  \end{split}
+\end{equation}
+
+区切れ文字<eos>によって出力された$y_{0}$を次の時刻の入力とし，$2$時刻目として$y_{1}$を出力し再び区切れ文字を出力するまで繰り返す，
+この技術を応用して機械翻訳など時系列データの変換に用いる．
+
+
+\chapter{Attention\label{ch:attention} }
+章\ref{ch:Seq2Seq}で導入した系列変換モデルだが，問題点があり，図\ref{fig:seq2seq_3time}で示したように，系列を固定長のベクトルに情報を溜め込むのだが，系列が長くても短くても固定長のベクトルになるため長い系列だと容量不足になる問題があった．
+そのことを解決する手法の一つとしてAttentionを導入する．
+Encoderの出力は時刻$t$の入力系列をベクトルに変換したものなので時刻$t$の出力がもっとも時刻$t$の状態を反映した物であるという仮定のもと，
+AttentionではDecoder側で出力系列を生成するとき，出力と対応するEncoderの出力ベクトルに注意して生成するようにする．
+これをAttention(注意機構)という．
+章\ref{ch:Seq2Seq}の図\ref{fig:seq2seq_3time}にAttentionを加えたネットワークを図\ref{fig:Attention_3time}に示す．
+
+
+
+
+\begin{center}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{image/attention_image.png}
+    \caption{LSTMを用いた基本的な系列変換モデルの3時刻展開にAttenitonを追加したネットワーク　}
+    \label{fig:Attention_3time}
+  \end{figure}
+\end{center}
+
+
+
+Encoder側では各時刻の出力を$hs$として溜め込んでいく．
+Decoder側ではLSTNを抜けた隠れ層の出力ベクトルを$h^{decoder}$とすると図\ref{fig:Attention_3time}で行うAttentionの計算の概要を
+図\ref{fig:Attention_layer}に示す．
+Attention Weightはhsと$h^{decoder}$のベクトルの類似度を計算する.その過程を式\ref{eq:AttentionWeight}に示す．
+
+\begin{equation}
+  \label{eq:AttentionWeight}
+  \begin{split}
+    s = hs \odot h^{decoder}  \\
+    a = softmax(s)
+  \end{split}
+\end{equation}
+
+二つのベクトルを内積をとることにより類似度に変換し，その後SoftMax(式\ref{eq:softmax})で変換する．この類似度のベクトルをScoreともいう．
+
+またWeight SumではこのScoreを元にhsのどこに注意を置くのかを算出する．その過程を式\ref{eq:WeightSum}に示す．
+ よってContextVecterはEncoderの入力系列の重要なところを注視したベクトルが作られ，これをDecoderのLSTMの出力値とconcatし読み込むことでその性能を格段に向上させることに成功している．(文献\cite{attention})
+
+
+\begin{equation}
+  \label{eq:WeightSum}
+  \begin{split}
+    c = \sum_{i} hs_{i} a_{i}
+  \end{split}
+\end{equation}
+
+\begin{center}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image/attention_layer.png}
+    \caption{Attention内部で行う計算  Attention Weightはベクトルの類似度を計算し，Weight Sumは類似度からhsをどれくらい重要視するかを示すContextVecterを算出する}
+    \label{fig:Attention_layer}
+  \end{figure}
+\end{center}
+
+
+\chapter{Exericises Vecter Representation\label{ch:method}}
 \if0
 \point{
 自分の提案する解決方法を説明する．
@@ -482,7 +563,7 @@ onehotベクトルの置き方は以下の2手法を試し，それぞれPCAとT
 正誤を判定するのには画像認識のニューラルネットを利用している．回答用紙の答えのところを切り取り，各問題に対して正解か不正解かを確認し，別途用意した，個人のプリント進行表csvファイルにプリント番号とそのプリントの問題ごとを正解ならo，不正解ならxとしてファイルに書き込んでいく．（図\ref{fig:Discriminater_simple}）
 
 \begin{center}
-  \begin{figure}
+  \begin{figure}[htb]
     \centering
     \includegraphics[width=\linewidth]{image/OX_Discriminater.png}
     \caption{OX Discriminater仕組み}
@@ -640,7 +721,7 @@ onehotベクトルの置き方は以下の2手法を試し，それぞれPCAとT
 
 
 \chapter{関連研究\label{ch:relsatedwork}}
-自然言語処理を数式を適応した例はなく，自然言語以外にWord2vecを適用しようとした研究はいくつかあり，再帰ニューラルネットを応用したものである．
+自然言語処理を数式を適応した例は筆者が調べるかぎりはなく，自然言語以外にWord2vecを適用しようとした研究はいくつかあり，再帰ニューラルネットを応用したものである．
 文献\cite{kannrenn3}では文の特徴をEncoder-Decoderの機構を用いて学習し，Encoderの隠れ層の出力により文章の類似度を算出している．文献\cite{kannrenn3}によると小説の一部を学習データに用いて，埋め込み層としてSkipGramを適用している．gemsimのDoc2Vecとの比較がなされているが，ユーザーにとって有益な評価方法の設定の難しさを述べている．
 
 文献\cite{lannrenn4}ではプログラムコードを埋め込み，再構成して実行できるかどうかを試している．C言語で書かれたプログラムを一文字ごと，i-of-k符号化して読み込んでいる．Dropoutを適用させることにより性能を向上させている．今後，スペルミスによるコンパイルエラーを事前に直してくれることを目的としている．
@@ -709,11 +790,10 @@ AEは層を重ねても，性能は向上せず，各映画のユーザー平均
 卒業研究に協力者してくれた方々へのお礼を忘れずに述べる．
 }
 \fi
-この研究を進めるにあたって，私の興味の赴くまま進めるなか，様々な角度からご指導いただいた千代教授に深く感謝申し上げます．
-また研究が息詰まる中，会話を通して気づきを与えてくれた研究室メンバーに感謝申し上げます．
-最後に，毎週たくさんの計算問題を宿題として解いてきてくれた私の塾の生徒たちに感謝をするとともに必ず，この経験を元に世の中に良い教育システムを提供することを約束し，謝辞といたします．
-
-\cite{emoji}
+この研究を進めるにあたって，私の興味の赴くまま進める中，様々な角度からご指導いただいた千代教授に深く感謝申し上げます．
+また研究が，会話を通して気づきを与えてくれた同研究室メンバーに感謝申し上げます．
+最後に，毎週たくさんの計算問題を宿題として解いてきてくれた私の塾の生徒たちに感謝をするとともに
+必ず，この経験を元に世の中により良い教育システムを提供し今まで手の届かなかった子供達の未来に手助けすることを約束し，謝辞といたします．
 
 
 \bibliography{miyaji}
