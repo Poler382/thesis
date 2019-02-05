@@ -450,7 +450,7 @@ Attention Weightはhsと$h^{decoder}$のベクトルの類似度を計算する.
 二つのベクトルを内積をとることにより類似度に変換し，その後SoftMax(式\ref{eq:softmax})で変換する．この類似度のベクトルをScoreともいう．
 
 またWeight SumではこのScoreを元にhsのどこに注意を置くのかを算出する．その過程を式\ref{eq:WeightSum}に示す．
- よってContextVecterはEncoderの入力系列の重要なところを注視したベクトルが作られ，これをDecoderのLSTMの出力値とconcatし読み込むことでその性能を格段に向上させることに成功している．(文献\cite{attention})
+よってContextVecterはEncoderの入力系列の重要なところを注視したベクトルが作られ，これをDecoderのLSTMの出力値とconcatし読み込むことでその性能を格段に向上させることに成功している．(文献\cite{attention})
 
 
 \begin{equation}
@@ -524,37 +524,149 @@ onehotベクトルの置き方は以下の2手法を試し，それぞれPCAとT
 \subsection{文字分布の予備実験結果}
 予備実験としてCBOW，SkipGramで文字の特徴が得られているかを確認した．
 以下その結果である．
-図\ref{fig:89x2cbow_pac}や図\ref{fig:89x2cbow_tsne}を見ると小数は小数，整数は整数でまとまっているように見える．
-しかし，文字の分散表現と，その集合である式の分散表現の精度が一致することはまだわからない．
-また，出現文字を全て別の1-of-k表現した場合，一つ一つの情報が疎になってうまく学習が進まないことがわかった．
+
 \begin{center}
-  \begin{figure}
+  \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{image/pca_out2.png}
-    \caption{CBOW 89次元を2次元に分散表現を圧縮したのちpcaで再構成しグラフ化した結果}
+    \includegraphics[width=\linewidth]{image/CBOW_pca_out22_200.png}
+    \caption{CBOWにて22次元を200次元に分散表現を変換したのちpcaで再構成しグラフ化した結果}
     \label{fig:89x2cbow_pac}
   \end{figure}
 \end{center}
 
 
 \begin{center}
-  \begin{figure}
+  \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{image/tsne_out2.png}
-    \caption{CBOW 89次元を2次元に分散表現を圧縮したのちT-SNEで再構成しグラフ化した結果}
+    \includegraphics[width=\linewidth]{image/CBOW_tsne_out22_200.png}
+    \caption{CBOW 22次元を200次元に分散表現を変換したのちT-SNEで再構成しグラフ化した結果}
     \label{fig:89x2cbow_tsne}
   \end{figure}
 \end{center}
 
+図\ref{fig:89x2cbow_pac}や図\ref{fig:89x2cbow_tsne}を見るとそれぞれの文字に関係はないように見える．
+しかし，実際にベクトルの類似度のランキングは以下のようになった
 
-\begin{center}
-  \begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{image/tsne_mkvec_all_10107x2_200.png}
-    \caption{SkipGram 10107次元を2次元に分散表現を圧縮したのちT-SNEで再構成しグラフ化した結果}
-    \label{fig:10107x2cbow_tsne}
-  \end{figure}
-\end{center}
+
+\begin{figure}[htpb]
+  \centering
+  \begin{tabular}{c}
+    \begin{minipage}{0.47\hsize}
+      \centering
+      \includegraphics[width=\linewidth]{image/1.png}
+    \end{minipage}
+
+    \begin{minipage}{0.06\hsize}
+      \hspace{2mm}
+    \end{minipage}
+
+    \begin{minipage}{0.47\hsize}
+      \centering
+      \includegraphics[width=\linewidth]{image/2.png}
+
+    \end{minipage}
+
+  \end{tabular}
+  \caption{Seq2Seq}
+
+  \label{fig:textresult}
+\end{figure}
+
+
+
+\section{系列変換モデルの検討}
+本論文の目的としては系列変換の過程で用いれるEncoderからDecoderに渡す最終出力$h$を式ベクトルとしてみなす．
+よって$h$の制度を高めていくモデルが必要となる．
+実験するモデルは通常のLSTMで行う系列変換，双方向RNNを用いたbi-directionlモデル，通常Decoderが側で利用されるSkipConnectionの三種類をEncoderのモデルとした．
+デコーダ側は通常のLSTMで行う系列変換とAttentionを用いたモデルの２種類で確認を行うこととした．
+以下モデルを模式図にした．
+
+
+\begin{figure}[htpb]
+  \centering
+  \begin{tabular}{c}
+
+    \begin{minipage}{0.47\hsize}
+      \centering
+      \includegraphics[width=\linewidth]{image/seq2seq_image.png}
+      \caption{Seq2Seq}
+      \label{fig:seq2seq}
+    \end{minipage}
+
+    %--- 中央スペース
+
+    \begin{minipage}{0.06\hsize}
+      \hspace{2mm}
+    \end{minipage}
+
+
+    \begin{minipage}{0.47\hsize}
+      \centering
+      \includegraphics[width=\linewidth]{image/attention_image.png}
+      \caption{Attention Seq2Seq}
+      \label{fig:Attention Seq2Seq}
+    \end{minipage}
+
+  \end{tabular}
+\end{figure}
+
+
+\begin{figure}[htpb]
+  \centering
+  \begin{tabular}{c}
+
+    \begin{minipage}{0.47\hsize}
+      \centering
+      \includegraphics[width=\linewidth]{image/twinRNN.png}
+      \caption{bi-directionl Seq2seq}
+      \label{fig:bi-directionl Seq2seq}
+    \end{minipage}
+
+    %--- 中央スペース
+
+    \begin{minipage}{0.06\hsize}
+      \hspace{2mm}
+    \end{minipage}
+
+
+    \begin{minipage}{0.47\hsize}
+      \centering
+      \includegraphics[width=\linewidth]{image/twinRNN2Attention.png}
+      \caption{bi-directionlAttentionSeq2Seq}
+      \label{fig:bi-directionl AttentionSeq2Seq}
+    \end{minipage}
+
+  \end{tabular}
+\end{figure}
+
+
+\begin{figure}[htpb]
+  \centering
+  \begin{tabular}{c}
+
+    \begin{minipage}{0.47\hsize}
+      \centering
+      \includegraphics[width=\linewidth]{image/Skipconnect.png}
+      \caption{Skip Seq2seq}
+      \label{fig:SkipSeq2seq}
+    \end{minipage}
+
+    %--- 中央スペース
+
+    \begin{minipage}{0.06\hsize}
+      \hspace{2mm}
+    \end{minipage}
+
+
+    \begin{minipage}{0.47\hsize}
+      \centering
+      \includegraphics[width=\linewidth]{image/SkipAttention.png}
+      \caption{Skip Attention Seq2Seq}
+      \label{fig:SkipAttentionSeq2Seq}
+    \end{minipage}
+
+  \end{tabular}
+\end{figure}
 
 \clearpage
 \section{正誤判定機}
@@ -642,16 +754,16 @@ onehotベクトルの置き方は以下の2手法を試し，それぞれPCAとT
 以下ネットワーク\ref{table:Encorder},\ref{table:Decorder}で学習データ10個を学習し，Encoderの出力の式の分散表現と思われるものの分布である．
 学習データは以下の１０個である．
 \begin{itemize}
-  \item \verb# x + 5 = 8#
-  \item \verb#5 x - 7 = 4#
-  \item \verb#3.6 + x = - 1.4#
-  \item \verb#3 x - 4 = - 5 x + 5#
-  \item \verb#\frac { 7 } { 2 } x + 9 = 6#
-  \item \verb#3 ( 2 x - 1 )= 9#
-  \item \verb#\frac { 3 } { 7 } x + 2 = \frac { 6 } { 7 }#
-  \item \verb#- \frac{4}{7}x + 3 = - \frac{1}{7}x#
-  \item \verb#\frac{x+1}{3} +\frac{2x+1}{2} = \frac{3x-4}{2}#
-  \item \verb#-4x + 9 = 1#
+  \item\verb#x+5=8#
+  \item\verb#5x-7=4#
+  \item\verb#3.6+x=-1.4#
+  \item\verb#3x-4=-5x+5#
+  \item\verb#\frac{7}{2}x+9=6#
+  \item\verb#3(2x-1)=9#
+  \item\verb#\frac{3}{7}x+2=\frac{6}{7}#
+  \item\verb#-\frac{4}{7}x+3=-\frac{1}{7}x#
+  \item\verb#\frac{x+1}{3}+\frac{2x+1}{2}=\frac{3x-4}{2}#
+  \item\verb#-4x+9=1#
 \end{itemize}
 
 
