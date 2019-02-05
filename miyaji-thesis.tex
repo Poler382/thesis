@@ -101,8 +101,8 @@
 この状況では先生が生徒一人一人に時間をさき，指導することは難しい現状がつづいている．
 
 この打開策として，IT技術駆使した個人別最適化学習に注目が集まっている，
-しかし，教育の情報は，生徒の情報と結びついている個人情報なためオープン化できず，現在でているサービスでは各サービス利用者の利用状況からデータを取得し，その運用に利用しているため一部の王手企業が情報を独占している．
-そこで個人の統計データではなく，解く数式の方に着目し，計算式自体の特徴を抽出し，間違えた問題と同様の特徴を持つ問題が復習する類題として最適なのではないかという仮定のもと，本論文では数式の特徴を掴むために自然言語処理の分野で使用される分散表現を適用し，さらに再帰ニューラルネットワークを用いて数式ベクトルを作り出すことを目標とし，そのベクトルを用いて実際に復習問題生成を行った．
+しかし，教育の情報は，生徒の情報と結びついている個人情報なためオープン化できず，現在でているサービスでは各サービス利用者の利用状況からデータを取得し，その運用に利用しているため一部の大手企業が情報を独占している．
+そこで個人の統計データではなく，解く数式の方に着目し，計算式自体の特徴を抽出し，間違えた問題と同様の特徴を持つ問題が復習する類題として最適なのではないかという仮定のもと，本論文では数式の特徴を掴むために自然言語処理の分野で使用される分散表現を適用し，さらに再帰ニューラルネットワークを用いて数式ベクトルを作り出すことを目標とし，そのベクトルを用いて実際に復習問題推定を行った．
 
 \chapter{分散表現\label{ch:Distributed representation}}
 自然言語処理ではコンピューターで演算するために各単語を判別するために単語一つ一つをonehotベクトルというものに置き換える．
@@ -144,44 +144,33 @@ Continuous Bag-of-Words Model(以降，CBOWと略記)は文献\cite{SkipCBOW}で
 
 
 
-\begin{equation}[tb]
+\begin{equation}[H]
   \label{cobw同時確率}
   \begin{array}{c}
     P(w_{t}|w_{t-m},...,w_{t+m})
   \end{array}
 \end{equation}
 
-\begin{equation}
+\begin{equation}[tbh]
   \label{cbow_loss}
   \begin{array}{c}
     L = -\frac{1}{T} \sum_{t = 0}^T \log P(w_{t}|w_{t-m},...,w_{t+m})
   \end{array}
 \end{equation}
 
-\begin{figure}
+\begin{figure}[H]
   \centering
   \includegraphics[width = 80mm]{image/cbow_w1w2wt-1wtwt+1.png}
   \caption{単語の列からターゲットとなる単語を推測する($m = 1$)}
   \label{fig:CBOWformula}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
   \centering
   \includegraphics[width = 100mm]{image/CBOW_windowsize_1.png}
   \caption{CBOWのネットワーク構成モデル模式図($ m = 1$) }
   \label{fig:CBOWimage}
 \end{figure}
-
-
-\if0
-
-\begin{figure}
-  \centering
-  \includegraphics[scale = 0.5]{image/CBOW_image.png}
-  \caption{次元圧縮のイメージ図 次元数$v$のベクトルに$V \times N $の埋め込み行列をかけて隠れ層のベクトルの次元を$N$次元に圧縮すことができる}
-  \label{fig:CBOWimage}
-\end{figure}
-\fi
 
 \clearpage
 
@@ -190,7 +179,7 @@ Skip Gramは文献\cite{SkipCBOW}で紹介されている章\ref{sec:CBOW}で述
 CBOWとは逆に中心の単語$w_{t}$から$m$個の周辺単語を推測するモデルである．
 ネットワーク構成は図\ref{fig:SkipGramimage}のようになる．
 
-\begin{figure}
+\begin{figure}[H]
   \centering
   \includegraphics[width = 80mm]{image/skipgram_w1w2wt-1wtwt+1.png}
   \caption{単語の列からターゲットとなる単語を推測する($m = 1$)}
@@ -198,7 +187,7 @@ CBOWとは逆に中心の単語$w_{t}$から$m$個の周辺単語を推測する
 \end{figure}
 
 
-\begin{figure}
+\begin{figure}[H]
   \centering
   \includegraphics[width = 100mm]{image/SkipGram_windowsize_1.png}
   \caption{SkipGramのネットワーク構成モデル模式図($ m = 1$) }
@@ -408,10 +397,10 @@ SoftMax層（式\ref{eq:softmax}）でベクトルの値を確率に変換する
   \end{split}
 \end{equation}
 
-区切れ文字<eos>によって出力された$y_{0}$を次の時刻の入力とし，$2$時刻目として$y_{1}$を出力し再び区切れ文字を出力するまで繰り返す，
+区切れ文字<EOS>によって出力された$y_{0}$を次の時刻の入力とし，$2$時刻目として$y_{1}$を出力し再び区切れ文字を出力するまで繰り返す，
 この技術を応用して機械翻訳など時系列データの変換に用いる．
 
-
+\if0
 \chapter{Attention\label{ch:attention} }
 章\ref{ch:Seq2Seq}で導入した系列変換モデルだが，問題点があり，図\ref{fig:seq2seq_3time}で示したように，系列を固定長のベクトルに情報を溜め込むのだが，系列が長くても短くても固定長のベクトルになるため長い系列だと容量不足になる問題があった．
 そのことを解決する手法の一つとしてAttentionを導入する．
@@ -468,6 +457,7 @@ Attention Weightはhsと$h^{decoder}$のベクトルの類似度を計算する.
     \label{fig:Attention_layer}
   \end{figure}
 \end{center}
+\fi
 
 
 \chapter{Exericises Vecter Representation\label{ch:method}}
@@ -506,6 +496,7 @@ Attention Weightはhsと$h^{decoder}$のベクトルの類似度を計算する.
 この考えを実現するために数式は我々が目にする$2x+3=5$, $\frac{3x-1}{2}+4=\frac{2}{5}$ではなく，テキスト化かつその特徴を強く受けた形に変換する必要がある．
 そこで本論文では数式をある一定のルールの中でテキスト化されている{\TeX}形式の数式を用いる．
 上記の計算式なら\verb#2x+3=5#,\verb#\frac{3x-1}{2}+4=\frac{2}{5}#とし，このテキストデータを用いて文字単位の埋め込んだベクトルを作成する．
+この式を数字は数字で，，文字，小数点，符号，丸括弧，波括弧でわけそれぞれ1-of-k表記でベクトル化する．
 
 実験を行った手法は以下の2種法で行い，それぞれ分布をpythonを用いて確認した．
 \begin{itemize}
@@ -545,134 +536,101 @@ onehotベクトルの置き方は以下の2手法を試し，それぞれPCAとT
 \end{center}
 
 図\ref{fig:89x2cbow_pac}や図\ref{fig:89x2cbow_tsne}を見るとそれぞれの文字に関係はないように見える．
-しかし，実際にベクトルの類似度のランキングは以下のようになった
+実際にベクトルの類似度のランキングは以下のようになった.
 
 
 \begin{figure}[htpb]
   \centering
   \begin{tabular}{c}
-    \begin{minipage}{0.47\hsize}
+    \begin{minipage}{0.5\hsize}
       \centering
       \includegraphics[width=\linewidth]{image/1.png}
     \end{minipage}
 
-    \begin{minipage}{0.06\hsize}
-      \hspace{2mm}
-    \end{minipage}
-
-    \begin{minipage}{0.47\hsize}
+    \begin{minipage}{0.5\hsize}
       \centering
       \includegraphics[width=\linewidth]{image/2.png}
-
     \end{minipage}
 
   \end{tabular}
-  \caption{Seq2Seq}
+  \caption{CBOWでベクトル化したのちベクトル間の類似度トップ５を表示}
 
   \label{fig:textresult}
 \end{figure}
 
+これを見てもベクトル間に関係が現れていないように見える．\cite{seq2seq}であるようにベクトル間の演算はできないが，
+丸括弧$(,)$と波括弧$\{ \}$のベクトル間距離を測ると
+\[
+( ) の距離 27.04968437532474
+\]
+\[
+\{ \} の距離 27.04968437532474
+\]
+このように完全に一致した．このことからword2vecを数式に用いた場合，今回の一次方程式がコーパスの際には記号の位置関係だけ学び，数式の形状は取り出せる事がわかった．
 
+なお，ベクトル間の距離を式\ref{eq:l}，類似度を式\ref{eq:inner}で算出する
+
+
+\begin{equation}
+  \label{eq:l}
+  \begin{split}
+    |\vec{a}-\vec{b}| =  \sqrt{|\vec{a}|^2 + |\vec{b}|^2 - 2  \vec{a} \cdot \vec{b}}
+  \end{split}
+\end{equation}
+
+\begin{equation}
+  \label{eq:inner}
+  \begin{split}
+    \cos \theta = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}| |\vec{b}|}
+  \end{split}
+\end{equation}
 
 \section{系列変換モデルの検討}
 本論文の目的としては系列変換の過程で用いれるEncoderからDecoderに渡す最終出力$h$を式ベクトルとしてみなす．
-よって$h$の制度を高めていくモデルが必要となる．
+よって$h$の精度を高めていくモデルが必要となる．
 実験するモデルは通常のLSTMで行う系列変換，双方向RNNを用いたbi-directionlモデル，通常Decoderが側で利用されるSkipConnectionの三種類をEncoderのモデルとした．
 デコーダ側は通常のLSTMで行う系列変換とAttentionを用いたモデルの２種類で確認を行うこととした．
 以下モデルを模式図にした．
 
 
-\begin{figure}[htpb]
-  \centering
-  \begin{tabular}{c}
 
-    \begin{minipage}{0.47\hsize}
-      \centering
-      \includegraphics[width=\linewidth]{image/seq2seq_image.png}
-      \caption{Seq2Seq}
-      \label{fig:seq2seq}
-    \end{minipage}
-
-    %--- 中央スペース
-
-    \begin{minipage}{0.06\hsize}
-      \hspace{2mm}
-    \end{minipage}
+\begin{center}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{image/seq2seq_image.png}
+    \caption{基本モデル}
+    \label{fig:seq2seq}
+  \end{figure}
+\end{center}
 
 
-    \begin{minipage}{0.47\hsize}
-      \centering
-      \includegraphics[width=\linewidth]{image/attention_image.png}
-      \caption{Attention Seq2Seq}
-      \label{fig:Attention Seq2Seq}
-    \end{minipage}
 
-  \end{tabular}
-\end{figure}
-
-
-\begin{figure}[htpb]
-  \centering
-  \begin{tabular}{c}
-
-    \begin{minipage}{0.47\hsize}
-      \centering
-      \includegraphics[width=\linewidth]{image/twinRNN.png}
-      \caption{bi-directionl Seq2seq}
-      \label{fig:bi-directionl Seq2seq}
-    \end{minipage}
-
-    %--- 中央スペース
-
-    \begin{minipage}{0.06\hsize}
-      \hspace{2mm}
-    \end{minipage}
+\begin{center}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{image/Skipconnect.png}
+    \caption{SkipConnectionモデル}
+    \label{fig:SkipSeq2seq}
+  \end{figure}
+\end{center}
 
 
-    \begin{minipage}{0.47\hsize}
-      \centering
-      \includegraphics[width=\linewidth]{image/twinRNN2Attention.png}
-      \caption{bi-directionlAttentionSeq2Seq}
-      \label{fig:bi-directionl AttentionSeq2Seq}
-    \end{minipage}
 
-  \end{tabular}
-\end{figure}
+\begin{center}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{image/twinRNN.png}
+    \caption{bi-directionlモデル}
+    \label{fig:bi-directionl Seq2seq}
+  \end{figure}
+\end{center}
 
-
-\begin{figure}[htpb]
-  \centering
-  \begin{tabular}{c}
-
-    \begin{minipage}{0.47\hsize}
-      \centering
-      \includegraphics[width=\linewidth]{image/Skipconnect.png}
-      \caption{Skip Seq2seq}
-      \label{fig:SkipSeq2seq}
-    \end{minipage}
-
-    %--- 中央スペース
-
-    \begin{minipage}{0.06\hsize}
-      \hspace{2mm}
-    \end{minipage}
-
-
-    \begin{minipage}{0.47\hsize}
-      \centering
-      \includegraphics[width=\linewidth]{image/SkipAttention.png}
-      \caption{Skip Attention Seq2Seq}
-      \label{fig:SkipAttentionSeq2Seq}
-    \end{minipage}
-
-  \end{tabular}
-\end{figure}
 
 \clearpage
 \section{正誤判定機}
 \subsection{概要}
 プリントから回答者の問題の正誤を判定し，記録していくのがOX Discriminaerである．
-正誤を判定するのには画像認識のニューラルネットを利用している．回答用紙の答えのところを切り取り，各問題に対して正解か不正解かを確認し，別途用意した，個人のプリント進行表csvファイルにプリント番号とそのプリントの問題ごとを正解ならo，不正解ならxとしてファイルに書き込んでいく．（図\ref{fig:Discriminater_simple}）
+正誤を判定するのには畳み込みニューラルネットを利用している．回答用紙の答えのところを切り取り，各問題に対して正解か不正解かを確認し，別途用意した，個人のプリント進行表csvファイルにプリント番号とそのプリントの問題ごとを正解ならo，不正解ならxとしてファイルに書き込んでいく．（図\ref{fig:Discriminater_simple}）
 
 \begin{center}
   \begin{figure}[htb]
@@ -682,6 +640,9 @@ onehotベクトルの置き方は以下の2手法を試し，それぞれPCAとT
     \label{fig:Discriminater_simple}
   \end{figure}
 \end{center}
+
+この正誤を用いて間違えた問題を特定し，その数式の類題を分布に基づいて特定する．
+
 
 
 
@@ -709,50 +670,42 @@ onehotベクトルの置き方は以下の2手法を試し，それぞれPCAとT
   そのEncoderの出力値を数式ベクトルとしてみなし，pca,T-sneで二次元ベクトルに圧縮し図示する
 \end{itemize}
 
-実験で試したネットワーク構成は以下の通りである．
+実験で試したネットワーク構成を\ref{tb:network_collection}に示す．
 
+\begin{table}[H]
+  \centering
+  \caption{ネットワーク構成}
+  \begin{tabular}{|l|c|r|r|r|} \hline
+    モデル & 入力サイズ & Encoderの出力サイズ &　LSTM層の数 \\ \hline \hline
+    Normal&　22       & 200              &      1 \\
+    &　         & 200              &      4 \\
+    &　         & 200              &      8 \\
+    &　         & 500              &      1 \\
+    &　         & 500              &      4 \\
+    &　         & 500              &      8 \\
+    &　         & 1000             &      1 \\
+    &　         & 1000             &      4 \\
+    &　         & 1000             &      8 \\ \hline \hline
+    SkipConnect&　22       & 200              &      1 \\
+    &　         & 200              &      4 \\
+    &　         & 200              &      8 \\
+    &　         & 500              &      1 \\
+    &　         & 500              &      4 \\
+    &　         & 500              &      8 \\
+    &　         & 1000             &      1 \\
+    &　         & 1000             &      4 \\
+    &　         & 1000             &      8 \\ \hline \hline
+    BiDirectional&　22       & 200 &      1 \\
+    &　         & 500              &      1 \\
+    &　         & 1000             &      1 \\ \hline
+  \end{tabular}
+  \label{tb:network_collection}
 
-\begin{table}[hbt]
-  \begin{center}
-    \caption{Encorderの構成}
-    \label{table:Encorder}
-    \begin{tabularx}{0.9\linewidth}{|l|l|X|}
-      \hline
-      1 & Embedding層 & 入力ノード数:$89$，出力ノード数:$2$ \\
-      \hline
-      2 & LSTM層 & 入力ノード数:$2$，出力ノード数:$50$ \\
-      \hline
-      3 & LSTM層 & 入力ノード数:$50$，出力ノード数:$50$ \\
-      \hline
-    \end{tabularx}
-  \end{center}
 \end{table}
-
-
-\begin{table}[hbt]
-  \begin{center}
-    \caption{Encorderの構成}
-    \label{table:Decorder}
-    \begin{tabularx}{0.9\linewidth}{|l|l|X|}
-      \hline
-      1 & Embedding層 & 入力ノード数:$89$，出力ノード数:$2$ \\
-      \hline
-      2 & LSTM層 & 入力ノード数:$2$，出力ノード数:$50$ \\
-      \hline
-      3 & LSTM層 & 入力ノード数:$50$，出力ノード数:$50$ \\
-      \hline
-      4 & LSTM層 & 入力ノード数:$50$，出力ノード数:$50$ \\
-      \hline
-      4 & Affine層 & 入力ノード数:$50$，出力ノード数:$89$ \\
-      \hline
-    \end{tabularx}
-  \end{center}
-\end{table}
-\clearpage
 
 \section{実験結果}
 以下ネットワーク\ref{table:Encorder},\ref{table:Decorder}で学習データ10個を学習し，Encoderの出力の式の分散表現と思われるものの分布である．
-学習データは以下の１０個である．
+学習データの先頭10個を示す．．
 \begin{itemize}
   \item\verb#x+5=8#
   \item\verb#5x-7=4#
@@ -836,7 +789,7 @@ onehotベクトルの置き方は以下の2手法を試し，それぞれPCAとT
 自然言語処理を数式を適応した例は筆者が調べるかぎりはなく，自然言語以外にWord2vecを適用しようとした研究はいくつかあり，再帰ニューラルネットを応用したものである．
 文献\cite{kannrenn3}では文の特徴をEncoder-Decoderの機構を用いて学習し，Encoderの隠れ層の出力により文章の類似度を算出している．文献\cite{kannrenn3}によると小説の一部を学習データに用いて，埋め込み層としてSkipGramを適用している．gemsimのDoc2Vecとの比較がなされているが，ユーザーにとって有益な評価方法の設定の難しさを述べている．
 
-文献\cite{lannrenn4}ではプログラムコードを埋め込み，再構成して実行できるかどうかを試している．C言語で書かれたプログラムを一文字ごと，i-of-k符号化して読み込んでいる．Dropoutを適用させることにより性能を向上させている．今後，スペルミスによるコンパイルエラーを事前に直してくれることを目的としている．
+文献\cite{lannrenn4}ではプログラムコードを埋め込み，再構成して実行できるかどうかを試している．C言語で書かれたプログラムを一文字ごと，1-of-k符号化して読み込んでいる．Dropoutを適用させることにより性能を向上させている．今後，スペルミスによるコンパイルエラーを事前に直してくれることを目的としている．
 
 文献\cite{kannrenn5}ではDeepLearingの技術の検索の際，ユーザーが求めている情報を推奨することを目的としている．
 評価方法としてMovie Lens-100Kでの映画の推奨をパラメーター，ネットワークの構成を様々試しながら知見を集めている．
@@ -859,7 +812,7 @@ AEは層を重ねても，性能は向上せず，各映画のユーザー平均
 }
 \fi
 
-本研究の結果によって計算式をベクトルとして扱うことが可能なことが示唆することができた．
+本研究の結果によって系列変換により，人工的に作れた数式を意味のあるベクトルに変換する事ができた．
 これにより数式データのみで最適な問題選択を可能とし，いまある個人情報と合わせるとより高い精度でシステムが提供できるように思う．
 本研究により，自然言語処理の分野で発展してきた技術は人口言語でも利用することができることが示せた．
 これは人間が作り発展させてきたものはどこか本質的には同様の特徴を持っており，その特徴をコンピュータが学ぶことができたことではないだろうか．

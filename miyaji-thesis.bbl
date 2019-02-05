@@ -1,11 +1,10 @@
 \begin{thebibliography}{1}
 
-\bibitem{attention}
-Christopher D.Manning Effective Approaches to Attention-based Neural Machine
-  Translation (2015).
-
 \bibitem{SkipCBOW}
 JeffreyDeanEfficient Estimation of Word Representations in Vector Space (2013).
+
+\bibitem{seq2seq}
+Quoc~V.LeSequence to Sequence Learning with Neural Networks (2014).
 
 \bibitem{benesse_DateBook}
 year第６回学習指導基本調査 DATA BOOK（高校版) (2016).
