@@ -704,46 +704,168 @@ onehotベクトルの置き方は以下の2手法を試し，それぞれPCAとT
 \end{table}
 
 \section{実験結果}
-以下ネットワーク\ref{table:Encorder},\ref{table:Decorder}で学習データ10個を学習し，Encoderの出力の式の分散表現と思われるものの分布である．
+以下ネットワーク\ref{table:Encorder},\ref{table:Decorder}で学習データ20個を学習し，Encoderの出力の式の分散表現と思われるものの分布である．
 学習データの先頭10個を示す．．
 \begin{itemize}
-  \item\verb#x+5=8#
-  \item\verb#5x-7=4#
-  \item\verb#3.6+x=-1.4#
-  \item\verb#3x-4=-5x+5#
-  \item\verb#\frac{7}{2}x+9=6#
-  \item\verb#3(2x-1)=9#
-  \item\verb#\frac{3}{7}x+2=\frac{6}{7}#
-  \item\verb#-\frac{4}{7}x+3=-\frac{1}{7}x#
-  \item\verb#\frac{x+1}{3}+\frac{2x+1}{2}=\frac{3x-4}{2}#
-  \item\verb#-4x+9=1#
+  \item \par \verb#x+5=8#
+  \item \par \verb#5x-7=4#
+  \item \par \verb#3.6+x=-1.4#
+  \item \par \verb#3x-4=-5x+5#
+  \item \par \verb#\frac{7}{2}x+9=6#
+  \item \par \verb#3(2x-1)=9#
+  \item \par \verb#\frac{3}{7}x+2=\frac{6}{7}#
+  \item \par \verb#-\frac{4}{7}x+3=-\frac{1}{7}x#
+  \item \par \verb#\frac{x+1}{3}+\frac{2x+1}{2}=\frac{3x-4}{2}#
+  \item \par \verb#-4x+9=1#
+  \item \par \verb#5x-9=10#
+  \item \par \verb#7.2x-4=2.2x+9#
+  \item \par \verb#3(x-4)=7x-10#
+  \item \par \verb#\frac{3}{7}x-3=-5#
+  \item \par \verb#-\frac{9}{8}x-4=-3x#
+  \item \par \verb#\frac{x-5}{4}+6=\frac{5}{2}#
+  \item \par \verb#\frac{2x+1}{5}=\frac{x-5}{4}#
+  \item \par \verb#0.8x-(0.01x-2)=0.03x-2#
+  \item \par \verb#-10x-5=8#
+  \item \par \verb#5x+10=1#
 \end{itemize}
 
 
 \begin{center}
-  \begin{figure}
+  \begin{figure}[tb]
     \centering
-    \includegraphics[width=0.8\linewidth]{image/cbow89x2.png}
-    \caption{式ベクトルの分布（cbow）}
-    \label{fig:formulavecter_fromCbow}
+    \includegraphics[width=0.7\linewidth]{result/pca_formula_EV_final_22x200_1_Wed_Feb_06_06:17:39.png}
+    \caption{Normal　LSTM１層200次元　学習データ}
+    \label{fig:Simple1_200}
   \end{figure}
 \end{center}
 
 
 \begin{center}
-  \begin{figure}
+  \begin{figure}[tb]
     \centering
-    \includegraphics[width=0.8\linewidth]{image/skip89x2.png}
-    \caption{式ベクトルの分布（skipgram）}
-    \label{fig:formulavecter_fromSkip}
+    \includegraphics[width=0.7\linewidth]{result/pca_formula_EV_final_22x200_4_Wed_Feb_06_06:19:53.png}
+    \caption{Normal　LSTM4層200次元　学習データ}
+    \label{fig:Simple4_200}
   \end{figure}
 \end{center}
 
+
+\begin{center}
+  \begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{result/pca_formula_EV_final_22x500_1_Wed_Feb_06_06:28:21.png}
+    \caption{Normal　LSTM１層500次元　学習データ}
+    \label{fig:Simple1_500}
+  \end{figure}
+\end{center}
+
+
+\begin{center}
+  \begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{result/pca_formula_EV_final_22x500_4_Wed_Feb_06_06:43:57.png}
+    \caption{Normal　LSTM4層500次元　学習データ}
+    \label{fig:Simple4_500}
+  \end{figure}
+\end{center}
+
+
+\begin{center}
+  \begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{result/pca_formula_Skip_final_22x200_1_Wed_Feb_06_06:19:41.png}
+    \caption{Skipconnect：LSTM1層200次元　学習データ}
+    \label{fig:Skip4layer1}
+  \end{figure}
+\end{center}
+
+\begin{center}
+  \begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{result/pca_formula_Skip_final_22x200_4_Wed_Feb_06_06:22:39.png}
+    \caption{Skipconnect：LSTM４層200次元　学習データ}
+    \label{fig:Skip4layer2}
+  \end{figure}
+\end{center}
+
+\begin{center}
+  \begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{result/pca_formula_EV_final_test_22x500_1_Wed_Feb_06.png}
+    \caption{Skipconnect：LSTM1層500次元　学習データ}
+    \label{fig:Skip4layer3}
+  \end{figure}
+\end{center}
+
+\begin{center}
+  \begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{image/pca_formula_EV_final_22x200_1_Wed_Feb_06_04:42:56.png}
+    \caption{Skipconnect：LSTM４層200次元　学習データ}
+    \label{fig:Skip4layer}
+  \end{figure}
+\end{center}
+
+\begin{center}
+  \begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{result/pca_formula_Skip_final_22x500_4_Wed_Feb_06_06:47:59.png}
+    \caption{Skipconnect：LSTM４層500次元　学習データ}
+    \label{fig:Skip4layer}
+  \end{figure}
+\end{center}
+
+
+\begin{center}
+  \begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{result/pca_formula_Bi_final_22x500_1_Wed_Feb_06_06:26:57.png}
+    \caption{BiDirection：LSTM1層500次元　学習データ}
+    \label{fig:Bi500layer1}
+  \end{figure}
+\end{center}
+
+\begin{center}
+  \begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{result/pca_formula_Bi_final_22x1000_1_Wed_Feb_06_06:54:20.png}
+    \caption{BiDirection：LSTM1層1000次元　学習データ}
+    \label{fig:Bi500layer2}
+  \end{figure}
+\end{center}
+
+\begin{center}
+  \begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{result/pca_formula_Bi_test_22x500_1_Wed_Feb_06_06:26:57.png}
+    \caption{BiDirection：LSTM1層500次元　テストデータ}
+    \label{fig:Bi500layer3}
+  \end{figure}
+\end{center}
+
+\begin{center}
+  \begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{result/pca_formula_Bi_test_22x1000_1_Wed_Feb_06_06:54:20.png}
+    \caption{BiDirection：LSTM1層1000次元　学習データ}
+    \label{fig:Bi500layer4}
+  \end{figure}
+\end{center}
+
+図\ref{fig:Simple},図\ref{fig:Skip4layer}，図\ref{fig:Bi500layer4}のどれもが同系列そうな問題が近い分布となった．特に図\ref{fig:Skip4layer}は分数の中でも符号でも分かれており，高精度でベクトル化に成功しているように見える．
+このことより系列変換を用いて数式の分類は可能であり応用の余地がある事が確認できた．
+ただし，層を深くすることや，次元をあげるのでは結果が大きく向上する事がない事が判明しており，より精度の高いベクトル取得には様々なチューニングが必要だと思われる．
+
+
+
+
 \section{考察}
-結果の図\ref{fig:formulavecter_fromCbow},図\ref{fig:formulavecter_fromSkip}は結果としてどちらも特徴をとらえていない結果となった．
-考えれる原因として，LSTMでは入力された順番の情報は残らないため前後の関係に強く依存する数式ではうまく表現できなかったように思える
-よって，今後は双方向LSTMやAttentionを用いて前後の関係と，どこに注目してエンコードするのかを強化するひち用がある．
-また，LSTMの隠れ層を深くすることも考えられるが，過学習が起きてしまうためDropoutなど正則化を行い，学習を進める必要がある．
+今回の実験にてNormalEncoder，SkipConnection，BiDirectionalの三種類のencoderについて評価実験を行った．
+NormalEncoderでも200次元では分布として分かれていたが，LSTMを深くすると勾配が消失し，一点に集中している．
+しかし，SkipConnectionを用いると四層のLSTMを繋いでも勾配消失が防ぐ事ができる事が確認できた．
+
+またBi-Directionalではテストデータでも高精度に分類できており，それぞれのencoderの効果がみて取れた．
+
 
 
 \if0
@@ -814,7 +936,7 @@ AEは層を重ねても，性能は向上せず，各映画のユーザー平均
 
 本研究の結果によって系列変換により，人工的に作れた数式を意味のあるベクトルに変換する事ができた．
 これにより数式データのみで最適な問題選択を可能とし，いまある個人情報と合わせるとより高い精度でシステムが提供できるように思う．
-本研究により，自然言語処理の分野で発展してきた技術は人口言語でも利用することができることが示せた．
+本研究により，自然言語処理の分野で発展してきた技術は人工言語でも利用することができることが示せた．
 これは人間が作り発展させてきたものはどこか本質的には同様の特徴を持っており，その特徴をコンピュータが学ぶことができたことではないだろうか．
 
 しかしながら，未だ問題点はあり，計算問題には簡約な問題ほどパターンがなくなり，式から有用な情報が取り出せなくなる恐れがある．

@@ -1,23 +1,29 @@
 \begin{thebibliography}{1}
 
 \bibitem{SkipCBOW}
-JeffreyDeanEfficient Estimation of Word Representations in Vector Space (2013).
+Mikolov, T., Chen, K., Corrado, G. and Dean, J.: Efficient Estimation of Word
+  Representations in Vector Space (2013).
 
 \bibitem{seq2seq}
-Quoc~V.LeSequence to Sequence Learning with Neural Networks (2014).
+Sutskever, I., Vinyals, O. and Le, Q.~V.: Sequence to Sequence Learning with
+  Neural Networks (2014).
 
 \bibitem{benesse_DateBook}
-year第６回学習指導基本調査 DATA BOOK（高校版) (2016).
-
-\bibitem{kannrenn3}
-pages言語処理学会 第24回年次大会 発表論文集 (2018).
+ベネッセ教育総合研究所：第６回学習指導基本調査 DATA BOOK（高校版) (2016).
 
 \bibitem{lannrenn4}
-pagesThe 31st Annual Conference of the Japanese Society for Artificial
-  Intelligence (2017).
+河原崎徳之岡田龍治：Deep Learning を用いた人工言語の学習と獲得について，{\em
+  The 31st Annual Conference of the Japanese Society for Artificial
+  Intelligence} (2017).
+
+\bibitem{kannrenn3}
+福田 清人 森 直樹~松本啓之亮：LSTM
+  を用いた文の分散表現の獲得手法に関する一考察，言語処理学会 第24回年次大会
+  発表論文集 (2018).
 
 \bibitem{kannrenn5}
-pagesThe 28th Annual Conference of the Japanese Society for Artificial
-  Intelligence, (2014).
+川上和也，松尾　豊：Deep Collaborative Filtering Deep Learning
+  技術^^e4^^9b^^be推薦システムへ^^e4^^9b^^be応用，{\em The 28th Annual
+  Conference of the Japanese Society for Artificial Intelligence,} (2014).
 
 \end{thebibliography}
