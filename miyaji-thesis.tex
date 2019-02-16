@@ -8,6 +8,7 @@
 \usepackage{bm}
 \usepackage{bmpsize}
 \usepackage{here}
+\usepackage{scalefnt}
 \bibliographystyle{ipsjsort}
 
 \setlength{\topmargin}{-1in}
@@ -39,7 +40,7 @@
 \begin{document}
 
 \frontpage  % 以下の各項目を自分のテーマにあわせて修正する．
-{計算問題の特徴分布に基づく類題選出による\leavevmode \\ 自己学習支援}
+{計算問題の特徴分布にもとづく類題選出による\\自己学習支援}
 {Self Learning Support by Automatic Selection of Calculation Exercises based on Feature Distribution of Exercises}
 {宮地 雄也}
 
@@ -82,7 +83,10 @@
 
 \begin{center}
   \begin{table}
+
     \caption{出勤時刻・退勤時刻・学校にいる時間（平均時間、経年比較（教員年齢別〔公立全体〕））}
+    \begingroup
+    \scalefont{0.8}
     \begin{tabular}{|l|c|r|r|r|r|r|r|} \hline
       & 調査年 & 25歳以上 & 26〜30歳 & 31〜40歳 & 41〜50歳 & 51〜60歳  \\ \hline \hline
       & 2010 & 7:44 & 7:43 & 7:44 & 7:42 & 7:42 \\ \cline{2-7}
@@ -93,6 +97,7 @@
       学校にいる時間  & 2016 & 12時間26分 & 12時間18分 & 11時間46分 & 11時間26分 & 11時間06分 \\ \cline{2-7}\hline
     \end{tabular}
     \label{tb:teacher_time}
+  \endgroup
   \end{table}
 \end{center}
 
