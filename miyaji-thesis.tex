@@ -26,10 +26,10 @@
 \author{{\huge 成蹊大学理工学部情報科学科}\\　\\{\huge #3}}%
 \date{}
 \maketitle
-\clearpage
+
 \thispagestyle{empty}
 
-\clearpage
+
 }
 
 
@@ -44,48 +44,50 @@
 \frontpage  % 以下の各項目を自分のテーマにあわせて修正する．
 {計算問題の特徴分布にもとづく類題選出による\\自己学習支援}
 {Self Learning Support by Automatic Selection of Calculation Exercises based on Feature Distribution of Exercises}
-{宮地 雄也}
+{S152114 宮地 雄也}
 
 
 
 \chapter*{要旨}
 \thispagestyle{empty}
 
-本研究では自然言語処理の技術を人工言語の数式に適応し，分類ができるかどうかを目的とした．またその評価指標として類題選出も行い実際まちがえているのかどうかも検討した．
-分散表現で文字の特徴量を抽出したのちその特徴量を用いて数式の分散表現化も行い，式のベクトルを得る．この結果から現在では間違った問題から人をグループ化していたシステムから問題をグループ化してその問題を間違えた人の最適化学習支援を行い，より繊細で効果的な学習が期待できる．
-この研究の先には大量の個人情報を扱うアダプティブラーニングにおいて問題から分類できるようになれば，学習データが少なくても十分に効果を発揮することが期待できる．
+本研究は自然言語処理の技術を人工言語の数式に適用し，適切な数式の分類ができるかどうか調べることを目的としている．提案手法では分散表現で文字の特徴量を抽出したのちその特徴量を用いて，さらに再帰ニューラルネットワークを用いて式のベクトルを得た．
+
+提案手法を計算問題の復習を行う際の類題選出に利用し，生徒が間違えた問題の式に近い特徴をもつ式を選べることができるのを確認することができた．
+
+これにより，現在主流な大量の学習データを必要とするアダプティブラーニングに対して，数式データのみで最適問題を選ぶことができ，より簡単に最適な復習類題を示すことができる．
 
 
 \tableofcontents
 \thispagestyle{empty}
-\clearpage
+
 \thispagestyle{plain}
 \setcounter{page}{1}
 
 \chapter{序論 \label{ch:introduction}}
 
-\if0
-\point{
-問題提起を行う．
-解く価値があり，簡単には解けず，誰も解いていない問題を扱っていることがわかるようにする．
-\begin{itemize}
-  \item どういう問題に取り組んだのか？
-  \item その問題を解くことがなぜ重要なのか？ 社会的意義(有用性)・学術的意義（問題の面白さ）
-  \item その問題はどこが難しいのか？ なぜこれまで解かれていなかったのか？ これまではどうしていたのか？
-  \item その問題をどのようなアプローチで解こうとしたのか？ なぜそうしたのか？
-\end{itemize}
-}
-\fi
-
-昨今，小・中学生の理系離れが問題視されている．平成30年度全国学力・学習状況調査（全国学力テスト）の結果では平均正答率は小学校では算数Bが51.7\%，中学校数学では47.6\%とどちらも最も低く，ついで国語，理科の順で正答率が低い．
+昨今，小・中学生の理系離れが問題視されている．平成30年度全国学力・学習状況調査（全国学力テスト）（文献\cite{result_zennkoku_test}）の結果では平均正答率は小学校では算数Bが51.7\%，中学校では数学が47.6\%とどちらも最も低く，ついで国語，理科の順で正答率が低い．
 小中どちらとも理系教科の習熟度が低いことを示している．
-この要因の一つに，数学は一つの計算方法が様々な分野に横断していくことが一度，苦手を生んでしまったらそこからの分野の理解度が下がり，次の分野での応用がきかないために連鎖的に苦手が蓄積することが原因ではないかと考えた．各単元のちょっとした積み残しが，後々，尾を引いていることが全国学力テストの結果から見て取れる．この状況を打破するには子供一人一人の苦手と向き合い，苦手と感じる前に理解していくしかない．
-しかしながら，生徒と向き合うべき教師の労働時間は過酷を極めており，ベネッセ教育総合研究所の調査では小中高の教員の領導時間は増加の一途を辿っていることを明らかにした．
+全国学力テストの中に小学校６年生時に算数が好きな生徒は65.1\%に対して３年後の中学校３年生の時でも数学が好きな割合が51.6\%と低く，勉強が進むにつれ苦手な子が増えることが分かる．
+
+この要因の一つに，数学は一つの計算方法が様々な分野に横断していくため，一度，苦手を生んでしまったらそこからの分野の理解度が下がり，次の分野での応用がきかないために連鎖的に苦手が蓄積してしまうことがあげられる．この状況を打破するには子供一人一人の苦手と向き合い，苦手と感じる前に理解していくしかない．
+しかしながら，生徒と向き合うべき教師の労働時間は過酷を極めている．ベネッセ教育総合研究所の調査によると小中高の教員の領導時間は増加の一途を辿っていることを明らかにした．
 表\ref{tb:teacher_time}は文献\cite{benesse_DateBook}での調査の結果の抜粋である．
 
-\begin{center}
-  \begin{table}
+表\ref{tb:teacher_time}によると，教員の労働時間は2010年に比べて2016年の方が各年次とも増加しており，教員のやることが増えている一方で，主であるはずの教材研究や教務準備に時間が割けていないことがわかる．
+この状況では先生が生徒一人一人に時間をさき，指導することは難しい．
 
+この打開策として，IT技術駆使した個人別最適化学習に注目が集まっている．
+しかし，教育の情報は，生徒の情報と結びついている個人情報なためオープン化できない．
+現在でているサービスでは各サービス利用者の利用状況からデータを取得し，その運用に利用しており一部の大手企業が情報を独占している．
+
+そこで個人のデータではなく，解く数式の方に着目し，生徒が間違えた問題と同様の特徴を持つ問題が復習する類題として最適なのではないかという仮定のもと，本論文では数式の特徴を掴むために自然言語処理の分野で使用される分散表現を適用し，さらに再帰ニューラルネットワークを用いて数式ベクトルを作り出し，そのベクトルを用いて実際に復習問題選出を行う手法を提案する．
+
+数式自体も自然言語と同様にある一定のルールがあり，自然言語処理を使ってベクトル化する手法は自然な発想である．
+さらにこの手法を用いれば現在主流の大量の個人データを必要とせず，問題データさえあれば良いので，比較的に簡単に利用することができる利点がある．
+
+\begin{center}
+  \begin{table}[t]
     \caption{出勤時刻・退勤時刻・学校にいる時間（平均時間、経年比較（教員年齢別〔公立全体〕））}
     \begingroup
     \scalefont{0.8}
@@ -103,17 +105,9 @@
   \end{table}
 \end{center}
 
-表\ref{tb:teacher_time}によると，教員の労働時間は2010年に比べて2016年の方が各年次とも増加しており，教員のやることが増えている一方で
-，主であるはずの教材研究や教務準備に時間が避けていないことを示している．
-この状況では先生が生徒一人一人に時間をさき，指導することは難しい現状がつづいている．
-
-この打開策として，IT技術駆使した個人別最適化学習に注目が集まっている，
-しかし，教育の情報は，生徒の情報と結びついている個人情報なためオープン化できず，現在でているサービスでは各サービス利用者の利用状況からデータを取得し，その運用に利用しているため一部の大手企業が情報を独占している．
-そこで個人の統計データではなく，解く数式の方に着目し，計算式自体の特徴を抽出し，間違えた問題と同様の特徴を持つ問題が復習する類題として最適なのではないかという仮定のもと，本論文では数式の特徴を掴むために自然言語処理の分野で使用される分散表現を適用し，さらに再帰ニューラルネットワークを用いて数式ベクトルを作り出すことを目標とし，そのベクトルを用いて実際に復習問題推定を行った．
-
 \chapter{分散表現\label{ch:Distributed representation}}
 自然言語処理ではコンピューターで演算するために各単語を判別するために単語一つ一つをonehotベクトルというものに置き換える．
-onehotベクトルとはある語彙数$V$の文章の中の単語$w_{i}$がある時，次元数$V$のベクトルに対し$i$番目の要素のみ1で残りが全て0になっているベクトルのことである(式\ref{onehot})．
+onehotベクトルとはある語彙数$V$の文章の中の単語$w_{i}$を，$i$番目の要素のみ1で残りが全て0になっている次元$V$のベクトルで表したものである（式\ref{onehot}）．
 
 \begin{equation}
   \label{onehot}
@@ -131,23 +125,29 @@ onehotベクトルとはある語彙数$V$の文章の中の単語$w_{i}$があ�
 
 
 これにより単語一つ一つを別々のベクトルとして区別して表記することができる．
-しかしonehotベクトルには問題点があり，一つ目として，ある単語の語彙数$V$が増加すると比例してonehotベクトルの次元$V$も大きくなり，
-処理に時間がかかる点がある．また二つ目としてonehotベクトルでは情報が0か1しかないので疎なベクトルができる．疎なベクトルとは次元数が大きくてもそのベクトルの持つ意味が薄いベクトルをさす，
+しかしonehotベクトルには問題点がある．
+一つ目は，ある単語の語彙数$V$が増加すると比例してonehotベクトルの次元$V$も大きくなり，
+処理に時間がかかる点である．
+二つ目はonehotベクトルでは情報が0か1しかないので疎なベクトルができる点である．
+疎なベクトルとは次元数が大きくても０以外の要素がほとんどないベクトルをさす．
+
 このような問題を解決しようと考えられたのが分散表現である.
+分散表現とは疎なonehotベクトルから密なベクトルを作り出し，単語の意味を表そうとする手法である．
+これにより疎なベクトルであった単語のベクトルを密な表現ができ，ベクトルの次元数を削減することができる．
 
-分散表現とは疎なonehotベクトルを密な密な実数値をの集合をベクトルとして扱い，その実数値で単語の意味を表そうとする手法である．
-これにより疎なベクトルであった単語のベクトルを密な表現ができ，また，密度が上がることでベクトルの次元数を削減することができる．
-以下，3手法はその分散表現を得るにあたって機械学習を応用した推論をベースとして編み出された手法である．
+\ref{sec:CBOW}節，\ref{sec:SkipGram}節に本研究で用いる分散表現を得るにあたって機械学習を応用した推論をベースとして編み出された手法である．
+これら以外に文献\cite{1607.01759}で紹介されているfasttextと呼ばれる手法や，共起行列と組み合わせたGlove（文献\cite{glove}）などがある．
 
-\clearpage
+
 \section{Continuous Bag-of-Words Model\label{sec:CBOW}}
-Continuous Bag-of-Words Model(以降，CBOWと略記)は文献\cite{SkipCBOW}で提唱された手法である．
-ある単語数$\upsilon$の単語列$w_{0},w_{1},w_{2},\dots,w_{\upsilon-2},w_{\upsilon-1},w_{\upsilon}$がある時，単語$w_{t}$が文脈中で前後$m$単語をコンテキスト$C$とする時の前後$m$単語が共に共起する事前確率が増大するように学習するモデルである（図\ref{fig:CBOWimage}）．
+Continuous Bag-of-Words Model（以降，CBOWと略記）は文献\cite{SkipCBOW}で提唱された手法である．
+ある単語数$\T$の単語列$w_{1},w_{2},w_{3},\dots,w_{T-2},w_{T-1},w_{T}$がある時，
+単語$w_{t}$が文脈中で前後$m$単語をコンテキスト$C$とする時の前後$m$単語が共に共起する事前確率が増大するように学習するモデルである（図\ref{fig:CBOWimage}）．
 
 
-図\ref{fig:CBOWformula}より$w_{t}$をターゲットにした時の周辺単語$m$個を対象としたときの事後確率は式\ref{cobw同時確率}のように書くことができる．つまりCBOWモデルでは式\ref{cobw同時確率}の最大化問題と見ることができる．
-そこでCBOWの損失関数は，単に式\ref{cobw同時確率}の確率に対数を取りマイナスをつけ，最小化問題として解く．
-式\ref{cbow_loss}はコーパス全体に拡張した形を示す．
+図\ref{fig:CBOWformula}において$w_{t}$をターゲットにした時の前後単語$m$個をコンテキストとする事後確率は式\ref{cobw同時確率}のように書くことができる．つまりCBOWモデルでは式\ref{cobw同時確率}の最大化問題と見ることができる．
+そこでCBOWの損失関数は，単に式\ref{cobw同時確率}の対数を取りマイナスをつけ，最小化問題として解く．
+式\ref{cbow_loss}にコーパス全体に拡張した形を示す．
 
 
 
@@ -161,7 +161,7 @@ Continuous Bag-of-Words Model(以降，CBOWと略記)は文献\cite{SkipCBOW}で
 \begin{equation}
   \label{cbow_loss}
   \begin{array}{c}
-    L = -\frac{1}{T} \sum_{t = 0}^T \log P(w_{t}|w_{t-m},...,w_{t+m})
+    L = -\frac{1}{T} \sum_{t = 1}^T \log P(w_{t}|w_{t-m},...,w_{t+m})　  \B{Tは単語数を表す} \\
   \end{array}
 \end{equation}
 
@@ -179,11 +179,11 @@ Continuous Bag-of-Words Model(以降，CBOWと略記)は文献\cite{SkipCBOW}で
   \label{fig:CBOWimage}
 \end{figure}
 
-\clearpage
+
 
 \section{Skip Gram \label{sec:SkipGram}}
-Skip Gramは文献\cite{SkipCBOW}で紹介されている章\ref{sec:CBOW}で述べたCBOWとは別の手法である．
-CBOWとは逆に中心の単語$w_{t}$から$m$個の周辺単語を推測するモデルである．
+Skip Gramは文献\cite{SkipCBOW}で紹介されている\ref{sec:CBOW}章で述べたCBOWとは別の手法である．
+CBOWとは逆に中心の単語$w_{t}$から前後$m$個の単語を推測するモデルである．
 ネットワーク構成は図\ref{fig:SkipGramimage}のようになる．
 
 \begin{figure}[H]
@@ -217,8 +217,8 @@ CBOWとは逆に中心の単語$w_{t}$から$m$個の周辺単語を推測する
 \begin{equation}
   \label{skip_lossfunc}
   \begin{split}
-    \log P(w_{t-m},...,w_{t+m}|w_{t} ) &= -\log \prod_{k = 0}^m P(w_{t-k}|w_{t})   \\
-    &= - \sum_{k = 0}^m \log P(w_{t-k} | w_{t})
+    -\log P(w_{t-m},...,w_{t+m}|w_{t} ) &= -\log \prod_{k = 1}^m P(w_{t-k}|w_{t}) \log P(w_{t+k}|w_{t})  \\
+    &= - \sum_{k = 1}^m  ( \log P(w_{t-k} | w_{t}) + \log P(w_{t+k}|w_{t}) )
   \end{split}
 \end{equation}
 
@@ -227,20 +227,21 @@ CBOWとは逆に中心の単語$w_{t}$から$m$個の周辺単語を推測する
 \begin{equation}
   \label{skip_loss}
   \begin{split}
-    \sum_{C} \log P(w_{t-m},...,w_{t+m}|w_{t} ) &= \sum_{C} -\log \prod_{k = 0}^m P(w_{t-k}|w_{t})   \\
-    &= - \sum_{C} \sum_{k = 0}^m \log P(w_{t-k} | w_{t})
+    - \sum_{C} \log P(w_{t-m},...,w_{t+m}|w_{t} ) &= \sum_{C} -\log \prod_{k = 1}^m P(w_{t-k}|w_{t}) P(w_{t+k}|w_{t})   \\
+    &= - \sum_{C} \sum_{k = 1}^m \log P(w_{t-k} | w_{t}) + \log P(w_{t+k} | w_{t})
   \end{split}
 \end{equation}
 
 
 \chapter{LSTM(Long short-term memory)\label{ch:LSTM}}
-順伝播ニューラルネットワークでは前の情報はつかわないため文章や音声など，一つ前の情報に影響を受けるデータに対しては有用ではない．
+順伝播ニューラルネットワークでは前の情報はつかわないため,文章や音声など，一つ前の情報に影響を受けるデータに対しては有用ではない．
 そこで，ある時刻$t$の出力の際，過去の情報も扱う再帰ニューラルネットワーク（以降 RNN と省略）というものが発案された．
-これは時刻$t$の入力を$x_{t}$とする時，各ネットワークは過去の情報を記憶しているようにみなすことができる．
+
 しかしながら通常のRNNの場合，時間が経つほどに前の情報は薄れていく勾配消失が起こることがあった．
 これを解決しようとしたのが記憶情報ごとにメモリーの役割を果たすネットワークを分けたLong short-term memory（以降，LSTMと省略）というモデルである．
-LSTMでは前の時刻$t-1$の$C_{t-1}$，$h_{t-1}$，現時刻の$x_{t}$が入力ベクトルとして受け取る．
-$C_{t-1}$はLSTMで導入された時刻0からt-1までの情報を記録しているベクトル，$h_{t-1}$は一時刻前の出力ベクトル，$x_{t}$は時刻$t$の入力ベクトルである．
+
+LSTMでは前の時刻$t-1$の$C_{t-1}$，$h_{t-1}$，現時刻の$x_{t}$を入力ベクトルとして受け取る．
+$C_{t-1}$はLSTMで導入された時刻0から$t-1$ までの情報を記録しているベクトル，$h_{t-1}$は一時刻前の出力ベクトル，$x_{t}$は時刻$t$の入力ベクトルである．
 それぞれのセルを計算するために４つのゲートを導入する．それぞれのゲートは入力セルの情報をどれくらい加味するかを重み付けするゲートである．
 様々なバージョンがある中でもっとも基本的なネットワーク構成を模式図を図\ref{fig:LSTM_Simple}に示す．以下各ゲートに対して説明する．
 
@@ -254,7 +255,7 @@ $C_{t-1}$はLSTMで導入された時刻0からt-1までの情報を記録して
 
 \section{forgetゲート\label{sec:forget}}
 forgetゲートは過去の情報が詰まっている$C$セルをどの程度次の今の時刻に使うかを決める重みである．
-その重みは入力と一時刻前の隠れ層の出力が使われており，その式を\ref{eq:forget}に示す
+その重みの計算には入力と一時刻前の隠れ層の出力が使われている（式\ref{eq:forget}）．
 
 \begin{equation}
   \label{eq:forget}
@@ -262,19 +263,12 @@ forgetゲートは過去の情報が詰まっている$C$セルをどの程度�
     f = sigmoid(x_{t}W_{x}^{(f)} + h_{t-1}W_{h}^{(f)} + b^{(f)})
   \end{split}
 \end{equation}
-これにより時刻$t$の$C_{t}$は式\ref{eq:forgetgate}と求められる．
 
-\begin{equation}
-  \label{eq:forgetgate}
-  \begin{split}
-    C_{t} = f \odot C_{t-1}
-  \end{split}
-\end{equation}
 
 
 \section{outputゲート\label{sec:output}}
 ouputゲートでは次の時刻にどれくらい現在の情報を渡すかを決める重みである．
-その重みは入力と一時刻前の隠れ層の出力が使われており，その式を\ref{eq:output}に示す
+その重みの計算には入力と一時刻前の隠れ層の出力が使われている（式\ref{eq:output}）．
 
 
 \begin{equation}
@@ -283,20 +277,11 @@ ouputゲートでは次の時刻にどれくらい現在の情報を渡すかを
     o = sigmoid(x_{t}W_{x}^{(o)} + h_{t-1}W_{h}^{(o)} + b^{(o)})
   \end{split}
 \end{equation}
-これにより時刻$t$の$C_{t}$は式\ref{eq:outputgate}と求められる．
-
-\begin{equation}
-  \label{eq:outputgate}
-  \begin{split}
-    C_{t} = o \odot \tanh(C_{t})
-  \end{split}
-\end{equation}
 
 \section{hiddenゲート\label{sec:hidden}}
 
 hiddenゲートではforgetゲートで差し引かれた記憶セル$C$に新たな情報を加えるゲートである．
-
-その情報は入力と一時刻前の隠れ層の出力を用いて算出する．（式\ref{eq:hidden})
+その情報は入力と一時刻前の隠れ層の出力を用いて算出する（式\ref{eq:hidden}）．
 
 
 \begin{equation}
@@ -306,13 +291,10 @@ hiddenゲートではforgetゲートで差し引かれた記憶セル$C$に新�
   \end{split}
 \end{equation}
 
-この$\bar{h}$が一時刻前の$C_{t-1}$に加算されることで新たな記憶を追加する．
-
-
 \section{inputゲート\label{sec:input}}
 
 inputゲートではhiddenゲートで追加しようとした新たな記憶をどのくらい加算するかを決める重みを求めるゲートである．
-その重みは入力と一時刻前の隠れ層の出力が使われており，その式を\ref{eq:input}に示す
+その重みの計算には入力と一時刻前の隠れ層の出力が使われている（式\ref{eq:input}）．
 
 
 \begin{equation}
@@ -322,17 +304,9 @@ inputゲートではhiddenゲートで追加しようとした新たな記憶を
   \end{split}
 \end{equation}
 
-これにより時刻$t$の$C_{t}$は式\ref{eq:inputgate}と求められる．
-
-\begin{equation}
-  \label{eq:inputgate}
-  \begin{split}
-    C_{t} = sigmoid (C_{t} + i )
-  \end{split}
-\end{equation}
 
 \section{LSTMのまとめ}
-章\ref{eq:forget},章\ref{sec:output},章\ref{sec:input},章\ref{eq:hidden}で紹介したものをまとめると式\ref{eq:all}のようになる．
+\ref{eq:forget}節，\ref{sec:output}節，\ref{sec:input}節，\ref{eq:hidden}節で紹介したものをまとめると式\ref{eq:all}のようになる．
 
 
 \begin{equation}
@@ -348,21 +322,21 @@ inputゲートではhiddenゲートで追加しようとした新たな記憶を
 \begin{equation}
   \label{eq:all2}
   \begin{split}
-    c_{t} &= f \odot c_{t-1} + g \odot i
+    C_{t} &= f \odot c_{t-1} + g \odot i
   \end{split}
 \end{equation}
 
 \begin{equation}
   \label{eq:all3}
   \begin{split}
-    h_{t} &= o \odot \tanh(c_{t})
+    h_{t} &= o \odot \tanh(C_{t})
   \end{split}
 \end{equation}
 
 LSTMモデルを3時刻分展開したものを図\ref{fig:LSTM_3timeconcat}に示す．
 
 \begin{center}
-  \begin{figure}
+  \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{image/LSTM_concat.png}
     \caption{LSTMの３時刻展開:記憶を守る機構によりより高い濃度で次の時刻に情報を渡すことができる}
@@ -393,18 +367,18 @@ LSTMモデルを3時刻分展開したものを図\ref{fig:LSTM_3timeconcat}に�
 LSTMに入力として渡す．EncoderではLSTMが時系列データを記憶するメモリーのように振る舞い次の時刻へ情報を渡していく，
 時刻$t$の時のLSTMの隠れ層の出力$h_{t}$にはLSTMが渡してきた$1 \sim t$までの情報が溜め込まれており，入力系列を変換するために必要な情報が
 エンコードされて任意の固定長ベクトルに溜め込まれる．
-この固定長ベクトルDecoder側の最初のLSTMの前の時刻の$h$として入力され，区切れ文字<eos>を入力として受け取り，
-エンコーダー側と同じように埋め込み行列に変換しLSTMで再帰的に学習，そしてAffine層で入力ベクトルの大きさと同サイズに圧縮し，
+この固定長ベクトルDecoder側の最初のLSTMの前の時刻の$h$として入力され，区切り文字$<$EOS$>$を入力として受け取り，
+Encoder側と同じように埋め込み行列に変換しLSTMで再帰的に学習，そしてAffine層で入力ベクトルの大きさと同サイズに圧縮し，
 SoftMax層（式\ref{eq:softmax}）でベクトルの値を確率に変換する．
 
 \begin{equation}
   \label{eq:softmax}
   \begin{split}
-    softmax(x_{i}) = \frac{ e^{x_{i}} }{ \sum e^{x_{i}} }
+    softmax(x)_{i} = \frac{ e^{x_{i}} }{ \sum_{i} e^{x_{i}} }
   \end{split}
 \end{equation}
 
-区切れ文字$<$EOS$>$によって出力された$y_{0}$を次の時刻の入力とし，$2$時刻目として$y_{1}$を出力し再び区切れ文字を出力するまで繰り返す，
+区切り文字$<$EOS$>$によって出力された$y_{0}$を次の時刻の入力とし，$2$時刻目として$y_{1}$を出力し再び区切り文字を出力するまで繰り返す．
 この技術を応用して機械翻訳など時系列データを扱う．
 
 \if0
@@ -483,9 +457,9 @@ Attention Weightはhsと$h^{decoder}$のベクトルの類似度を計算する.
 
 \section{システム全体の流れ}
 
-数式の特徴を取り出し$S$次元のベクトルに変換し，その分布から類題選出を行うシステムを作成する．
+数式の特徴を取り出し$S$次元のベクトルに変換し，その分布から類題選出を行うシステムの
 概要を図\ref{fig:EVS_Simple}に示す，
-ExericisesEncoderは数式を数式をベクトル 表現に変換し蓄積しておく．
+ExericisesEncoderは数式を数式をベクトル 表現に変換し蓄積する．
 その変換結果のベクトルと間違えた問題も同様の手段でベクトル化し蓄積した式のベクトル表現との類似度を算出し，
 その類似度が高い式を類題として出力する．
 
@@ -505,9 +479,9 @@ ExericisesEncoderは数式を数式をベクトル 表現に変換し蓄積し�
 この考えを実現するために数式は我々が目にする$2x+3=5$, $\frac{3x-1}{2}+4=\frac{2}{5}$ではなく，テキスト化かつその特徴を強く受けた形に変換する必要がある．
 そこで本論文では数式をある一定のルールの中でテキスト化されている{\TeX}形式の数式を用いる．
 上記の計算式なら\verb#2x+3=5#,\verb#\frac{3x-1}{2}+4=\frac{2}{5}#とし，このテキストデータを用いて文字単位の埋め込んだベクトルを作成する．
-この式を数字，文字，小数点，符号，丸括弧，波括弧でわけそれぞれ1-of-k表記でベクトル化する．
+この式を数字，文字，小数点，符号，丸括弧，波括弧でわけそれぞれonehot表記でベクトル化する．
 
-実験を行った手法は以下の2種法で行い，それぞれ分布をpythonを用いて確認した．
+実験で用いた分散表現獲得手法は以下の2手法である．
 \begin{itemize}
   \item CBOW
   \item SkipGram
@@ -516,13 +490,26 @@ ExericisesEncoderは数式を数式をベクトル 表現に変換し蓄積し�
 
 \subsection{文字分布の予備実験結果}
 予備実験として埋め込み層に利用するCBOW，SkipGramで文字の特徴が得られているかを確認した．
-以下その結果である．
+学習データとして350種類の一次方程式の問題を用いた．
+その一部を以下に示す．
+
+
+\begin{multicols}{2}
+  \begin{quote}
+    \verbatimtabinput[3]{collection2.txt}
+  \end{quote}
+\end{multicols}
+
+以降，\verb#\frac#を$f$と表記し，
+上記の式を$f,\{,\},(,),x,=,+,-,.,0,1,2,3,4,5,6,7,8,9,$ $<$EOS$>$,$<$UNK$>$を語彙としてonehotベクトルに変換した．
+埋め込みベクトルの次元数は200次元とした．
+結果を図\ref{fig:89x2cbow_pac}\sim図\ref{fig:22x2skip_tsne}に示す
 
 \begin{center}
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{image/CBOW_pca_out22_200.png}
-    \caption{CBOWにて22次元を200次元に分散表現を変換したのちpcaで再構成しグラフ化した結果}
+    \caption{CBOWにて22次元を200次元に分散表現を変換したのちPCAで再構成しグラフ化した結果}
     \label{fig:89x2cbow_pac}
   \end{figure}
 \end{center}
@@ -532,7 +519,7 @@ ExericisesEncoderは数式を数式をベクトル 表現に変換し蓄積し�
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{image/CBOW_tsne_out22_200.png}
-    \caption{CBOW 22次元を200次元に分散表現を変換したのちT-SNEで再構成しグラフ化した結果}
+    \caption{CBOW 22次元を200次元に分散表現を変換したのちt-SNEで再構成しグラフ化した結果}
     \label{fig:89x2cbow_tsne}
   \end{figure}
 \end{center}
@@ -542,7 +529,7 @@ ExericisesEncoderは数式を数式をベクトル 表現に変換し蓄積し�
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{image/pca_skipgram.png}
-    \caption{SkipGramにて22次元を200次元に分散表現を変換したのちpcaで再構成しグラフ化した結果}
+    \caption{SkipGramにて22次元を200次元に分散表現を変換したのちPCAで再構成しグラフ化した結果}
     \label{fig:22x2_skippca}
   \end{figure}
 \end{center}
@@ -552,36 +539,34 @@ ExericisesEncoderは数式を数式をベクトル 表現に変換し蓄積し�
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{image/tsne_skipgram.png}
-    \caption{SkipGramにて 22次元を200次元に分散表現を変換したのちT-SNEで再構成しグラフ化した結果}
+    \caption{SkipGramにて 22次元を200次元に分散表現を変換したのちt-SNEで再構成しグラフ化した結果}
     \label{fig:22x2skip_tsne}
   \end{figure}
 \end{center}
 
 図\ref{fig:89x2cbow_pac}や図\ref{fig:89x2cbow_tsne}を見るとそれぞれの文字に関係はないように見える．
 実際にベクトルの類似度のランキングは以下のようになった.
-
-
-
+inputと書かれている横の文字が入力文字でその下に類似度の高い順に５つ並んでいる．
+例えばfを入力した時では最も類似度が高いのが同じ文字のfであり，その下に１，（，０，９と続く．
 \begin{multicols}{2}
-
-  \verbatimtabinput[8]{cbow_similer.txt}
-
+  \begin{quote}
+    \verbatimtabinput[3]{cbow_similer.txt}
+  \end{quote}
 \end{multicols}
 
 
 
-これを見てもベクトル間に関係が現れていないように見える．\cite{seq2seq}であるようにベクトル間の演算はできないが，
-丸括弧$(,)$と波括弧$\{ \}$のベクトル間距離を測ると
+これを見てもベクトル間に関係が現れていないように見える．文献\cite{seq2seq}のようにベクトル間の演算はできないが，
+丸括弧$( , )$と波括弧$\{ , \}$のベクトル間距離を測ると
 \[
-( ) の距離 27.04968437532474
+(　と　) の距離 27.04968437532474
 \]
 \[
-\{ \} の距離 27.04968437532474
+\{　と　\} の距離 27.04968437532474
 \]
-このように完全に一致した．このことからword2vecを数式に用いた場合，今回の一次方程式がコーパスの際には記号の位置関係だけ学びが数字自体の演算はできないが数式の形状は取り出せる事がわかった．
+このように完全に一致した．このことからword2vecを数式に用いた場合，　数字自体の演算はできないが数式の形状は取り出せる事がわかった．
 
-なお，ベクトル間の距離を式\ref{eq:l}，類似度を式\ref{eq:inner}で算出する
-
+なお，ベクトル間の距離を式\ref{eq:l}，類似度を式\ref{eq:inner}を用いて求めた．
 
 \begin{equation}
   \label{eq:l}
@@ -598,12 +583,17 @@ ExericisesEncoderは数式を数式をベクトル 表現に変換し蓄積し�
 \end{equation}
 
 \section{系列変換モデルの検討}
-本論文の目的としては系列変換の過程で用いれるEncoderからDecoderに渡す最終出力$h$を式ベクトルとしてみなす．
+本論文では系列変換の過程で用いるEncoderからDecoderに渡す最終出力$h$を式ベクトルとしてみなす．
 よって$h$の精度を高めていくモデルが必要となる．
-そこで実験するモデルは比較対象として通常のLSTMで行う系列変換を多層に積み上げるモデル（図\ref{fig:seq2seq}）と
-通常Decoderが側で利用されるSkipConnectionをEncoderで採用し，層を熱くすることで勾配が消失を防ぎ過学習を起こしにくくしたSkipConnectionモデル（図\ref{fig:SkipSeq2seq}），前時刻の情報も用いるBi-Directional（図\ref{fig:bi-directionl Seq2seq}）を採用した双方向RNNモデルの三種を実装した．
+\begin{itemize}
+  \item　通常のLSTMで行う系列変換を多層に積み上げるモデル（図\ref{fig:seq2seq}）
+  \item　通常Decoderが側で利用されるSkipConnectionをEncoderで採用したSkipConnectionモデル（図\ref{fig:SkipSeq2seq}）
+  \item　前時刻の情報も用いるBi-Directional（図\ref{fig:bi-directionl Seq2seq}）．
 
-今回，この実験ではエンコーダー側がより精度の高いベクトルを生成してもらうことが目的なのでデコーダ側は通常のLSTMを一層で行う系列変換で確認を行うこととした．
+\end{itemize}
+この三つを用いて実験を行った．
+
+今回，この実験ではEncoder側がより精度の高いベクトルを生成してもらうことが目的なのでDecoder側は通常のLSTMを一層で行う系列変換で確認を行うこととした．
 
 \begin{center}
   \begin{figure}[H]
@@ -628,7 +618,7 @@ ExericisesEncoderは数式を数式をベクトル 表現に変換し蓄積し�
     \centering
     \includegraphics[width=0.9\linewidth]{image/twinRNN.png}
     \caption{bi-directionlモデル}
-    \label{fig:bi-directionl Seq2seq}
+    \label{fig:Bi-Directional Seq2seq}
   \end{figure}
 \end{center}
 
@@ -638,12 +628,13 @@ ExericisesEncoderは数式を数式をベクトル 表現に変換し蓄積し�
 \chapter{結果とその検討 \label{ch:result}}
 
 
-\section{実験}
-以下の目的，方法，を元に実験を行った．
+\section{実験内容}
+以降では今回の実験内容（目的および方法）について説明する．
+
 \subsection{実験１：計算式の特徴量抽出}
 \begin{itemize}
   \item 目的．数式のベクトル表現は可能なのかどうか
-  \item 方法．埋め込み層，ネットワーク構成を変えながらEncoderの出力値をpca,t-sneで二次元ベクトルに圧縮し図示し確認する
+  \item 方法．埋め込み層，ネットワーク構成を変えながらEncoderの出力値をPCA，t-SNEで二次元ベクトルに圧縮し図示し確認する
 \end{itemize}
 
 実験で試したネットワーク構成を表\ref{tb:network_collection}に示す．
@@ -687,7 +678,8 @@ ExericisesEncoderは数式を数式をベクトル 表現に変換し蓄積し�
   \item 方法．以下の5種類の式に近い式を算出した．
   式の選定基準は一つ目は単純な式，二つ目は分数を含む式，三つ目は小数を含む式，
   四つ目はかっこが含まれる式，五つ目は四つ目のかっこの前の係数だけ変更した式となっている．これらにより類題として選出されるものがどう変化するかを確認した．
-  算出にはcos類似度を用いて算出している．
+  100種類の方程式を表\ref{tb:network_collection}で示したネットワークでベクトル化を行なったのち，学習した式との類似土を計算する．
+  算出にはcos類似度を用いて求める．
 
   \begin{enumerate}
     \item \par \verb#x-3=7#
@@ -819,28 +811,32 @@ ExericisesEncoderは数式を数式をベクトル 表現に変換し蓄積し�
       \label{fig:Bi1000layer1}
     \end{minipage}
   \end{tabular}
+  \label{fig:Bi}
 \end{figure}
 
+
 \clearpage
-
 \subsection{実験２：計算式の類題選出}
+表\ref{tb:network_collection}で示したネットワークごとに並べている．冒頭に
+（学習ネットワーク方法，次元数，LSTM層の層数）で学習方法を示している，
+全ての結果は付録\ref{ch:sub}に掲載する．各モデルの$-4(x+5)=6$の実行結果である．
 
-
-\begin{multicols}{2}
-\verbatimtabinput[4]{txt/similer20.tex}
-\end{multicols}
+\verbatimtabinput[3]{-4(x+5).log}
+\clearpage
 
 \section{考察}
 
 \subsection{実験１：計算式の特徴量抽出について}
-今回の実験にてNormalEncoder，SkipConnection，BiDirectionalの三種類のencoderについて評価実験を行った．
-NormalEncoderでも200次元では分布として分かれていたが，LSTMを深くすると勾配が消失し，一点に集中している．
-しかし，SkipConnectionを用いると四層のLSTMを繋いでも勾配消失が防ぐ事ができる事が確認できた．
+今回の実験ではNormalEncoder，SkipConnection，BiDirectionalの三種類のEncoderについて評価実験を行った．
+NormalEncoderでも200次元では分布として分かれていたが，LSTMを深くすると勾配が消失し，一点に集中している（図\ref{fig:Simple4_200}，図\ref{fig:Simple4_500}）．
+しかし，図\ref{fig:Simple4_200}と図\ref{fig:Skip200layer4}，図\ref{fig:Simple4_500}と図\ref{fig:Skip500layer4}を比較してみると
+SkipConnectionを用いることで多層LSTMで学習しても過学習が発生することを防ぐ事が確認できた．
 
 またBi-Directionalではテストデータでも高精度に分類できており，それぞれのencoderの効果がみて取れた．
 
-図\ref{fig:normal},図\ref{fig:skip}，図\ref{fig:Bi}のどれもが同系列そうな問題が近い分布となった．
-図\ref{fig:Simple1_200}ですらは分数の中でも符号でも分かれており，拡大してみてみると式の始まりが負の方程式だけまとまっているところがありわずかながらその違いを表しているように見える（図\ref{fig:normal200cut}），￥
+図\ref{fig:normal}，図\ref{fig:skip}，図\ref{fig:Bi}のどれもが同系列そうな問題が近い分布となった．
+図\ref{fig:Simple1_200}ですらは分数の中でも符号でも分かれており，拡大してみてみると式の始まりが負の方程式だけまとまっているところがありわずかながらその違いを表しているように見える（図\ref{fig:normal200cut}）.
+
 
 \begin{center}
   \begin{figure}[H]
@@ -851,9 +847,9 @@ NormalEncoderでも200次元では分布として分かれていたが，LSTMを
   \end{figure}
 \end{center}
 
-特に図\ref{fig:Bi500cut}と図\ref{fig:Bi1000cut}をみるとBi-DirectionalRNNで作った500次元のExericisesVecterをみてみると
+特に図\ref{fig:Bi500cut2}と図\ref{fig:Bi1000cut}をみるとBi-DirectionalRNNで作った500次元のExericisesVecterの方が
 小数を含む式と整数だけの式の距離がより離れ，分類がより正確になっているように見える．
-このことからより高次元で再構成すると高い再現率が期待でき，より高品質な式ベクトルだと言える．
+このことからより高次元で再構成すると高い再現率が得られるとは言えず．繊細なチューニングが不可欠である．
 
 \begin{center}
   \begin{figure}[H]
@@ -878,18 +874,23 @@ NormalEncoderでも200次元では分布として分かれていたが，LSTMを
 
 
 このことより系列変換を用いて数式の分類は可能であり応用の余地がある事が確認できた．
-ただし，SkipConnectでは層を深くしても過学習は怒らないが特徴をうまく捉え切ることができなかった
+ただし，SkipConnectでは層を深くしても過学習は怒らないが特徴をうまく捉え切ることができなかった．
 
 \subsection{実験２：計算式の類題選出}
 
+どのモデルパターンも単純な$x-3=7$は同じような式が類似度トップ５に並んでいる．
+各モデルパターンでは次元数の200，500，1000では類似度に違いはあっても選出される式に違いはなかった．
 
-
+$-4(x+5)=6$はネットワークごとに違いが出ておりnormalの500次元1層やSkipConnectの500次元4層ではカッコを使った式の出現は少ないもののBi-Directional200次元一層ではカッコがあるものが８割を占めており，何らかの特徴を抽出できているのではないかと考える．
+この結果から式の特徴抽出には双方向RNNが有効であることがわかる.
 
 
 
 \chapter{関連研究\label{ch:relsatedwork}}
-自然言語処理を数式を適応した例は筆者が調べるかぎりはなく，自然言語以外にWord2vecを適用しようとした研究はいくつかある．
-文献\cite{kannrenn3}では文の特徴をEncoder-Decoderの機構を用いて学習し，本研究と同様にEncoderの隠れ層の出力により文章の類似度を算出している．文献\cite{kannrenn3}によると小説の一部を学習データに用いて，埋め込み層としてSkipGramを適用している．gemsimのDoc2Vecとの比較がなされているが，ユーザーにとって有益な評価方法の設定の難しさを述べている．
+自然言語処理を数式を適用した例は筆者が調べるかぎりは存在しない．
+自然言語以外にWord2vecを適用しようとした研究はいくつかある．
+文献\cite{kannrenn3}では文の特徴をEncoder-Decoderの機構を用いて学習し，本研究と同様にEncoderの隠れ層の出力により文章の類似度を算出している．文献\cite{kannrenn3}によると小説の一部を学習データに用いて，埋め込み層としてSkipGramを適用している．gensimのDoc2Vecとの比較がなされているが，ユーザにとって有益な評価方法の設定の難しさを述べている．
+これらの文章をベクトル化するというのは文献\cite{1612.06778}から始まり注目を集めている．
 
 \begin{center}
   \begin{figure}[H]
@@ -900,16 +901,17 @@ NormalEncoderでも200次元では分布として分かれていたが，LSTMを
   \end{figure}
 \end{center}
 
-文献\cite{lannrenn4}ではエラーのあるプログラムコードを埋め込み，再構成して実行できるプログラムを再構成できるか試している．C言語で書かれたプログラムを一文字ごと，1-of-k符号化して読み込んでいる．この論文では大小文字を区別して学習し,1-D Convolutionを用いて情報を圧縮し再構成することで上記のことが可能だと述べている.Dropoutを用いると性能が向上しており，自然言語と同様に過学習が通常のRNNでは起きるので対策として本論文でもDropoutを採用した．
+文献\cite{lannrenn4}ではエラーのあるプログラムコードを埋め込み，再構成して実行できるプログラムを再構成できるか試している．C言語で書かれたプログラムを一文字ごと，onehot化して読み込んでいる．この論文では大小文字を区別して学習する．1-D Convolutionを用いて情報を圧縮し再構成することで上記のことが可能だと述べている．Dropoutを用いると性能が向上しており，自然言語と同様に過学習が通常のRNNでは起きるので，対策として本論文でもDropoutを採用した．
 
-文献\cite{kannrenn5}ではDeepLearingの技術の検索の際，ユーザーが求めている情報を推奨することを目的としている．
-評価方法としてMovie Lens-100Kでの映画の推奨をパラメーター，ネットワークの構成を様々試しながら知見を集めている．
-AEは層を重ねても，性能は向上せず，各映画のユーザー平均を差し引いて正規化しても性能は大きく変化しない．
+文献\cite{kannrenn5}ではDeepLearingの技術の検索の際，ユーザが求めている情報を推奨することを目的としている．
+評価方法としてMovie Lens-100Kでの映画の推奨をパラメータ，ネットワークの構成を様々試しながら知見を集めている．
+AutoEncoderは層を重ねても，性能は向上せず，各映画のユーザ平均を差し引いて正規化しても性能は大きく変化しない．
 これにより，特徴抽出の重要さを筆者は述べている．
 
-文献\cite{glyce}では漢字などの象形文字から文字の分散表現をえる研究である．
+文献\cite{glyce}は漢字などの象形文字から文字の分散表現を得る研究である．
 図\ref{fig:kannji1}で示すように，画像データを畳み込みニューラルネットを持ちいて次元圧縮していき，
-最後には1024次元のベクトルとして出力する．この最終層の出力を漢字の分散表現としてもちいて他の自然言語タスクを従来方法より超える結果を出している．特徴として漢字を現在旅用されている字体だけでなく，旧字体も用いて性能向上を図っている．（図\ref{fig:kannji2}）
+最後には1024次元のベクトルとして出力する．この最終層の出力を漢字の分散表現としてもちいて他の自然言語タスクを従来方法より超える結果を出している．特徴として漢字を現在使われている字体だけでなく，旧字体も用いて性能向上を図っている（図\ref{fig:kannji2}）．
+
 
 
 
@@ -949,20 +951,25 @@ AEは層を重ねても，性能は向上せず，各映画のユーザー平均
 }
 \fi
 
-本研究の結果によって系列変換により，人工言語である数式を特徴を捉えたベクトルに変換する事ができた．
+本研究では自然言語処理の技術を人工言語の数式に適用し，分類ができるかどうかを目的とした．
+分散表現で文字の特徴量を抽出したのち，その特徴量を用いて数式の分散表現化を行い，式のベクトルを得た．この結果から現在では間違った問題から人をグループ化していたシステムから問題をグループ化してその問題を間違えた人の最適化学習支援を行い，より繊細で効果的な学習が期待できる．
+この研究の先には大量の個人情報を扱うアダプティブラーニングにおいて問題から分類できるようになれば，学習データが少なくても十分に効果を発揮することが期待できる．
+
 これにより数式データのみで最適な問題選択を可能とし，いまある個人情報と合わせるとより高い精度でシステムが提供できるように思う．
 これは人間が作り発展させてきたものはどこか本質的には同様の特徴を持っており，その特徴をコンピュータが学ぶことができるということではないだろうか．
 
-しかしながら，未だ問題点はあり，計算問題には簡約な問題ほどパターンがなくなり，式から有用な情報が取り出せなくなる．
-また，多くの子供が苦手とする文章題は本研究では扱っていないが，Dec2Vecなど文章をベクトル化する手法は提案されており，それを応用することにより可能性は広がるだろう．
-本研究で扱った一次方程式の特徴量を使って別の分野を分類し，個人のまちがえた問題の情報を元に転移学習を行うとより，
-包括的なアダプティブラーニングシステムの構築が行えるようになり自分で学ぶ際の道しるべとなることを期待している．
+しかしながら，未だ問題点はある．
+計算問題には優しい問題ほどパターンがなくなり，式から有用な情報が取り出せなくなる．
+また，多くの子供が苦手とする文章題は本研究では扱っていないが，Doc2Vecなど文章をベクトル化する手法は提案されており，それを応用することにより可能性は広がるだろう．
+本研究で扱った一次方程式の特徴量を使って別の分野に転移学習を行うとより，
+包括的なアダプティブラーニングシステムの構築が行えるようになることを期待している．
 
 
 
+\appendix
+
+\chapter{実験２：計算式の類題選出の実行結果\label{ch:sub}}
 \if0
-\chapter{形式上の注意}
-
 \begin{itemize}
   \item 文字コードはUTF-8に統一する．
   \item 論文ファイル名は\texttt{chishiro-thesis.tex}，文献ファイル名は\texttt{chishiro.bib}のように名前\texttt{-thesis.tex}とする．
@@ -984,6 +991,44 @@ AEは層を重ねても，性能は向上せず，各映画のユーザー平均
 \fi
 
 
+
+
+\verbatimtabinput[3]{txt/E2D200_1.log}
+\verbatimtabinput[3]{txt/E2D200_4.log}
+
+\verbatimtabinput[3]{txt/E2D200_8.log}
+\verbatimtabinput[3]{txt/E2D500_1.log}
+
+\verbatimtabinput[3]{txt/E2D500_4.log}
+\verbatimtabinput[3]{txt/E2D500_8.log}
+
+\verbatimtabinput[3]{txt/E2D1000_1.log}
+\verbatimtabinput[3]{txt/E2D1000_4.log}
+
+\verbatimtabinput[3]{txt/E2D1000_8.log}
+\verbatimtabinput[3]{txt/similerskip200_1.log}
+
+\verbatimtabinput[3]{txt/similerskip200_4.log}
+\verbatimtabinput[3]{txt/similerskip200_8.log}
+
+\verbatimtabinput[3]{txt/similerskip500_1.log}
+\verbatimtabinput[3]{txt/similerskip500_4.log}
+
+\verbatimtabinput[3]{txt/similerskip500_8.log}
+\verbatimtabinput[3]{txt/skip1000_1.log}
+
+\verbatimtabinput[3]{txt/skip1000_4.log}
+\verbatimtabinput[3]{txt/skip1000_8.log}
+
+\verbatimtabinput[3]{txt/Bi200_1.log}
+\verbatimtabinput[3]{txt/Bi500_1.log}
+
+\verbatimtabinput[3]{txt/Bi1000_1.log}
+
+
+\bibliography{miyaji}
+
+
 \chapter*{謝辞 \label{ch:acknowledgement}}
 \thispagestyle{empty}
 \if
@@ -994,12 +1039,11 @@ AEは層を重ねても，性能は向上せず，各映画のユーザー平均
 \fi
 この研究を進めるにあたって，私の興味の赴くまま進める中，様々な角度からご指導いただいた千代教授に深く感謝申し上げます．
 また研究が行き詰まると，会話を通して気づきを与えてくれた同研究室メンバーに感謝申し上げます．
-そしてこの研究では自然言語処理の奥深さをただただ感じた．そんな時，常に参考になり研究の日々を共に過ごしたゼロから作るDeepLearning 2 自然言語処理編（文献\cite{ZeroDeep}）には山ほど助けられました．
+そしてこの研究では自然言語処理の奥深さをただただ感じました．そんな時，常に参考になり研究の日々を共に過ごしたゼロから作るDeepLearning 2 自然言語処理編\cite{ZeroDeep}には山ほど助けられました．
 Pythonからscalaに書き換えながら理解を進めることができ芯から理解することができたように思います．
 
 最後に，毎週たくさんの計算問題を宿題として解いてきてくれた私の塾の生徒たちに心から感謝と未来の活躍を祈るとともに
 必ず，この経験を糧に世の中により良い教育システムを提供し今まで手の届かなかった子供達の未来に手助けすることを約束し，謝辞といたします．
 
 
-\bibliography{miyaji}
 \end{document}
