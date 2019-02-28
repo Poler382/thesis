@@ -588,7 +588,7 @@ inputと書かれている横の文字が入力文字でその下に類似度の
 \begin{itemize}
   \item　通常のLSTMで行う系列変換を多層に積み上げるモデル（図\ref{fig:seq2seq}）
   \item　通常Decoderが側で利用されるSkipConnectionをEncoderで採用したSkipConnectionモデル（図\ref{fig:SkipSeq2seq}）
-  \item　前時刻の情報も用いるBi-Directional（図\ref{fig:bi-directionl Seq2seq}）．
+  \item　前時刻の情報も用いるBi-Directional（図\ref{fig:bi-directional Seq2seq}）．
 
 \end{itemize}
 この三つを用いて実験を行った．
@@ -617,8 +617,8 @@ inputと書かれている横の文字が入力文字でその下に類似度の
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\linewidth]{image/twinRNN.png}
-    \caption{bi-directionlモデル}
-    \label{fig:Bi-Directional Seq2seq}
+    \caption{Bi-Directionlモデル}
+    \label{fig:bi-directional Seq2seq}
   \end{figure}
 \end{center}
 
@@ -718,7 +718,7 @@ inputと書かれている横の文字が入力文字でその下に類似度の
   \item \par \verb#5x+10=1#
 \end{itemize}
 
-この20個の式を学習させ，pcaを用いて２次元に圧縮し二次元座標平面状にプロットしたものが以下の図\ref{fig:Simple1_200}から\ref{fig:Bi1000layer1}である．
+この20個の式を学習させ，PCAを用いて２次元に圧縮し二次元座標平面状にプロットしたものが以下の図\ref{fig:Simple1_200}から図\ref{fig:Bi1000layer1}である．
 
 \begin{figure}[htpb]
   \centering
@@ -834,8 +834,18 @@ SkipConnectionを用いることで多層LSTMで学習しても過学習が発�
 
 またBi-Directionalではテストデータでも高精度に分類できており，それぞれのencoderの効果がみて取れた．
 
-図\ref{fig:normal}，図\ref{fig:skip}，図\ref{fig:Bi}のどれもが同系列そうな問題が近い分布となった．
-図\ref{fig:Simple1_200}ですらは分数の中でも符号でも分かれており，拡大してみてみると式の始まりが負の方程式だけまとまっているところがありわずかながらその違いを表しているように見える（図\ref{fig:normal200cut}）.
+図\ref{fig:Simple1_200}，
+図\ref{fig:Simple4_200}，
+図\ref{fig:Simple1_500}，
+図\ref{fig:Simple4_500}，
+図\ref{fig:Skip200layer1}，
+図\ref{fig:Skip200layer4}，
+図\ref{fig:Skip500layer1}，
+図\ref{fig:Skip500layer4}，
+図\ref{fig:Bi500layer1},
+図\ref{fig:Bi1000layer1},
+のどれもが同系列そうな問題が近い分布となった．
+図\ref{fig:Simple1_200}は分数の中でも符号でも分かれており，拡大してみてみると式の始まりが負の方程式だけまとまっているところがありわずかながらその違いを表しているように見える（図\ref{fig:normal200cut}）.
 
 
 \begin{center}
